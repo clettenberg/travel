@@ -11,12 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <%= form.label "Places" %>
+  <div class="form-group">
+    <%= form.collection_check_boxes(:poi_ids, Poi.all, :id, :title) do |b| %>
+      <div class="form-check">
+        <%= b.check_box(class: "form-check-input") %>
+        <%= b.label(class: "form-check-label") %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
