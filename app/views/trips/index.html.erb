@@ -1,25 +1,20 @@
-<h1>Trips</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <td><%= trip.title %></td>
-        <td><%= link_to 'Show', trip %></td>
-        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <%= link_to new_trip_path, class: "nav-link active" do %>
+      Trips <i class="fas fa-plus-circle"></i>
     <% end %>
-  </tbody>
-</table>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Places', pois_path, class: "nav-link" %>
+  </li>
+</ul>
 
 <br>
 
-<%= link_to 'New Trip', new_trip_path %>
+<ul class="list-group">
+  <% @trips.each do |trip| %>
+    <li class="list-group-item">
+      <%= link_to trip.title, trip %>
+    </li>
+  <% end %>
+</ul>

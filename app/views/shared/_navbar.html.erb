@@ -1,0 +1,11 @@
+<nav class="navbar fixed-bottom navbar-light bg-light justify-content-between">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <i class="fas fa-plane"></i>
+  <% end %>
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    </li>
+  </ul>
+</nav>

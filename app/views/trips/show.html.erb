@@ -1,4 +1,11 @@
-<h1><%= @trip.title %> <small class="text-muted"><%= link_to 'edit', edit_trip_path(@trip) %></small></h1>
+<h1>
+  <%= @trip.title %>
+    <small>
+      <%= link_to edit_trip_path(@trip) do %>
+      <i class="fas fa-edit fa-xs"></i>
+      <% end %>
+    </small>
+</h1>
 
 
 <h3>Places</h3>
