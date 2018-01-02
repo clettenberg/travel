@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy, :add_poi]
   before_action :authenticate_user!
+  before_action :set_trip, only: [:show, :edit, :update, :destroy, :add_poi]
 
   def index
     @trips = current_user.trips
