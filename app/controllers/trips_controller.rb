@@ -1,8 +1,9 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy, :add_poi]
+  before_action :authenticate_user!
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def show
@@ -17,6 +18,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.users << current_user
 
     respond_to do |format|
       if @trip.save
@@ -49,13 +51,9 @@ class TripsController < ApplicationController
     end
   end
 
-  def add_poi
-    #code
-  end
-
   private
     def set_trip
-      @trip = Trip.find(params[:id])
+      @trip = current_user.trips.find(params[:id])
     end
 
     def trip_params
