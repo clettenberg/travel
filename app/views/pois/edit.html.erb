@@ -1,6 +1,6 @@
-<h1>Editing Poi</h1>
+<h1>
+  Editing Place
+  <%= link_to 'Cancel', pois_path, class: "btn btn-secondary btn-sm" %>
+</h1>
 
 <%= render 'form', poi: @poi %>
-
-<%= link_to 'Show', @poi %> |
-<%= link_to 'Back', pois_path %>

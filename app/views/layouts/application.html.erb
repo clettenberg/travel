@@ -11,9 +11,18 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="container app">
+      <%- if notice -%>
+        <div class="alert alert-primary">
+          <%= notice %>
+        </div>
+      <%- end -%>
+      
+      <%- if alert -%>
+        <div class="alert-danger alert">
+          <%= alert %>
+        </div>
+      <%- end -%>
       <%= yield %>
     </div>
   </body>

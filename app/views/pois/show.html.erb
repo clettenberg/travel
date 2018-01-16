@@ -1,7 +1,4 @@
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @poi.title %>
-</p>
-
-<%= link_to 'Edit', edit_poi_path(@poi) %> |
-<%= link_to 'Back', pois_path %>
+  <%= link_to 'Edit', edit_poi_path(@poi), class: "btn btn-primary btn-sm" %>
+</h1>

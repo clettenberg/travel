@@ -22,7 +22,7 @@ class PoisController < ApplicationController
 
     respond_to do |format|
       if @poi.save
-        format.html { redirect_to @poi, notice: 'Poi was successfully created.' }
+        format.html { redirect_to @poi, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @poi }
       else
         format.html { render :new }

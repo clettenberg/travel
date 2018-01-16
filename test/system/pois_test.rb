@@ -12,7 +12,7 @@ class PoisTest < ApplicationSystemTestCase
 
   test "creating a Poi" do
     visit pois_url
-    click_on "New Poi"
+    click_on "New Place"
 
     fill_in "Title", with: @poi.title
     click_on "Create Poi"

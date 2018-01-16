@@ -1,6 +1,6 @@
-<h1>Editing Trip</h1>
+<h1>
+  Editing Trip
+  <%= link_to 'Cancel', trip_path(@trip), class: 'btn btn-secondary btn-sm' %>
+</h1>
 
 <%= render 'form', trip: @trip %>
-
-<%= link_to 'Show', @trip %> |
-<%= link_to 'Back', trip_path(@trip) %>
