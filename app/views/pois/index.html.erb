@@ -13,10 +13,8 @@
 <br>
 
 
-<ul class="list-group">
-  <% @pois.each do |poi| %>
-    <li class="list-group-item">
-      <%= link_to poi.title, poi %>
-    </li>
-  <% end %>
-</ul>
+<% if @pois.any? %>
+  <%= render "shared/poi_list", pois: @pois %>
+<% else %>
+  <p>No Places</p>
+<% end %>

@@ -10,7 +10,7 @@
 </p>
 
 <% if @trip.pois.any? %>
-  <%= render "poi_list", pois: @trip.pois %>
+  <%= render "shared/poi_list", pois: @trip.pois %>
 <% else %>
   <p>No Places</p>
 <% end %>
