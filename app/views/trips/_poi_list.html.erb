@@ -1,5 +1,9 @@
-<ul class="list-group">
+<div class="list-group">
   <% pois.each do |poi| %>
-    <%= link_to poi.title, poi, class: "list-group-item" %>
+    <%= link_to poi, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= poi.title %></h5>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+</div>

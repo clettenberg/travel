@@ -5,6 +5,10 @@
   </small>
 </h1>
 
+<p class="lead">
+  <%= @trip.start_date.strftime("%b %e, %Y") %> - <%= @trip.end_date.strftime("%b %e, %Y") %>
+</p>
+
 <% if @trip.pois.any? %>
   <%= render "poi_list", pois: @trip.pois %>
 <% else %>
