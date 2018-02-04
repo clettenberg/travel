@@ -14,8 +14,8 @@ FactoryBot.define do
     password { FFaker::Internet.password }
 
     factory :confirmed_user do
-      confirmed_at true
-      
+      confirmed_at { Time.now }
+
       factory :user_with_trips do
         transient do
           trips_count 5
