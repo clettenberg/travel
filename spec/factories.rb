@@ -5,6 +5,10 @@ FactoryBot.define do
     end_date { Date.today + 1.day }
   end
 
+  factory :poi do
+    title { FFaker::Lorem.word }
+  end
+
   factory :user do
     email { FFaker::Internet.email }
     password { FFaker::Internet.password }
@@ -17,7 +21,7 @@ FactoryBot.define do
           trips_count 5
         end
   
-        after(:create) do |user, evaluator |
+        after(:create) do |user, evaluator|
           create_list(:trip, evaluator.trips_count, users: [user])
         end
       end
