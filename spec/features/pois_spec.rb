@@ -20,23 +20,5 @@ feature 'create new poi' do
         end
       end
     end
-
-    describe 'create new poi' do
-      describe 'success' do
-        let(:poi_title) { "Table Mountain" }
-
-        it 'should allow the user to create a new POI' do
-          visit "/places"
-          click_link "Places"
-          within('form') do
-            find("input[placeholder='Title']").set poi_title
-          end
-    
-          click_button "Create Poi"
-          expect(page).to have_content("Place was successfully created.")
-          expect(page).to have_content(poi_title)
-        end
-      end
-    end
   end
 end
