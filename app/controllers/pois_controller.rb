@@ -57,6 +57,6 @@ class PoisController < ApplicationController
     end
 
     def poi_params
-      params.require(:poi).permit(:title)
+      params.require(:poi).permit(:title, :place_id)
     end
 end
