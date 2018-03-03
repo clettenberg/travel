@@ -1,3 +1,20 @@
+<% if @poi.errors.any? %>
+  <div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><%= pluralize(@poi.errors.count, "error") %> prohibited this article from being saved:</strong>
+
+      <% @poi.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+        <% end %>
+    </ul>
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
 <h1>New Place</h1>
 
 <%= react_component("PlaceSearch", { googleMapURL: "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAPS_API_KEY"]}&v=3.exp&libraries=places,geometry,drawing"}) %>
