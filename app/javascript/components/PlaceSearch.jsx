@@ -85,9 +85,9 @@ class PlaceSearch extends React.Component {
             <Marker key={index} position={marker.position} />
           )}
           {props.places.map((place, index) =>
-            <span>
-              <input type="hidden" key={index} name="trip[place_ids][]" value={place.id}></input>
-              <p key={index}>{place.name}</p>
+            <span key={index}>
+              <input type="hidden"  name="trip[place_ids][]" value={place.id}></input>
+              <p>{place.name}</p>
             </span>
           )}
         </GoogleMap>
