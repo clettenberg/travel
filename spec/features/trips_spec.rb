@@ -7,7 +7,7 @@ feature 'create new trip' do
 
       it 'displays past trips' do
         login_as(user, scope: :user, run_callbacks: false)
-        
+
         visit "/trips"
         expect(page).to have_content("Trips")
         within('.list-group') do
@@ -18,32 +18,26 @@ feature 'create new trip' do
       end
     end
 
-    describe 'create new trip' do
-      describe "success" do
-        let!(:user) { FactoryBot.create(:confirmed_user) }
-        let!(:poi1) { FactoryBot.create(:poi) }
-        let!(:poi2) { FactoryBot.create(:poi) }
+    describe "success" do
+      let!(:user) { FactoryBot.create(:confirmed_user) }
 
-        let(:trip_title) { "Scotland" }
+      let(:trip_title) { "Scotland" }
 
-        it 'should allow the user to create a new trip' do
-          login_as(user, scope: :user, run_callbacks: false)
-          
-          visit "/trips"
-          
-          click_link "Trips"
-          within('form') do
-            find("input[placeholder='Title']").set trip_title
-            find("input[id='trip_start_date']").set "12/2/2016"
-            find("input[id='trip_end_date']").set "28/2/2016"
-            check(poi1.title)
-          end
+      it 'should allow the user to create a new trip' do
+        login_as(user, scope: :user, run_callbacks: false)
 
-          click_button "Create Trip"
-          expect(page).to have_content("Trip was successfully created")
-          expect(page).to have_content(trip_title)
-          expect(page).to have_content(poi1.title)
+        visit "/trips"
+
+        click_link "Trips"
+        within('form') do
+          find("input[placeholder='Title']").set trip_title
+          find("input[id='trip_start_date']").set "12/2/2016"
+          find("input[id='trip_end_date']").set "28/2/2016"
         end
+
+        click_button "Create Trip"
+        expect(page).to have_content("Trip was successfully created")
+        expect(page).to have_content(trip_title)
       end
     end
   end

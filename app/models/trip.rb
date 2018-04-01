@@ -1,11 +1,9 @@
 class Trip < ApplicationRecord
-  has_and_belongs_to_many :pois
   has_and_belongs_to_many :users
 
   validates_presence_of :title
   validates_presence_of :start_date
   validates_presence_of :end_date
-  validates_presence_of :place_ids
   validate :start_date_cannot_be_after_end_date
 
 

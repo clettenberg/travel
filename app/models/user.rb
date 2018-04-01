@@ -4,5 +4,4 @@ class User < ApplicationRecord
          :confirmable
 
   has_and_belongs_to_many :trips
-  has_many :pois, through: :trips
 end
