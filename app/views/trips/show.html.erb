@@ -9,8 +9,6 @@
   <%= @trip.start_date.strftime("%b %e, %Y") %> - <%= @trip.end_date.strftime("%b %e, %Y") %>
 </p>
 
-<% if @trip.pois.any? %>
-  <%= render "shared/poi_list", pois: @trip.pois %>
-<% else %>
-  <p>No Places</p>
+<% @trip.place_ids.each do |id| %>
+  <%= id %>
 <% end %>

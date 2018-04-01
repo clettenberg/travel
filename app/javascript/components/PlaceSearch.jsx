@@ -1,7 +1,6 @@
 import _ from "lodash"
 import React from "react"
 import PropTypes from "prop-types"
-import PlaceSearchResult from "./PlaceSearchResult"
 
 import {
   withScriptjs,
@@ -47,13 +46,13 @@ class PlaceSearch extends React.Component {
 
     this.setState({
       center: nextCenter,
-      markers: nextMarkers,
-      places: places,
+      markers: _.concat(nextMarkers, this.state.markers),
+        places: _.concat(this.searchBox.getPlaces(), this.state.places),
     });
   }
 
   render () {
-    const MapWithSearchBox = withScriptjs(withGoogleMap(props => {
+    const MapWithSearchBox = withGoogleMap(props => {
       return (
         <GoogleMap ref={props.onMapMounted}
                    defaultZoom={10}
@@ -86,15 +85,17 @@ class PlaceSearch extends React.Component {
             <Marker key={index} position={marker.position} />
           )}
           {props.places.map((place, index) =>
-            <PlaceSearchResult key={index} address={place.formatted_address} csrfToken={props.csrfToken} placeId={place.place_id}/>
+            <span>
+              <input type="hidden" key={index} name="trip[place_ids][]" value={place.id}></input>
+              <p key={index}>{place.name}</p>
+            </span>
           )}
         </GoogleMap>
       )
-    }))
+    })
 
     return (
-      <MapWithSearchBox googleMapURL={this.props.googleMapURL}
-                        loadingElement={<div style={{ height: `100%` }} />}
+      <MapWithSearchBox loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
                         onPlacesChanged={this.onPlacesChanged}
@@ -107,9 +108,5 @@ class PlaceSearch extends React.Component {
     )
   }
 }
-
-PlaceSearch.propTypes = {
-  googleMapURL: PropTypes.string
-};
 
 export default PlaceSearch

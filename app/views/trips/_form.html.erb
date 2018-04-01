@@ -16,28 +16,20 @@
       <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
     </div>
   </div>
-  
+
   <div class="form-row">
     <div class="form-group col-md-6 col-lg-6 col-sm-12">
       <%= form.label :start_date, "Start Date" %>
       <%= form.date_field :start_date, class: "form-control" %>
     </div>
-    
+
     <div class="form-group col-md-6 col-lg-6 col-sm-12">
       <%= form.label :end_date, "End Date" %>
       <%= form.date_field :end_date, class: "form-control" %>
     </div>
   </div>
 
-  <%= form.label "Places", class: "font-weight-bold" %>
-  <div class="form-group">
-    <%= form.collection_check_boxes(:poi_ids, Poi.all, :id, :title) do |b| %>
-      <div class="form-check">
-        <%= b.check_box(class: "form-check-input") %>
-        <%= b.label(class: "form-check-label") %>
-      </div>
-    <% end %>
-  </div>
+  <%= react_component("PlaceSearch") %>
 
   <div class="actions form-group">
     <%= form.submit class: "btn btn-primary form-control" %>
