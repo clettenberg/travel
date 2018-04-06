@@ -28,6 +28,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rspec_junit_formatter"
   gem 'capybara', '~> 2.15'
+  gem "capybara-webkit"
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'awesome_print'

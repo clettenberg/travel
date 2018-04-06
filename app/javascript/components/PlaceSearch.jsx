@@ -13,14 +13,14 @@ class PlaceSearch extends React.Component {
   }
 
   onPlacesChanged = () => {
-    const places = this.searchBox.getPlaces();
+    const places = this.searchBox.getPlaces()
 
     if (_.isEmpty(places)) {
       return;
     }
 
     this.setState({
-      places: _.concat(this.searchBox.getPlaces(), this.state.places),
+      places: _.concat(places, this.state.places),
     });
   }
 
@@ -36,6 +36,7 @@ class PlaceSearch extends React.Component {
           <input
             type="text"
             placeholder="Find a Place"
+            id="place_search"
             style={{
               boxSizing: 'border-box',
               border: '1px solid transparent',
@@ -53,13 +54,12 @@ class PlaceSearch extends React.Component {
         </StandaloneSearchBox>
 
         <ol>
-          {props.places.map(({ place_id, formatted_address, geometry: { location } }) => (
-            <li key={place_id}>
-              {formatted_address}
-              {' at '}
-              ({location.lat()}, {location.lng()})
-            </li>
-          ))}
+          {props.places.map(({place_id, name}, index) =>
+            <span key={index}>
+              <input type="hidden" name="trip[place_ids][]" value={place_id}></input>
+              <p>{name}</p>
+            </span>
+          )}
         </ol>
       </span>
     );

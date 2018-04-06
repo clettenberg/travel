@@ -1,5 +1,5 @@
 <h1 class="display-4">
-  <%= @trip.title %>  
+  <%= @trip.title %>
   <small>
     <%= link_to "Edit", edit_trip_path(@trip), class: "btn btn-primary btn-sm" %>
   </small>
@@ -9,6 +9,7 @@
   <%= @trip.start_date.strftime("%b %e, %Y") %> - <%= @trip.end_date.strftime("%b %e, %Y") %>
 </p>
 
-<% @trip.place_ids.each do |id| %>
-  <%= id %>
+
+<% @names.each do |name| %>
+  <%= react_component("Place", { name: name }) %>
 <% end %>
