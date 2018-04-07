@@ -23,7 +23,7 @@ jobs:
           name: Install Dependencies
           command: |
             sudo apt-get update -y
-            sudo apt-get install qt5-default libqt5webkit5-dev libqt4-dev libqtwebkit-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x -y
+            sudo apt-get install xvfb qt5-default libqt5webkit5-dev libqt4-dev libqtwebkit-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x -y
 
       - run:
           name: Which bundler?
@@ -69,7 +69,7 @@ jobs:
 
       - type: shell
         command: |
-          bundle exec rspec --profile 10 \
+          xvfb-run -a bundle exec rspec --profile 10 \
                             --format RspecJunitFormatter \
                             --out test_results/rspec.xml \
                             --format progress \
