@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'create new trip' do
-  describe 'trips index' do
+feature 'trips' do
+  describe 'index' do
     describe 'see existing trips' do
       let!(:user) { FactoryBot.create(:user_with_trips, trips_count: 2) }
 
@@ -23,16 +23,16 @@ feature 'create new trip' do
 
       let(:trip_title) { "Scotland" }
 
-      it 'should allow the user to create a new trip' do
+      it 'should allow the user to create a new trip', js: true do
         login_as(user, scope: :user, run_callbacks: false)
 
         visit "/trips"
 
         click_link "Trips"
         within('form') do
-          find("input[placeholder='Title']").set trip_title
-          find("input[id='trip_start_date']").set "12/2/2016"
-          find("input[id='trip_end_date']").set "28/2/2016"
+          fill_in "trip[title]", with: trip_title
+          fill_in "trip[start_date]", with: "12/2/2015"
+          fill_in "trip[end_date]", with: "24/2/2016"
         end
 
         click_button "Create Trip"
