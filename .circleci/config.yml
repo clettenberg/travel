@@ -80,7 +80,7 @@ jobs:
       - store_test_results:
           path: test_results
 
-  deploy-job:
+  deploy:
     docker:
       - image: circleci/ruby:2.5-node
     working_directory: /tmp/travel
@@ -103,7 +103,7 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - deploy-jobs:
+      - deploy:
           requires:
             - build
           filters:
