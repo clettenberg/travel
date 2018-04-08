@@ -3,7 +3,7 @@ class GooglePlaceService
 
   class << self
     def get_details(place_id)
-      token = ENV['GOOGLE_PLACES_API_KEY']
+      token = Rails.env.test? ? 'my-secret-key' : ENV['GOOGLE_PLACES_API_KEY']
       base_url = "https://maps.googleapis.com/maps/api/place/details/json"
       url = "#{base_url}?placeid=#{place_id}&key=#{token}"
       responseJSON = get_place_info_from_google(url)
