@@ -7,19 +7,19 @@ class TripsController < ApplicationController
   end
 
   def show
-    token = ENV['GOOGLE_PLACES_API_KEY']
+    bad_place_ids = []
 
     @names = @trip.place_ids.map do |id|
-      url = URI("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{id}&key=#{token}")
+      begin
+        GooglePlaceService.get_details(id)
+      rescue StandardError => error
+        log_error(error)
+        bad_place_ids << id
+        nil
+      end
+    end.compact.map { |detail| detail.dig("result", "name") }
 
-      http = Net::HTTP.new(url.host, url.port)
-      http.use_ssl = true
-
-      request = Net::HTTP::Get.new(url)
-
-      response = http.request(request)
-      JSON.parse(response.body)["result"]["name"]
-    end
+    flash[:alert] = "Error finding details for #{bad_place_ids.inspect}" if bad_place_ids.any?
   end
 
   def new
@@ -71,5 +71,10 @@ class TripsController < ApplicationController
 
     def trip_params
       params.require(:trip).permit(:title, :start_date, :end_date, place_ids: [])
+    end
+
+    def log_error(error)
+      logger.error error.message
+      logger.error error.backtrace.join("\n")
     end
 end

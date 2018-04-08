@@ -1,0 +1,182 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyCKbnuUSu-J5-j0QHIj59mvnbk-456ivmI&placeid=ChIJj9dEC-9YdhwRTDw4wzsEnt4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - maps.googleapis.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 08 Apr 2018 02:31:37 GMT
+      Expires:
+      - Sun, 08 Apr 2018 02:36:37 GMT
+      Cache-Control:
+      - public, max-age=300
+      Vary:
+      - Accept-Language
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '2497'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303432; quic=51303431; quic=51303339; quic=51303335,quic=":443";
+        ma=2592000; v="42,41,39,35"
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "html_attributions" : [],
+           "result" : {
+              "address_components" : [
+                 {
+                    "long_name" : "Swakopmund",
+                    "short_name" : "Swakopmund",
+                    "types" : [ "locality", "political" ]
+                 },
+                 {
+                    "long_name" : "Erongo Region",
+                    "short_name" : "Erongo Region",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                 },
+                 {
+                    "long_name" : "Namibia",
+                    "short_name" : "NA",
+                    "types" : [ "country", "political" ]
+                 }
+              ],
+              "adr_address" : "\u003cspan class=\"locality\"\u003eSwakopmund\u003c/span\u003e, \u003cspan class=\"country-name\"\u003eNamibia\u003c/span\u003e",
+              "formatted_address" : "Swakopmund, Namibia",
+              "geometry" : {
+                 "location" : {
+                    "lat" : -22.6467427,
+                    "lng" : 14.6004911
+                 },
+                 "viewport" : {
+                    "northeast" : {
+                       "lat" : -22.5848506,
+                       "lng" : 14.6751594
+                    },
+                    "southwest" : {
+                       "lat" : -22.6906461,
+                       "lng" : 14.5199991
+                    }
+                 }
+              },
+              "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+              "id" : "9e214a5793de0d1df4388edcbd9a2f9c5b7c11d0",
+              "name" : "Swakopmund",
+              "photos" : [
+                 {
+                    "height" : 3264,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/101147451985063940121/photos\"\u003eOlga Ernst\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAAJWQGovYIOHLJKBoBcjYwWWJ2jxeFqqVAuigH0I2-mMSE2IXoC4l_DQhr-Tyi8Wm4mSF1fseiakGsWIAe5Daqb8v5e8wmfxvuYNrTSogUdNKZKTcbbl-UEMfvenGLbvPDEhAmSRxzrP5MFc1kjUNWImQ6GhRCKcfuyJtKR-wWgnKoPz99mlnFSA",
+                    "width" : 4928
+                 },
+                 {
+                    "height" : 3264,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/101147451985063940121/photos\"\u003eOlga Ernst\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAA1KgtjTshC1L5rrNrgDcY09B8WdDv3rSXueIMA1Rp2TXGN3I6lMo2CoBuF4tTNXiqdn49QoBbMjahsy9m3ieqp1P8nbEF-0folOyeHrGZ_VwwfNoBbsSa3Dryz8gBpkQPEhC59J8IMNm6EgrFwpBc-RxbGhTiNTi8AXI_72BHiZ-5hHp0IIFnyA",
+                    "width" : 4928
+                 },
+                 {
+                    "height" : 1536,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/112714959103005771392/photos\"\u003ejr rodriguez moreno\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAAMFqzpc8RFD-IQqpOApGvr0swhlxbN3a3XUgwCbcRPMc7F87YkDbT2OkYwejg8_H8jnMN9bS1iGgZj4wn0ZLAY739A3syQOGDwu8gq0xadKhc5-kWww33Ub806J2XLMEEEhBzGTTRJ0Mp3YxOHiua_hMyGhRfH6IfI_QE00LvQ5iJNWgTnYRFZQ",
+                    "width" : 2048
+                 },
+                 {
+                    "height" : 1536,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/112714959103005771392/photos\"\u003ejr rodriguez moreno\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAAbxd5Rp7QeG8cTwRvAaQQj5zJwCKJwBKw5twySUV_hqqfZXN4Vzr0xLJ9UHofdyOl3OSUiOJPsng_HdS3fI4roVyNdhI32_d_N761KcjtmbjF9zKcE32feWsOMDBAL0B3EhBwNiISjEVgGgTLOY18YhtUGhTHbwusLL1o6JF6RuAYlxAw5CHoKw",
+                    "width" : 2048
+                 },
+                 {
+                    "height" : 1536,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/112714959103005771392/photos\"\u003ejr rodriguez moreno\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAANL42dGn9652qNF3WX_mzeXZNkZKZFgefgNp4z_Blpg4WgENKUkwiepKPLtZGq5YkLQH-eail56d2BAcP9iZ1i-JwOYclTgYO86Ew0y9DsYNdSkBjwKvzjxiANlXHNZJ_EhBRZy1Ya6Fe3pbDDpEv9fU7GhRc2_sPl8e8mozOh9UhqXSDTWQtYA",
+                    "width" : 2048
+                 },
+                 {
+                    "height" : 1536,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/112714959103005771392/photos\"\u003ejr rodriguez moreno\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAAOcuos10rCx19M2WOGJH5mH-MU5202RtB-bCb9n-oIZAWhx4pAyxUlEqY3zQJpGWhieIrbzKo4we6KUvnjdiR5isD9frwsXsl1acQoDnvf16s--fil_fU1wuKlpS4WU9vEhARO6v34yO0wjOW4o0E8nTdGhSB-7p5xSru_il60E78K5SAuBwgSQ",
+                    "width" : 2048
+                 },
+                 {
+                    "height" : 1536,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/112714959103005771392/photos\"\u003ejr rodriguez moreno\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAAqe8tRoQBFNaPfcwQLQa-usMkB7MoQi1aeztT61F1D77MSIKDGwMjYbglZW303P7SCIGRQuPbuHJxKErqJ0Zi5YFlGijEJ7bg-eyMeIwfEpxXVa2GvK2jA24ILN3pj8xlEhAdYnWhwfe8gF8N71SuijZ9GhTojvukEhRfseRbrXWoUF7-NPLbwg",
+                    "width" : 2048
+                 },
+                 {
+                    "height" : 1536,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/112714959103005771392/photos\"\u003ejr rodriguez moreno\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAAo4HCBdHTv2YBSJhxpUyrNQHbUJrPRU2sHiTf4F8qOcF3rXAfnUFomaAncy-SEhuiLTtZNl7w3mVoB_XApT2vs2Bd1FPtwfiJz9xiee-7jLyh6pDUi1VeykK8RcOxM2ydEhANehEIhfolJzzggs0uj4hAGhSmQk3D3gPFFk0Cp8cbhck2mVCV2w",
+                    "width" : 2048
+                 },
+                 {
+                    "height" : 1195,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/105487631162512502976/photos\"\u003eSJ Botha\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAA2hAzGSTzwb8jX8M0-jsSUJYNufHurCkRDzqTrX5oF75GHUbbBtIz4VLyUIMnsLCsO4M2M-h2qo_NqTl4jmInFUNaKgPaDip1PQk-gRXefoPGqt9Yi9l-V8JfS_1BuNMJEhBIPYld4DBTVkEMGJLePjOyGhRJVOv4Zeubr9V6fsT3ZoX5Bo9CdQ",
+                    "width" : 1800
+                 },
+                 {
+                    "height" : 1536,
+                    "html_attributions" : [
+                       "\u003ca href=\"https://maps.google.com/maps/contrib/112714959103005771392/photos\"\u003ejr rodriguez moreno\u003c/a\u003e"
+                    ],
+                    "photo_reference" : "CmRaAAAAtfvIoVLG3_s2Fo62lsMNhWYzrrVbEZibsclKl8-9Wk4G7o_Q5nhq6KxeCtWdKB1-nRYpuqohVLIDJDclqTQNOdAcgrUf58LydHmH2QqQOcc7ziLJLO5jzfvN8ayRdemFEhAeA97q5Zfq6xzSy8SbrqdyGhQ_8OXIh75iqqtD3bJl3pWduDHGBA",
+                    "width" : 2048
+                 }
+              ],
+              "place_id" : "ChIJj9dEC-9YdhwRTDw4wzsEnt4",
+              "reference" : "CmRbAAAAiTfCWDSYu5JrD1Cbl64-eoppfLaMJJJsX2p0Ur6PeETetqHDi0xR4gsM4UQ4xdKmaCEzJiv0wqVd9HrE7cIJknMeCS2v1BdjluMPjZSQnx8Y8fEaT2vcnxpAhUPH9LC1EhBtFKHKb2GoZ5AR4N3uCdouGhTu9DbtYXLZRwn9SVDbb1p8wVg61g",
+              "scope" : "GOOGLE",
+              "types" : [ "locality", "political" ],
+              "url" : "https://maps.google.com/?q=Swakopmund,+Namibia&ftid=0x1c7658ef0b44d78f:0xde9e043bc3383c4c",
+              "utc_offset" : 120,
+              "vicinity" : "Swakopmund"
+           },
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Sun, 08 Apr 2018 02:31:37 GMT
+recorded_with: VCR 4.0.0

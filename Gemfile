@@ -33,6 +33,8 @@ group :development, :test do
   gem 'chromedriver-helper'
   gem 'awesome_print'
   gem 'ffaker'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
