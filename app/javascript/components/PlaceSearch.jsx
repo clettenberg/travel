@@ -12,6 +12,12 @@ class PlaceSearch extends React.Component {
     this.csrfToken = document.getElementsByTagName('meta')['csrf-token'].content;
   }
 
+  onKeyPress = (event) => {
+    if (event.which == 13) {
+      event.preventDefault();
+    }
+  }
+
   onPlacesChanged = () => {
     const places = this.searchBox.getPlaces()
 
@@ -34,6 +40,7 @@ class PlaceSearch extends React.Component {
         >
 
           <input
+            onKeyPress={props.onKeyPress}
             type="text"
             placeholder="Find a Place"
             id="place_search"
@@ -70,6 +77,7 @@ class PlaceSearch extends React.Component {
         onSearchBoxMounted={(searchBox) => { this.searchBox = searchBox; }}
         places={this.state.places}
         csrfToken={this.csrfToken}
+        onKeyPress={this.onKeyPress}
       />
     );
   }
