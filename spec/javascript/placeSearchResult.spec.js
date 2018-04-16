@@ -10,8 +10,6 @@ describe('<PlaceSearchResult />', () => {
   it('displays address', () => {
     const wrapper = shallow(<PlaceSearchResult
       address="1234 Oak Street"
-      placeId="foo-bar"
-      csrfToken="coolio"
     />);
 
     const placeDiv = wrapper.find('#place');

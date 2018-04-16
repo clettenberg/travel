@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import Place from './Place'
 
 import StandaloneSearchBox from 'react-google-maps/lib/components/places/StandaloneSearchBox';
 
@@ -32,7 +33,7 @@ class PlaceSearch extends React.Component {
 
   render() {
     const SearchBox = props => (
-      <span>
+      <div style={{paddingBottom: "10px"}}>
         <StandaloneSearchBox
           ref={props.onSearchBoxMounted}
           bounds={props.bounds}
@@ -49,7 +50,6 @@ class PlaceSearch extends React.Component {
               border: '1px solid transparent',
               width: '240px',
               height: '32px',
-              marginTop: '27px',
               padding: '0 12px',
               borderRadius: '3px',
               boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
@@ -60,15 +60,13 @@ class PlaceSearch extends React.Component {
           />
         </StandaloneSearchBox>
 
-        <ol>
-          {props.places.map(({place_id, name}, index) =>
-            <span key={index}>
-              <input type="hidden" name="trip[place_ids][]" value={place_id}></input>
-              <p>{name}</p>
-            </span>
-          )}
-        </ol>
-      </span>
+        {props.places.map(({place_id, name}, index) =>
+          <div key={index}>
+            <input type="hidden" name="trip[place_ids][]" value={place_id}></input>
+            <Place name={name} />
+          </div>
+        )}
+      </div>
     );
 
     return (
