@@ -1,6 +1,6 @@
 import _ from 'lodash';
+import PropTypes from "prop-types"
 import React from 'react';
-import Place from './Place'
 
 import StandaloneSearchBox from 'react-google-maps/lib/components/places/StandaloneSearchBox';
 
@@ -9,8 +9,6 @@ class PlaceSearch extends React.Component {
     this.setState({
       places: [],
     });
-
-    this.csrfToken = document.getElementsByTagName('meta')['csrf-token'].content;
   }
 
   onKeyPress = (event) => {
@@ -26,9 +24,13 @@ class PlaceSearch extends React.Component {
       return;
     }
 
-    this.setState({
-      places: _.concat(places, this.state.places),
+    this.setState((prevState) => {
+      return { places: _.concat(places, prevState.places) }
     });
+
+    if (this.props.handlePlacesChanged) {
+      this.props.handlePlacesChanged(this.state.places);
+    }
   }
 
   render() {
@@ -59,13 +61,6 @@ class PlaceSearch extends React.Component {
             }}
           />
         </StandaloneSearchBox>
-
-        {props.places.map(({place_id, name}, index) =>
-          <div key={index}>
-            <input type="hidden" name="trip[place_ids][]" value={place_id}></input>
-            <Place name={name} />
-          </div>
-        )}
       </div>
     );
 
@@ -74,11 +69,13 @@ class PlaceSearch extends React.Component {
         onPlacesChanged={this.onPlacesChanged}
         onSearchBoxMounted={(searchBox) => { this.searchBox = searchBox; }}
         places={this.state.places}
-        csrfToken={this.csrfToken}
         onKeyPress={this.onKeyPress}
       />
     );
   }
 }
 
+PlaceSearch.propTypes = {
+  handlePlacesChanged: PropTypes.func
+}
 export default PlaceSearch;

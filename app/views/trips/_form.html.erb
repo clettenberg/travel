@@ -30,7 +30,9 @@
   </div>
 
   <h3>Places</h3>
-  <%= react_component("PlaceSearch") %>
+
+  <%= react_component("PlacesForm", { placeIds: trip.place_ids }) %>
+
 
   <div class="form-row">
     <div class="actions form-group">

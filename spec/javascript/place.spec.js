@@ -9,11 +9,10 @@ configure({ adapter: new Adapter() });
 describe('<Place />', () => {
   it('displays name', () => {
     const wrapper = shallow(<Place
-      name="Eifel Tower"
+      id="paris"
     />);
 
     const nameDiv = wrapper.find('#name');
     expect(nameDiv).toHaveLength(1);
-    expect(nameDiv).toHaveText('Eifel Tower');
   });
 });

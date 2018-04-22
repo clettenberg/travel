@@ -10,6 +10,6 @@
 </p>
 
 
-<% @names.each do |name| %>
-  <%= react_component("Place", { name: name }) %>
+<% @trip.place_ids.each do |id| %>
+  <%= react_component("Place", { id: id }) %>
 <% end %>

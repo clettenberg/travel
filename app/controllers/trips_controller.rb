@@ -7,17 +7,6 @@ class TripsController < ApplicationController
   end
 
   def show
-    bad_place_ids = []
-
-    @names = @trip.place_ids.map do |id|
-      GooglePlaceService.get_details(id)
-    rescue StandardError => error
-      log_error(error)
-      bad_place_ids << id
-      nil
-    end.compact.map { |detail| detail.dig("result", "name") }
-
-    flash[:alert] = "Error finding details for #{bad_place_ids.inspect}" if bad_place_ids.any?
   end
 
   def new
