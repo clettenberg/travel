@@ -14,7 +14,6 @@ class Place extends React.Component {
     axios.get(`/places/${this.props.id}`)
       .then(res => {
         const name = res.data.result.name
-        console.log(name)
         this.setState({name: name});
       });
   }
