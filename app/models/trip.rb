@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   has_and_belongs_to_many :users
+  has_many :places
 
   validates_presence_of :title
   validates_presence_of :start_date
