@@ -67,6 +67,10 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
+      - run:
+          name: Compile Webpacker Assets
+          command: bin/rails webpacker:compile
+
       - type: shell
         command: |
           xvfb-run -a bundle exec rspec --profile 10 \

@@ -9,7 +9,6 @@
   <%= @trip.start_date.strftime("%b %e, %Y") %> - <%= @trip.end_date.strftime("%b %e, %Y") %>
 </p>
 
-
 <% @trip.places.each do |place| %>
-  <%= react_component("Place", { id: place.place_id }) %>
+  <%= react_component("Place", { id: place.id } ) %>
 <% end %>

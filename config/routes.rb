@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: redirect("/trips")
   resources :trips
 
-  get '/places/:id', to: 'places#show'
+  get '/places/:id', to: 'places#show', as: 'place'
 end

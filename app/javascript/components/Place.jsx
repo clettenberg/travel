@@ -11,7 +11,7 @@ class Place extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/places/${this.props.id}`)
+    axios.get(`/places/${this.props.id}.json`)
       .then(res => {
         const name = res.data.result.name
         this.setState({name: name});
@@ -22,7 +22,7 @@ class Place extends React.Component {
     return (
       <div className="card">
         <div className="card-body d-flex justify-content-between">
-          <div id="name">{this.state.name}</div>
+          <a href={`/places/${this.props.id}`} id="name">{this.state.name}</a>
         </div>
       </div>
     );
@@ -30,7 +30,7 @@ class Place extends React.Component {
 }
 
 Place.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
 };
 
 export default Place;

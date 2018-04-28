@@ -11,13 +11,9 @@ describe('<PlacesForm />', () => {
   it('renders hidden fields for place ids', () => {
 
     const wrapper = shallow(<PlacesForm
-      placeIds={['foo','bar']}
+      placeIds={[123, 456]}
     />);
 
     expect(wrapper.find(Place)).toHaveLength(2);
-  });
-
-  it('renders the name of the Place', () => {
-
   });
 });

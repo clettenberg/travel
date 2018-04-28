@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() });
 describe('<Place />', () => {
   it('displays name', () => {
     const wrapper = shallow(<Place
-      id="paris"
+      id={123}
     />);
 
     const nameDiv = wrapper.find('#name');
