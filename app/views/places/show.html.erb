@@ -1,1 +1,10 @@
-<%= @details.dig("result","name") %>
+
+<h1 class="display-3">
+  <%= @details.dig("result", "name") %>
+</h1>
+
+<p class="lead">
+  <%= raw @details.dig("result", "adr_address") %>
+  [<%= link_to "Google Maps", @details.dig("result", "url"), target: :_blank %>]
+</p>
+
