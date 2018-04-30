@@ -1,0 +1,24 @@
+<%= form_with(model: place, local: true) do |form| %>
+  <% if place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+      <% place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :note, class: "form-control", id: "place_note" %>
+    <trix-editor input="place_note"></trix-editor>
+  </div>
+
+  <div class="form-row">
+    <div class="actions form-group">
+      <%= form.submit class: "btn btn-primary form-control" %>
+    </div>
+  </div>
+<% end %>

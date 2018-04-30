@@ -1,6 +1,13 @@
 FactoryBot.define do
   factory :place do
+    transient do
+      must_be_valid_place_id false
+    end
     place_id { SecureRandom.hex }
+
+    after(:create) do |place, evaluator|
+      place.place_id = "ChIJj9dEC-9YdhwRTDw4wzsEnt4" if evaluator.must_be_valid_place_id
+    end
   end
 
   factory :trip do
@@ -15,6 +22,12 @@ FactoryBot.define do
 
       after(:create) do |trip, evaluator|
         create_list(:place, evaluator.places_count, trip: trip)
+      end
+    end
+
+    factory :trip_with_valid_place do
+      after(:create) do |trip, evaluator|
+        create_list(:place, 1, must_be_valid_place_id: true, trip: trip)
       end
     end
   end

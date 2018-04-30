@@ -23,10 +23,10 @@ class PlacesForm extends React.Component {
     return (
       <div>
         <PlaceSearch handlePlacesChanged={this.handlePlacesChanged}/>
-        {this.state.placeIds.map((id) =>
+        {this.state.placeIds.map((id, index) =>
           <div key={id}>
-            <input type="hidden" name="trip[place_ids][]" value={id}></input>
-            <Place id={id} />
+            <input type="hidden" name={`trip[places_attributes][${index}][place_id]`} value={id}></input>
+            <Place placeId={id} />
           </div>
         )}
       </div>

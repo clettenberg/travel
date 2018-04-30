@@ -23,7 +23,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-google-maps": "^9.4.5",
-    "react_ujs": "^2.4.3"
+    "react_ujs": "^2.4.3",
+    "trix": "^0.11.2"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
