@@ -31,7 +31,7 @@
 
   <h3>Places</h3>
 
-  <%= react_component("PlacesForm", { placeIds: trip.place_ids }) %>
+  <%= react_component("PlacesForm", { placeIds: trip.places.pluck(:place_id) }) %>
 
 
   <div class="form-row">

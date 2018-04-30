@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trip, only: [:show, :edit, :update, :destroy, :add_poi]
+  before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
     @trips = current_user.trips
@@ -57,7 +57,7 @@ class TripsController < ApplicationController
     end
 
     def trip_params
-      params.require(:trip).permit(:title, :start_date, :end_date, place_ids: [])
+      params.require(:trip).permit(:title, :start_date, :end_date, places_attributes: [:place_id])
     end
 
     def log_error(error)
