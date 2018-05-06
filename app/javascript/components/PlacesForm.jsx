@@ -36,7 +36,7 @@ class PlacesForm extends React.Component {
         <PlaceSearch handlePlacesChanged={this.handlePlacesChanged}/>
         {this.state.places.map((place, index) =>
           <div key={place.id + '-' + place.attributes.placeId}>
-            <Place placeId={place.attributes.placeId} />
+            <Place id={parseInt(place.id, 10)} />
           </div>
         )}
       </div>
