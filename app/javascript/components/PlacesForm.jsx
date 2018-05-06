@@ -41,9 +41,9 @@ class PlacesForm extends React.Component {
   }
 
   handlePlacesChanged = (e) => {
-    const placeId = _.result(_.head(e), 'place_id')
+    const placeId = _.result(_.head(e), 'place_id');
 
-    this.savePlace(placeId)
+    this.savePlace(placeId);
   }
 
   render () {

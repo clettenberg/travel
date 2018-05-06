@@ -21,16 +21,30 @@ class Place extends React.Component {
   }
 
   handleDelete = () => {
-    this.props.onDelete(this.props.id)
+    const message = `Are you sure you want to delete ${this.state.name}?\nYou will lose ALL data related to ${this.state.name}!`
+
+    if (window.confirm(message)) {
+      this.props.onDelete(this.props.id)
+    }
   }
 
 
   render() {
+    if(this.props.onDelete) {
+      return (
+        <PlaceCard>
+          <a href={`/places/${this.props.id}`} id="name">{this.state.name}</a>
+          <a className="delete-place"
+            onClick={this.handleDelete}>
+            <i className="fas fa-minus-circle" style={{color: "#dd3645"}}></i>
+          </a>
+        </PlaceCard>
+      )
+    }
+
     return (
       <PlaceCard>
         <a href={`/places/${this.props.id}`} id="name">{this.state.name}</a>
-        <a className="delete-place"
-           onClick={this.handleDelete}>Delete</a>
       </PlaceCard>
     );
   }

@@ -17,6 +17,9 @@ describe('<Place />', () => {
   });
 
   it('calls the onDelete function when the delete button is clicked', () => {
+    spyOn(window, 'confirm').and.callFake(function () {
+      return true;
+    });
     const placeId = 1;
     const deleteFunc = jest.fn();
     const wrapper = mount(<Place
