@@ -42,10 +42,11 @@ FactoryBot.define do
       factory :user_with_trips do
         transient do
           trips_count 5
+          places_count 3
         end
 
         after(:create) do |user, evaluator|
-          create_list(:trip_with_places, evaluator.trips_count, users: [user])
+          create_list(:trip_with_places, evaluator.trips_count, users: [user], places_count: evaluator.places_count)
         end
       end
     end

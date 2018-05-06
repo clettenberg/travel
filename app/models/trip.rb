@@ -1,6 +1,6 @@
 class Trip < ApplicationRecord
   has_and_belongs_to_many :users
-  has_many :places
+  has_many :places, dependent: :destroy
   accepts_nested_attributes_for :places, allow_destroy: true
 
   validates_presence_of :title
