@@ -17,20 +17,28 @@ class Place extends React.Component {
       .then(res => {
         const name = res.data.result.name
         this.setState({name: name});
-      });
+    });
   }
+
+  handleDelete = () => {
+    this.props.onDelete(this.props.id)
+  }
+
 
   render() {
     return (
       <PlaceCard>
         <a href={`/places/${this.props.id}`} id="name">{this.state.name}</a>
+        <a className="delete-place"
+           onClick={this.handleDelete}>Delete</a>
       </PlaceCard>
     );
   }
 }
 
 Place.propTypes = {
-  id: PropTypes.number
+  id: PropTypes.number,
+  onDelete: PropTypes.func
 };
 
 export default Place;

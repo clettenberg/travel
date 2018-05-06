@@ -6,10 +6,13 @@ import PlaceSearch from "./PlaceSearch"
 import Place from './Place'
 
 class PlacesForm extends React.Component {
-  componentWillMount() {
-    this.setState({
+  constructor(props) {
+    super(props);
+    this.state = {
       places: this.props.places.data,
-    });
+    };
+
+    this.deletePlace = this.deletePlace.bind(this);
   }
 
   savePlace(placeId) {
@@ -24,10 +27,23 @@ class PlacesForm extends React.Component {
     });
   }
 
-  handlePlacesChanged = (e) => {
-    const placeIds = _.map(e, 'place_id');
+  deletePlace(id) {
+    axios.delete(`/trips/${this.props.tripId}/places/${id}`, {
+      headers: { "X-CSRF-Token": this.props.csrfToken }
+    }).then( res => {
+      let placesMinusDeletedPlace = _.filter(this.state.places, (place) => {
+        return parseInt(place.id, 10) !== id
+      });
+      this.setState({
+        places: placesMinusDeletedPlace
+      })
+    })
+  }
 
-    this.savePlace(placeIds[0])
+  handlePlacesChanged = (e) => {
+    const placeId = _.result(_.head(e), 'place_id')
+
+    this.savePlace(placeId)
   }
 
   render () {
@@ -36,7 +52,7 @@ class PlacesForm extends React.Component {
         <PlaceSearch handlePlacesChanged={this.handlePlacesChanged}/>
         {this.state.places.map((place, index) =>
           <div key={place.id + '-' + place.attributes.placeId}>
-            <Place id={parseInt(place.id, 10)} />
+            <Place id={parseInt(place.id, 10)} onDelete={this.deletePlace} />
           </div>
         )}
       </div>
