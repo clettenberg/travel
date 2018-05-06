@@ -67,7 +67,12 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "travel_#{Rails.env}"
   config.action_mailer.delivery_method = :mailjet
-  config.action_mailer.default_url_options = { :host => 'clettenberg-travel-staging.herokuapp.com' }
+
+  if ENV["FOR_REAL_PRODUCTION"].present?
+    config.action_mailer.default_url_options = { :host => 'clettenberg-travel.herokuapp.com' }
+  else
+    config.action_mailer.default_url_options = { :host => 'clettenberg-travel-staging.herokuapp.com' }
+  end
 
   config.action_mailer.perform_caching = false
 
