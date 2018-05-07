@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: redirect("/trips")
+  root "home#index"
   resources :trips
 
   post '/trips/:id/places', to: "trip_places#add_place"

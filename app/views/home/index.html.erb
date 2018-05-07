@@ -1,0 +1,27 @@
+<div class="jumbotron col-lg-4 offset-lg-7 col-sm-8 offset-sm-2" id="landing_page_signup_form">
+  <div class="container">
+    <%= form_for(@user, as: "user", url: registration_path("user")) do |f| %>
+      <div class="field form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "you@example.com"%>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Create a password" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm your password"%>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-primary form-control" %>
+      </div>
+    <% end %>
+  </div>
+</div>
