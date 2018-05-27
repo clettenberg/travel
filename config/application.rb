@@ -14,7 +14,7 @@ module Travel
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
+    config.active_record.schema_format = :sql
     config.react.server_renderer_pool_size  ||= 1  # ExecJS doesn't allow more than one on MRI
     config.react.server_renderer_timeout    ||= 20 # seconds
     config.react.server_renderer = React::ServerRendering::BundleRenderer

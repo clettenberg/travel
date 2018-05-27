@@ -6,7 +6,7 @@ class TripPlacesController < ApplicationController
   attr_reader :trip
 
   def add_place
-    new_place = trip.places.create(place_id: trip_params[:place_id])
+    new_place = trip.places.create(trip_params.slice(:place_id, :query))
 
     render status: 201, json: PlaceSerializer.new(new_place).serialized_json
   end
@@ -19,7 +19,7 @@ class TripPlacesController < ApplicationController
   private
 
   def trip_params
-    params.permit(:place_id, :id)
+    params.permit(:query, :place_id, :id)
   end
 
   def set_trip

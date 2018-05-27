@@ -11,7 +11,7 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: travel-test-user
           RAILS_ENV: test
-      - image: circleci/postgres:9.5-alpine
+      - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: travel-test-user
           POSTGRES_DB: travel_test
@@ -23,7 +23,7 @@ jobs:
           name: Install Dependencies
           command: |
             sudo apt-get update -y
-            sudo apt-get install xvfb qt5-default libqt5webkit5-dev libqt4-dev libqtwebkit-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x -y
+            sudo apt-get install postgresql-client xvfb qt5-default libqt5webkit5-dev libqt4-dev libqtwebkit-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x -y
 
       - run:
           name: Which bundler?
@@ -65,7 +65,7 @@ jobs:
 
       - run:
           name: Database setup
-          command: bin/rails db:schema:load --trace
+          command: bin/rails db:structure:load --trace
 
       - run:
           name: Compile Webpacker Assets

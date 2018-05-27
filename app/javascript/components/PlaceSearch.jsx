@@ -19,7 +19,7 @@ class PlaceSearch extends React.Component {
 
   onPlacesChanged = () => {
     const places = this.searchBox.getPlaces()
-
+    const queryString = this.searchInput.value
     if (_.isEmpty(places)) {
       return;
     }
@@ -29,7 +29,7 @@ class PlaceSearch extends React.Component {
     });
 
     if (this.props.handlePlacesChanged) {
-      this.props.handlePlacesChanged(this.state.places);
+      this.props.handlePlacesChanged(this.state.places, queryString);
     }
   }
 
@@ -43,6 +43,7 @@ class PlaceSearch extends React.Component {
         >
 
           <input
+            ref={props.onInputMounted}
             onKeyPress={props.onKeyPress}
             type="text"
             placeholder="Find a Place"
@@ -68,6 +69,7 @@ class PlaceSearch extends React.Component {
       <SearchBox
         onPlacesChanged={this.onPlacesChanged}
         onSearchBoxMounted={(searchBox) => { this.searchBox = searchBox; }}
+        onInputMounted={(input) => { this.searchInput = input; }}
         places={this.state.places}
         onKeyPress={this.onKeyPress}
       />
