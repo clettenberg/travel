@@ -11,10 +11,10 @@ describe TripPlacesController, type: :controller do
   describe "#add_place" do
     it "should add a place to a trip" do
       expect {
-        post :add_place, params: { id: trip.id , place_id: "foo-bar" }
+        post :add_place, params: { id: trip.id , place_id: "foo-bar", query: "Foo Bar" }
       }.to change { trip.places.count }.by(1)
       expect(response).to be_created
-      expect(trip.places.pluck(:place_id)).to include("foo-bar")
+      expect(trip.places.pluck(:place_id, :query)).to include(["foo-bar", "Foo Bar"])
       expect(JSON.parse(response.body)["data"]["attributes"]["placeId"]).to eq("foo-bar")
     end
   end

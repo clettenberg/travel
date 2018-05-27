@@ -15,9 +15,10 @@ class PlacesForm extends React.Component {
     this.deletePlace = this.deletePlace.bind(this);
   }
 
-  savePlace(placeId) {
+  savePlace(placeId, queryString) {
     axios.post(`/trips/${this.props.tripId}/places`, {
-      place_id: placeId
+      place_id: placeId,
+      query: queryString
     }, {
       headers: { "X-CSRF-Token": this.props.csrfToken }
     }).then(res => {
@@ -40,10 +41,9 @@ class PlacesForm extends React.Component {
     })
   }
 
-  handlePlacesChanged = (e) => {
-    const placeId = _.result(_.head(e), 'place_id');
-
-    this.savePlace(placeId);
+  handlePlacesChanged = (places, queryString) => {
+    const placeId = _.result(_.head(places), 'place_id');
+    this.savePlace(placeId, queryString);
   }
 
   render () {
