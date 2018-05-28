@@ -1,7 +1,8 @@
 
-<h1 class="display-3">
+<h1>
   <%= @details.dig("result", "name") %>
-  <%= link_to "Edit", edit_place_path, class: "btn btn-primary" %>
+  <%= link_to "Edit", edit_place_path, class: "btn btn-primary btn-sm" %>
+  <%= link_to "Back to Trip", trip_path(@place.trip), class: "btn btn-outline-primary btn-sm" %>
 </h1>
 
 <p class="lead">
