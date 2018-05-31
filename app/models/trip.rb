@@ -8,7 +8,13 @@ class Trip < ApplicationRecord
   validates_presence_of :end_date
   validate :start_date_cannot_be_after_end_date
 
+  def start_date
+    places.where.not(start_date: nil).order(start_date: :desc).pluck(:start_date).first
+  end
 
+  def end_date
+    places.where.not(end_date: nil).order(end_date: :desc).pluck(:end_date).first
+  end
 
 private
 

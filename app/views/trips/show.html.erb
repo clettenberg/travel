@@ -6,7 +6,7 @@
 </h1>
 
 <p class="lead">
-  <%= @trip.start_date.strftime("%b %e, %Y") %> - <%= @trip.end_date.strftime("%b %e, %Y") %>
+  <%= [@trip.start_date&.strftime("%b %e, %Y"), @trip.end_date&.strftime("%b %e, %Y")].compact.join(' - ') %>
 </p>
 
 <% @trip.places.each do |place| %>

@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+  <div class="form-row">
+    <div class="form-group col-md-6 col-lg-6 col-sm-12">
+      <%= form.label :start_date, "Start Date" %>
+      <%= form.date_field :start_date, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6 col-lg-6 col-sm-12">
+      <%= form.label :end_date, "End Date" %>
+      <%= form.date_field :end_date, class: "form-control" %>
+    </div>
+  </div>
+
   <div>
     <%= form.hidden_field :note, class: "form-control", id: "place_note" %>
     <trix-editor input="place_note"></trix-editor>
