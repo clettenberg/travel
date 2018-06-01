@@ -57,7 +57,7 @@ class TripsController < ApplicationController
     end
 
     def trip_params
-      params.require(:trip).permit(:title, :start_date, :end_date, places_attributes: [:place_id])
+      params.require(:trip).permit(:title, places_attributes: [:place_id])
     end
 
     def log_error(error)

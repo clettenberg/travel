@@ -31,8 +31,6 @@ feature 'trips' do
         click_link "Trips"
         within('form') do
           fill_in "trip[title]", with: trip_title
-          fill_in "trip[start_date]", with: "12/2/2015"
-          fill_in "trip[end_date]", with: "24/2/2016"
         end
 
         click_button "Create Trip"

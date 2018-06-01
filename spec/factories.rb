@@ -4,6 +4,8 @@ FactoryBot.define do
       must_be_valid_place_id false
     end
     place_id { SecureRandom.hex }
+    start_date { Date.today }
+    end_date { Date.today + 1.day }
 
     after(:create) do |place, evaluator|
       place.place_id = "ChIJj9dEC-9YdhwRTDw4wzsEnt4" if evaluator.must_be_valid_place_id
@@ -12,8 +14,6 @@ FactoryBot.define do
 
   factory :trip do
     title { FFaker::Lorem.word }
-    start_date { Date.today }
-    end_date { Date.today + 1.day }
 
     factory :trip_with_places do
       transient do

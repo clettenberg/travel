@@ -159,9 +159,7 @@ CREATE TABLE public.trips (
     id bigint NOT NULL,
     title character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    start_date date,
-    end_date date
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -415,6 +413,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180423015819'),
 ('20180429214210'),
 ('20180527005453'),
-('20180529005722');
+('20180529005722'),
+('20180601005604');
 
 
