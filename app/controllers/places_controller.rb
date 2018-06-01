@@ -40,7 +40,7 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:id, :note)
+    params.require(:place).permit(:id, :note, :start_date, :end_date)
   end
 
 end

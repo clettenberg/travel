@@ -41,9 +41,11 @@ describe PlacesController, type: :controller do
     it 'should allow a user to edit an existing place' do
       trip = FactoryBot.create(:trip_with_places, places_count: 1)
       existing_place = trip.places.first
-      patch :update, params: { id: existing_place.id, place: { note: "What a great trip!" } }
+      patch :update, params: { id: existing_place.id, place: { note: "What a great trip!", start_date: Date.today, end_date: Date.today + 1.day } }
       expect(response.content_type).to eq "text/html"
       expect(Place.find(existing_place.id).note).to eq("What a great trip!")
+      expect(Place.find(existing_place.id).start_date).to eq(Date.today)
+      expect(Place.find(existing_place.id).end_date).to eq(Date.today + 1.day)
     end
   end
 end

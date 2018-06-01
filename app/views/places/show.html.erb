@@ -5,6 +5,10 @@
   <%= link_to "Back to Trip", trip_path(@place.trip), class: "btn btn-outline-primary btn-sm" %>
 </h1>
 
+<p class="text-muted">
+  <%= [@place.start_date, @place.end_date].compact.join(' - ') %>
+</p>
+
 <p class="lead">
   <%= raw @details.dig("result", "adr_address") %>
   [<%= link_to "Google Maps", @details.dig("result", "url"), target: :_blank %>]

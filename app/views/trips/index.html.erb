@@ -14,8 +14,7 @@
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1"><%= trip.title %></h5>
         <small>
-          <%= trip.start_date.strftime("%b %e, %Y") %> -
-          <%= trip.end_date.strftime("%b %e, %Y") %>
+          <%= [trip.start_date&.strftime("%b %e, %Y"), trip.end_date&.strftime("%b %e, %Y")].compact.join(' - ') %>
         </small>
       </div>
     <% end %>
