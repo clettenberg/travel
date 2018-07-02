@@ -121,10 +121,10 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
--- Name: osm_place; Type: TABLE; Schema: public; Owner: -
+-- Name: osm_places; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.osm_place (
+CREATE TABLE public.osm_places (
     id bigint NOT NULL,
     place_id character varying,
     osm_type character varying,
@@ -142,10 +142,10 @@ CREATE TABLE public.osm_place (
 
 
 --
--- Name: osm_place_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: osm_places_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.osm_place_id_seq
+CREATE SEQUENCE public.osm_places_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -154,10 +154,10 @@ CREATE SEQUENCE public.osm_place_id_seq
 
 
 --
--- Name: osm_place_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: osm_places_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE public.osm_place_id_seq OWNED BY public.osm_place.id;
+ALTER SEQUENCE public.osm_places_id_seq OWNED BY public.osm_places.id;
 
 
 --
@@ -173,7 +173,8 @@ CREATE TABLE public.places (
     note text,
     query text,
     start_date date,
-    end_date date
+    end_date date,
+    osm_place_id bigint
 );
 
 
@@ -305,10 +306,10 @@ ALTER TABLE ONLY public.active_storage_blobs ALTER COLUMN id SET DEFAULT nextval
 
 
 --
--- Name: osm_place id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: osm_places id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.osm_place ALTER COLUMN id SET DEFAULT nextval('public.osm_place_id_seq'::regclass);
+ALTER TABLE ONLY public.osm_places ALTER COLUMN id SET DEFAULT nextval('public.osm_places_id_seq'::regclass);
 
 
 --
@@ -357,11 +358,11 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 
 --
--- Name: osm_place osm_place_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: osm_places osm_places_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.osm_place
-    ADD CONSTRAINT osm_place_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY public.osm_places
+    ADD CONSTRAINT osm_places_pkey PRIMARY KEY (id);
 
 
 --
@@ -418,6 +419,13 @@ CREATE UNIQUE INDEX index_active_storage_blobs_on_key ON public.active_storage_b
 
 
 --
+-- Name: index_places_on_osm_place_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_places_on_osm_place_id ON public.places USING btree (osm_place_id);
+
+
+--
 -- Name: index_places_on_trip_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -461,6 +469,14 @@ ALTER TABLE ONLY public.places
 
 
 --
+-- Name: places fk_rails_5abc9a3661; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.places
+    ADD CONSTRAINT fk_rails_5abc9a3661 FOREIGN KEY (osm_place_id) REFERENCES public.osm_places(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -484,6 +500,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180527005453'),
 ('20180529005722'),
 ('20180601005604'),
-('20180702013728');
+('20180702013728'),
+('20180702020836'),
+('20180702020911');
 
 
