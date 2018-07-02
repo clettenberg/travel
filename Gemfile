@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2.0'
 gem 'pg', '~> 0.18'
+gem 'activerecord-postgis-adapter'
 
 gem 'puma', '~> 3.11'
 

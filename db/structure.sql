@@ -22,6 +22,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: postgis; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION postgis; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial types and functions';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -104,6 +118,46 @@ CREATE TABLE public.ar_internal_metadata (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
+
+
+--
+-- Name: osm_place; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.osm_place (
+    id bigint NOT NULL,
+    place_id character varying,
+    osm_type character varying,
+    osm_id character varying,
+    boundingbox public.geometry,
+    lonlat public.geography(Point,4326),
+    display_name text,
+    class character varying,
+    type character varying,
+    importance numeric,
+    address jsonb DEFAULT '"{}"'::jsonb NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: osm_place_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.osm_place_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: osm_place_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.osm_place_id_seq OWNED BY public.osm_place.id;
 
 
 --
@@ -251,6 +305,13 @@ ALTER TABLE ONLY public.active_storage_blobs ALTER COLUMN id SET DEFAULT nextval
 
 
 --
+-- Name: osm_place id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.osm_place ALTER COLUMN id SET DEFAULT nextval('public.osm_place_id_seq'::regclass);
+
+
+--
 -- Name: places id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -293,6 +354,14 @@ ALTER TABLE ONLY public.active_storage_blobs
 
 ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: osm_place osm_place_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.osm_place
+    ADD CONSTRAINT osm_place_pkey PRIMARY KEY (id);
 
 
 --
@@ -414,6 +483,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180429214210'),
 ('20180527005453'),
 ('20180529005722'),
-('20180601005604');
+('20180601005604'),
+('20180702013728');
 
 
