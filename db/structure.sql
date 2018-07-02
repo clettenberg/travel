@@ -132,7 +132,7 @@ CREATE TABLE public.osm_places (
     boundingbox public.geometry,
     lonlat public.geography(Point,4326),
     display_name text,
-    class character varying,
+    osm_class character varying,
     type character varying,
     importance numeric,
     address jsonb DEFAULT '"{}"'::jsonb NOT NULL,
@@ -502,6 +502,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180601005604'),
 ('20180702013728'),
 ('20180702020836'),
-('20180702020911');
+('20180702020911'),
+('20180702021329');
 
 
