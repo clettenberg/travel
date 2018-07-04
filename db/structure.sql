@@ -166,12 +166,10 @@ ALTER SEQUENCE public.osm_places_id_seq OWNED BY public.osm_places.id;
 
 CREATE TABLE public.places (
     id bigint NOT NULL,
-    place_id character varying,
     trip_id bigint,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     note text,
-    query text,
     start_date date,
     end_date date,
     osm_place_id bigint
@@ -503,6 +501,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180702013728'),
 ('20180702020836'),
 ('20180702020911'),
-('20180702021329');
+('20180702021329'),
+('20180704203532');
 
 
