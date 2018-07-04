@@ -126,7 +126,7 @@ CREATE TABLE public.ar_internal_metadata (
 
 CREATE TABLE public.osm_places (
     id bigint NOT NULL,
-    place_id character varying,
+    osm_api_place_id character varying,
     osm_type character varying,
     osm_id character varying,
     boundingbox public.geometry,
@@ -502,6 +502,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180702020836'),
 ('20180702020911'),
 ('20180702021329'),
-('20180704203532');
+('20180704203532'),
+('20180704214210');
 
 
