@@ -4,4 +4,5 @@ class User < ApplicationRecord
          :confirmable
 
   has_and_belongs_to_many :trips
+  has_many :places, through: :trips
 end

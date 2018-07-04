@@ -2,6 +2,7 @@
   <%= @trip.title %>
   <small>
     <%= link_to "Edit", edit_trip_path(@trip), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Add Place", new_trip_place_path(@trip), class: "btn btn-secondary btn-sm" %>
   </small>
 </h1>
 
@@ -13,7 +14,7 @@
   <h5><%= date.strftime("%b %e, %Y") %></h5>
   <div class="card-deck">
     <% places.each do |place| %>
-      <%= react_component("Place", { id: place.id } ) %>
+      <p><%= link_to "Place #{place.id}", place_path(place) %></p>
     <% end %>
   </div>
   <br>
@@ -21,7 +22,14 @@
 
 <hr>
 <div class="card-deck">
-  <% @trip.places.where(start_date: nil).each do |place| %>
-    <%= react_component("Place", { id: place.id } ) %>
-  <% end %>
+  <ul class="list-group">
+    <% @trip.places.where(start_date: nil).each do |place| %>
+    <li class="list-group-item">
+      <%= link_to "Place #{place.id}", place_path(place) %>
+    </li>
+    <% end %>
+  </ul>
+
+
+
 </div>

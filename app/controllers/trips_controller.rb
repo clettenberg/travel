@@ -52,16 +52,12 @@ class TripsController < ApplicationController
   end
 
   private
-    def set_trip
-      @trip = current_user.trips.find(params[:id])
-    end
 
-    def trip_params
-      params.require(:trip).permit(:title, places_attributes: [:place_id])
-    end
+  def set_trip
+    @trip = current_user.trips.find(params[:id])
+  end
 
-    def log_error(error)
-      logger.error error.message
-      logger.error error.backtrace.join("\n")
-    end
+  def trip_params
+    params.require(:trip).permit(:title)
+  end
 end

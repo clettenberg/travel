@@ -1,16 +1,16 @@
 class PlacesController < ApplicationController
-  before_action :set_place
+  before_action :authenticate_user!
+  before_action :set_trip, only: [:create, :new]
+  before_action :set_place, only: [:show, :edit, :destroy, :update]
+
+  def new
+    @place = @trip.places.new
+  end
 
   def show
-    @details = details
-    respond_to do |format|
-      format.html
-      format.json { render json: @details }
-    end
   end
 
   def edit
-    @details = details
   end
 
   def update
@@ -26,21 +26,43 @@ class PlacesController < ApplicationController
   end
 
 
+  def create
+    @place = @trip.places.new(place_params)
+    respond_to do |format|
+      if @place.save
+        format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        format.json { render :show, status: :created, location: @place }
+      else
+        format.html { render :new }
+        format.json { render json: @place.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    trip = @place.trip
+    respond_to do |format|
+      if @place.destroy
+        format.html { redirect_to trip, notice: 'Place was successfully deleted.' }
+        format.json { render :show, status: :ok, location: trip }
+      else
+        format.html { render :show }
+        format.json { render json: @place.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
+  def set_trip
+    @trip = Trip.find(params[:trip_id])
+  end
+
   def set_place
-    return @place if defined?(@place)
     @place = Place.find(params[:id])
   end
 
-
-  def details
-    return @details if defined?(@details)
-    @details = GooglePlaceService.get_details(@place.place_id)
-  end
-
   def place_params
-    params.require(:place).permit(:id, :note, :start_date, :end_date)
+    params.require(:place).permit(:start_date, :end_date, :note)
   end
-
 end

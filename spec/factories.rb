@@ -1,11 +1,18 @@
 FactoryBot.define do
+  factory :osm_place do
+    osm_id { SecureRandom.hex }
+  end
+
   factory :place do
-    transient do
-      must_be_valid_place_id false
-    end
+    osm_place
+
     place_id { SecureRandom.hex }
     start_date { Date.today }
     end_date { Date.today + 1.day }
+
+    transient do
+      must_be_valid_place_id false
+    end
 
     after(:create) do |place, evaluator|
       place.place_id = "ChIJj9dEC-9YdhwRTDw4wzsEnt4" if evaluator.must_be_valid_place_id

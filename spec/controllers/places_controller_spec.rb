@@ -1,51 +1,61 @@
 require 'rails_helper'
 
-vcr_options = { cassette_name: "GooglePlaceService/get_details/given_a_valid_place_id/should_return_the_place_details" }
-describe PlacesController, type: :controller do
-  render_views
-  let(:trip) { FactoryBot.create(:trip_with_places, places_count: 1)}
+RSpec.describe PlacesController, type: :controller do
+  let(:user_with_trip) { FactoryBot.create(:user_with_trips, trips_count: 1, places_count: 2)}
+  let(:trip) { user_with_trip.trips.first }
   let(:place) { trip.places.first }
+
   before do
-    place.place_id = 'ChIJj9dEC-9YdhwRTDw4wzsEnt4'
-    place.save
+    sign_in user_with_trip
   end
 
-  describe "#show", vcr: vcr_options do
-    context "when requesting JSON" do
-      it 'should return json details' do
-        get :show, params: { id: place.id }, format: :json
-        expect(response.content_type).to eq "application/json"
-        expected_name = JSON.parse(response.body)["result"]["name"]
-        expect(expected_name).to eq "Swakopmund"
-      end
-    end
-
-    it 'should render place' do
+  describe "GET #show" do
+    it "returns http success" do
       get :show, params: { id: place.id }
-      expect(response.content_type).to eq "text/html"
       expect(response).to be_successful
-      expect(response.body).to match /Swakopmund/
     end
   end
 
-  describe "#edit", vcr: vcr_options do
-    it 'should render place edit page' do
+  describe "GET #edit" do
+    it "returns http success" do
       get :edit, params: { id: place.id }
-      expect(response.content_type).to eq "text/html"
       expect(response).to be_successful
-      expect(response.body).to match /Swakopmund/
     end
   end
 
-  describe "#update" do
-    it 'should allow a user to edit an existing place' do
-      trip = FactoryBot.create(:trip_with_places, places_count: 1)
-      existing_place = trip.places.first
-      patch :update, params: { id: existing_place.id, place: { note: "What a great trip!", start_date: Date.today, end_date: Date.today + 1.day } }
-      expect(response.content_type).to eq "text/html"
-      expect(Place.find(existing_place.id).note).to eq("What a great trip!")
-      expect(Place.find(existing_place.id).start_date).to eq(Date.today)
-      expect(Place.find(existing_place.id).end_date).to eq(Date.today + 1.day)
+  describe "POST #update" do
+    it "updates the place" do
+      new_note = "update it"
+      put :update, params: { id: place.id, place: { note: new_note } }
+      expect(response).to redirect_to action: :show, id: place.id
+      place.reload
+      expect(place.note).to eq new_note
+    end
+  end
+
+  describe "GET #new" do
+    it "returns http success" do
+      get :new, params: { trip_id: trip.id }
+      expect(response).to be_successful
+    end
+  end
+
+  describe "POST #create" do
+    it "creates and redirects" do
+      expect {
+        post :create, params: { place: { note: "yay" }, trip_id: trip.id }
+      }.to change { trip.places.count }.by(1)
+      expect(response).to redirect_to action: :show, id: trip.places.last.id
+      expect(trip.places.pluck(:note)).to include("yay")
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "returns http success" do
+      expect {
+        delete :destroy, params: { id: place.id }
+      }.to change { trip.places.count }.by(-1)
+      expect(response).to redirect_to trip_path(trip)
     end
   end
 end
