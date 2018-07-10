@@ -417,6 +417,13 @@ CREATE UNIQUE INDEX index_active_storage_blobs_on_key ON public.active_storage_b
 
 
 --
+-- Name: index_osm_places_on_osm_id_and_osm_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_osm_places_on_osm_id_and_osm_type ON public.osm_places USING btree (osm_id, osm_type);
+
+
+--
 -- Name: index_places_on_osm_place_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -503,6 +510,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180702020911'),
 ('20180702021329'),
 ('20180704203532'),
-('20180704214210');
+('20180704214210'),
+('20180709004717');
 
 
