@@ -28,6 +28,15 @@ class PlacesController < ApplicationController
 
   def create
     @place = @trip.places.new(place_params)
+
+    if params[:place][:osm_id]
+      osm_place = OsmPlace.find_or_create_by(osm_id: params[:place][:osm_id],
+                                                 osm_type: params[:place][:osm_type])
+
+      osm_place.update_attribute('display_name', params[:place][:osm_display_name])
+      @place.osm_place = osm_place
+    end
+
     respond_to do |format|
       if @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }

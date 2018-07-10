@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://open.mapquestapi.com/nominatim/v1/search.php?addressdetails=1&format=json&key=my-secret-key&q=Busch%20Stadium%20St%20Louis
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 10 Jul 2018 02:24:35 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) PHP/5.4.16
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+      X-Powered-By:
+      - PHP/5.4.16
+      Content-Length:
+      - '676'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOiIxODc3MjYzMjYiLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOlwvXC93d3cub3BlbnN0cmVldG1hcC5vcmdcL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOiIyNTExOTU1IiwiYm91bmRpbmdib3giOlsiMzguNjIxMzUzOSIsIjM4LjYyMzc0NTgiLCItOTAuMTk0NDY4MiIsIi05MC4xOTEyNjAyIl0sImxhdCI6IjM4LjYyMjUyNzA1IiwibG9uIjoiLTkwLjE5MzkzMjg1Mzg5OTEiLCJkaXNwbGF5X25hbWUiOiJCdXNjaCBTdGFkaXVtLCBTb3V0aCA4dGggU3RyZWV0LCBTdC4gTG91aXMsIENpdHkgb2YgU3QuIExvdWlzLCBNaXNzb3VyaSwgNjMxMDIsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoibGVpc3VyZSIsInR5cGUiOiJzdGFkaXVtIiwiaW1wb3J0YW5jZSI6MC41MDg1ODg0NjI3OTcsImFkZHJlc3MiOnsic3RhZGl1bSI6IkJ1c2NoIFN0YWRpdW0iLCJyb2FkIjoiU291dGggOHRoIFN0cmVldCIsImNpdHkiOiJTdC4gTG91aXMiLCJjb3VudHkiOiJDaXR5IG9mIFN0LiBMb3VpcyIsInN0YXRlIjoiTWlzc291cmkiLCJwb3N0Y29kZSI6IjYzMTAyIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19XQ==
+    http_version:
+  recorded_at: Tue, 10 Jul 2018 02:24:35 GMT
+recorded_with: VCR 4.0.0

@@ -7,14 +7,12 @@ RSpec.describe MapquestSearchController, type: :controller do
     sign_in user_with_trip
   end
 
-  describe "GET #create" do
+  describe "GET #index" do
     it "returns http success", :vcr do
-      get :index, params: { q: 'Tower Grove Park' }, format: :json
+      get :index, params: { q: 'Tower Grove Park' }, xhr: true
 
       expect(response).to be_successful
-      expect(response.content_type).to eq "application/json"
-      parsed_response = JSON.parse(response.body, symbolize_names: true)
-      expect(parsed_response[:results].length).to be(3)
+      expect(response.content_type).to eq "text/javascript"
     end
   end
 end

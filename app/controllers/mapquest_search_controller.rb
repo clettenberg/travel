@@ -4,7 +4,6 @@ class MapquestSearchController < ApplicationController
 
   def index
     mapquest = MapquestService.new
-    results = mapquest.search(params[:q])
-    render json: { results: results }
+    @places = mapquest.search(params[:q])
   end
 end

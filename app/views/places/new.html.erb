@@ -1,2 +1,9 @@
 <h1>Add a Place</h1>
+
+<%= form_with url: mapquest_search_path, method: :get, class: "mapquest-search" do |form| %>
+  <%= form.text_field :q, class: "form-control", placeholder: "Search Open Street Maps" %>
+<% end %>
+
+<div class="mapquest-search-results-wrapper"></div>
+
 <%= render 'form', trip: @trip, place: @place %>
