@@ -14,7 +14,11 @@
   <h5><%= date.strftime("%b %e, %Y") %></h5>
   <div class="card-deck">
     <% places.each do |place| %>
-      <p><%= link_to "Place #{place.id}", place_path(place) %></p>
+      <div class="card">
+        <div class="card-body">
+          <%= link_to "Place #{place.id}", place_path(place), class: 'card-link' %>
+        </div>
+      </div>
     <% end %>
   </div>
   <br>
@@ -22,14 +26,11 @@
 
 <hr>
 <div class="card-deck">
-  <ul class="list-group">
-    <% @trip.places.where(start_date: nil).each do |place| %>
-    <li class="list-group-item">
-      <%= link_to "Place #{place.id}", place_path(place) %>
-    </li>
-    <% end %>
-  </ul>
-
-
-
+  <% @trip.places.where(start_date: nil).each do |place| %>
+    <div class="card">
+      <div class="card-body">
+        <%= link_to "Place #{place.id}", place_path(place), class: 'card-link' %>
+      </div>
+    </div>
+  <% end %>
 </div>
