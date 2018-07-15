@@ -60,5 +60,14 @@ describe MapquestService do
         )
       end
     end
+
+    context "with an invalid osm_id" do
+      it 'returns an error' do
+        result = subject.reverse(osm_id: 1234, osm_type: 'way')
+        expect(result).to eq({
+          error: "Unable to geocode"
+        })
+      end
+    end
   end
 end
