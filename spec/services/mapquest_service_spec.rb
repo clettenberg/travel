@@ -4,9 +4,8 @@ describe MapquestService do
   describe 'search', :vcr do
     let(:subject) { described_class.new }
     context 'returns results' do
-      let(:results) { subject.search('Tower Grove Park') }
-
       it "should return the search results" do
+        results = subject.search('Tower Grove Park')
         expect(results.length).to be(3)
         expect(results.first.keys).to contain_exactly(:place_id,
                                                       :licence,
@@ -21,6 +20,13 @@ describe MapquestService do
                                                       :importance,
                                                       :address)
 
+      end
+    end
+
+    context "when there are not search results" do
+      it 'returns an empty array' do
+        results = subject.search('sdklfjsdklfjskdlfjsdlkfj')
+        expect(results).to match([])
       end
     end
   end
