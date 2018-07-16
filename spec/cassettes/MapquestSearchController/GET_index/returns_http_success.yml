@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://open.mapquestapi.com/nominatim/v1/search.php?addressdetails=1&format=json&key=my-secret-key&q=Tower%20Grove%20Park
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 09 Jul 2018 00:55:31 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) PHP/5.4.16
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+      X-Powered-By:
+      - PHP/5.4.16
+      Content-Length:
+      - '1906'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOiIxNjgwMDYyNjgiLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOlwvXC93d3cub3BlbnN0cmVldG1hcC5vcmdcL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjoiNDM5ODE1MzY4IiwiYm91bmRpbmdib3giOlsiMzguNjAyOTUwNyIsIjM4LjYwOTY4NjIiLCItOTAuMjY5MDM0NyIsIi05MC4yNDE1NjI4Il0sImxhdCI6IjM4LjYwNjI4MDA1IiwibG9uIjoiLTkwLjI1NTI5OTAxMTY2MTciLCJkaXNwbGF5X25hbWUiOiJUb3dlciBHcm92ZSBQYXJrLCBUb3dlciBHcm92ZSBTb3V0aCwgU3QuIExvdWlzLCBDaXR5IG9mIFN0LiBMb3VpcywgTWlzc291cmksIDYzMTExLCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjbGFzcyI6ImxlaXN1cmUiLCJ0eXBlIjoicGFyayIsImltcG9ydGFuY2UiOjAuMzM3NSwiYWRkcmVzcyI6eyJwYXJrIjoiVG93ZXIgR3JvdmUgUGFyayIsIm5laWdoYm91cmhvb2QiOiJUb3dlciBHcm92ZSBTb3V0aCIsImNpdHkiOiJTdC4gTG91aXMiLCJjb3VudHkiOiJDaXR5IG9mIFN0LiBMb3VpcyIsInN0YXRlIjoiTWlzc291cmkiLCJwb3N0Y29kZSI6IjYzMTExIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19LHsicGxhY2VfaWQiOiIyNDkyMzIzIiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvd3d3Lm9wZW5zdHJlZXRtYXAub3JnXC9jb3B5cmlnaHQiLCJvc21fdHlwZSI6Im5vZGUiLCJvc21faWQiOiIzNTQyMjUyOTYiLCJib3VuZGluZ2JveCI6WyIzOS4yNzMzMzA5IiwiMzkuMjczNDMwOSIsIi04OS44ODM0ODI4IiwiLTg5Ljg4MzM4MjgiXSwibGF0IjoiMzkuMjczMzgwOSIsImxvbiI6Ii04OS44ODM0MzI4IiwiZGlzcGxheV9uYW1lIjoiVG93ZXIgR3JvdmUgUGFyaywgQ2FybGludmlsbGUsIE1hY291cGluIENvdW50eSwgSWxsaW5vaXMsIDYyNjI2LCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjbGFzcyI6ImxlaXN1cmUiLCJ0eXBlIjoicGFyayIsImltcG9ydGFuY2UiOjAuMzM3NSwiYWRkcmVzcyI6eyJwYXJrIjoiVG93ZXIgR3JvdmUgUGFyayIsImNpdHkiOiJDYXJsaW52aWxsZSIsImNvdW50eSI6Ik1hY291cGluIENvdW50eSIsInN0YXRlIjoiSWxsaW5vaXMiLCJwb3N0Y29kZSI6IjYyNjI2IiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19LHsicGxhY2VfaWQiOiIxODcyNDQwNjAiLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOlwvXC93d3cub3BlbnN0cmVldG1hcC5vcmdcL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjoiNTYyODc5NTAzIiwiYm91bmRpbmdib3giOlsiMzkuMjczMDkiLCIzOS4yNzQwMTczIiwiLTg5Ljg4NDEyNjEiLCItODkuODgyOTE0MiJdLCJsYXQiOiIzOS4yNzM1NDE5NSIsImxvbiI6Ii04OS44ODM1MjEzMTI2NzQ2IiwiZGlzcGxheV9uYW1lIjoiVG93ZXIgR3JvdmUgUGFyaywgQ2FybGludmlsbGUsIE1hY291cGluIENvdW50eSwgSWxsaW5vaXMsIDYyNjI2LCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjbGFzcyI6ImxlaXN1cmUiLCJ0eXBlIjoicGFyayIsImltcG9ydGFuY2UiOjAuMzM3NSwiYWRkcmVzcyI6eyJwYXJrIjoiVG93ZXIgR3JvdmUgUGFyayIsImNpdHkiOiJDYXJsaW52aWxsZSIsImNvdW50eSI6Ik1hY291cGluIENvdW50eSIsInN0YXRlIjoiSWxsaW5vaXMiLCJwb3N0Y29kZSI6IjYyNjI2IiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19XQ==
+    http_version:
+  recorded_at: Mon, 09 Jul 2018 00:55:32 GMT
+recorded_with: VCR 4.0.0

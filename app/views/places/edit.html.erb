@@ -1,6 +1,2 @@
-<h1>
-  <%= @details.dig("result", "name") %>
-  <%= link_to 'Cancel', place_path(@place), class: 'btn btn-secondary btn-sm' %>
-</h1>
-
-<%= render 'form', place: @place %>
+<h1>Edit</h1>
+<%= render 'form', trip: @trip, place: @place %>

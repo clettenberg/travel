@@ -22,6 +22,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: postgis; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION postgis; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial types and functions';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -107,19 +121,58 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
+-- Name: osm_places; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.osm_places (
+    id bigint NOT NULL,
+    osm_api_place_id character varying,
+    osm_type character varying,
+    osm_id character varying,
+    boundingbox public.geometry,
+    lonlat public.geography(Point,4326),
+    display_name text,
+    osm_class character varying,
+    type character varying,
+    importance numeric,
+    address jsonb DEFAULT '"{}"'::jsonb NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: osm_places_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.osm_places_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: osm_places_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.osm_places_id_seq OWNED BY public.osm_places.id;
+
+
+--
 -- Name: places; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.places (
     id bigint NOT NULL,
-    place_id character varying,
     trip_id bigint,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     note text,
-    query text,
     start_date date,
-    end_date date
+    end_date date,
+    osm_place_id bigint
 );
 
 
@@ -251,6 +304,13 @@ ALTER TABLE ONLY public.active_storage_blobs ALTER COLUMN id SET DEFAULT nextval
 
 
 --
+-- Name: osm_places id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.osm_places ALTER COLUMN id SET DEFAULT nextval('public.osm_places_id_seq'::regclass);
+
+
+--
 -- Name: places id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -293,6 +353,14 @@ ALTER TABLE ONLY public.active_storage_blobs
 
 ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: osm_places osm_places_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.osm_places
+    ADD CONSTRAINT osm_places_pkey PRIMARY KEY (id);
 
 
 --
@@ -349,6 +417,20 @@ CREATE UNIQUE INDEX index_active_storage_blobs_on_key ON public.active_storage_b
 
 
 --
+-- Name: index_osm_places_on_osm_id_and_osm_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_osm_places_on_osm_id_and_osm_type ON public.osm_places USING btree (osm_id, osm_type);
+
+
+--
+-- Name: index_places_on_osm_place_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_places_on_osm_place_id ON public.places USING btree (osm_place_id);
+
+
+--
 -- Name: index_places_on_trip_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -392,6 +474,14 @@ ALTER TABLE ONLY public.places
 
 
 --
+-- Name: places fk_rails_5abc9a3661; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.places
+    ADD CONSTRAINT fk_rails_5abc9a3661 FOREIGN KEY (osm_place_id) REFERENCES public.osm_places(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -414,6 +504,13 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180429214210'),
 ('20180527005453'),
 ('20180529005722'),
-('20180601005604');
+('20180601005604'),
+('20180702013728'),
+('20180702020836'),
+('20180702020911'),
+('20180702021329'),
+('20180704203532'),
+('20180704214210'),
+('20180709004717');
 
 

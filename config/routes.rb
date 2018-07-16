@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
+  get 'mapquest_search/create'
   devise_for :users
   root "home#index"
-  resources :trips
 
-  post '/trips/:id/places', to: "trip_places#add_place"
-  delete '/trips/:id/places/:place_id', to: "trip_places#delete_place"
+  resources :trips do
+    resources :places, only: [:new, :create]
+  end
+  resources :places, only: [:show, :edit, :update, :destroy]
 
-  get '/places/:id', to: 'places#show', as: 'place'
-  patch '/places/:id', to: 'places#update'
-  get '/places/:id/edit', to: 'places#edit', as: 'edit_place'
-
-  get '/google-places/:place_id', to: 'google_places#show', as: 'google_place'
+  get 'search', to: 'mapquest_search#index', as: 'mapquest_search'
 end

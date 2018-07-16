@@ -1,36 +1,31 @@
 require 'rails_helper'
 
-feature 'places', js: true do
-  let(:user) { FactoryBot.create(:user_with_trips, trips_count: 2) }
+describe 'places', type: :feature, js: true do
+  let!(:user) { FactoryBot.create(:user_with_trips, trips_count: 1) }
+  let(:trip) { user.trips.first}
   before do
     login_as(user, scope: :user, run_callbacks: false)
   end
 
-  describe 'User wants to see Place details' do
-    it 'displays place name' do
-      allow(GooglePlaceService).to receive(:get_details).and_return({"result" => {"name" => 'Two Hands'} })
+  describe "index" do
+    it "displays a trips index" do
+      visit "/trips/#{trip.id}"
+      expect(page).to have_content(trip.title)
 
-      visit trip_path(user.trips.first)
-      expect(page).to have_content("Two Hands")
-      click_on "Two Hands", match: :first
-      expect(page).to have_content("Two Hands")
+      click_link "Place #{trip.places.first.id}"
+      expect(page).to have_content("Place")
     end
-  end
 
-  xdescribe 'User wants to mange Notes' do
-    it 'allows creating a note' do
-      allow(GooglePlaceService).to receive(:get_details).and_return({"result" => {"name" => 'Two Hands'} })
+    it "allows a user to add a new place to a trip", :vcr do
+      visit "/trips/#{trip.id}/places/new"
 
-      visit place_path(user.trips.first.places.first)
-      expect(page).to have_content("Two Hands")
+      find("#q").set("Busch Stadium St Louis\n")
+      expect(page).to have_css('.mapquest-search-results')
 
-      click_on "Edit"
-      find(:css, "trix-editor").click.set("What a great trip!")
-
-      click_on "Update Place"
-
-      expect(page).to have_content("Two Hands")
-      expect(page).to have_content("What a great trip!")
+      find(".mapquest-search-results", text: "Busch Stadium, South 8th Street").click
+      click_on "Create Place"
+      expect(page).to have_content("Place was successfully created")
+      expect(page).to have_content("Busch Stadium, South 8th Street")
     end
   end
 end

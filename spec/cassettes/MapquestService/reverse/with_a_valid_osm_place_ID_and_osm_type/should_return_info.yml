@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://open.mapquestapi.com/nominatim/v1/reverse.php?format=json&key=my-secret-key&osm_id=26996903&osm_type=W
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 15 Jul 2018 02:42:21 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) PHP/5.4.16
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+      X-Powered-By:
+      - PHP/5.4.16
+      Content-Length:
+      - '591'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJwbGFjZV9pZCI6Ijc4MzU0ODY4IiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvb3NtLm9yZ1wvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOiIyNjk5NjkwMyIsImxhdCI6IjUxLjUyMTc4MDUiLCJsb24iOiItMC4xNjI4MjQwNTkxMzA4NzYiLCJkaXNwbGF5X25hbWUiOiJUaGUgTGFuZG1hcmssIE1lbGNvbWJlIFBsYWNlLCBNYXJ5bGVib25lLCBDaXR5IG9mIFdlc3RtaW5zdGVyLCBMb25kb24sIEdyZWF0ZXIgTG9uZG9uLCBFbmdsYW5kLCBOVzEgNkpSLCBVSyIsImFkZHJlc3MiOnsiaG90ZWwiOiJUaGUgTGFuZG1hcmsiLCJyb2FkIjoiTWVsY29tYmUgUGxhY2UiLCJzdWJ1cmIiOiJNYXJ5bGVib25lIiwiY2l0eSI6IkxvbmRvbiIsInN0YXRlX2Rpc3RyaWN0IjoiR3JlYXRlciBMb25kb24iLCJzdGF0ZSI6IkVuZ2xhbmQiLCJwb3N0Y29kZSI6Ik5XMSA2SlIiLCJjb3VudHJ5IjoiVUsiLCJjb3VudHJ5X2NvZGUiOiJnYiJ9LCJib3VuZGluZ2JveCI6WyI1MS41MjEzODUzIiwiNTEuNTIyMjA0NiIsIi0wLjE2MzUyNjMiLCItMC4xNjIxODcxIl19
+    http_version:
+  recorded_at: Sun, 15 Jul 2018 02:42:21 GMT
+recorded_with: VCR 4.0.0

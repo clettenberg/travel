@@ -11,7 +11,7 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: travel-test-user
           RAILS_ENV: test
-      - image: circleci/postgres:9.6-alpine
+      - image: circleci/postgres:9.6-alpine-postgis
         environment:
           POSTGRES_USER: travel-test-user
           POSTGRES_DB: travel_test

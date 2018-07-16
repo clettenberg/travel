@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'trips' do
-  describe 'index' do
+  describe 'index', js: true do
     describe 'see existing trips' do
       let!(:user) { FactoryBot.create(:user_with_trips, trips_count: 2) }
 
