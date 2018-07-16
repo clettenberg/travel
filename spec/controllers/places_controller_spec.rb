@@ -51,6 +51,10 @@ RSpec.describe PlacesController, type: :controller do
 
 
     context "When user selects an Open Street Maps place" do
+      before do
+        allow_any_instance_of(OsmPlace).to receive(:sync).and_return(true)
+      end
+
       context "and the OSM place has never been added to Trips" do
         it "creates an OsmPlace" do
           expect {
@@ -60,7 +64,7 @@ RSpec.describe PlacesController, type: :controller do
           expect(response).to redirect_to action: :show, id: place.id
           expect(place.osm_place.osm_id).to eq("123456")
           expect(place.osm_place.osm_type).to eq("node")
-          expect(place.osm_place.display_name).to eq("Cool Place")
+
         end
       end
 
@@ -71,16 +75,11 @@ RSpec.describe PlacesController, type: :controller do
             post :create, params: { place: { note: "yay", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
           }.to change { OsmPlace.count }.by(0)
         end
+      end
 
-        context 'if the description has changed' do
-          OsmPlace.delete_all
-          OsmPlace.create(osm_id: "two-times", osm_type: "way", display_name: "First try")
-          it 'updates the description' do
-            post :create, params: { place: { note: "yay", osm_id: "two-times", osm_type: "way", osm_display_name: "Second Try" }, trip_id: trip.id }
-
-            expect(OsmPlace.find_by_osm_id("two-times").display_name).to eq("Second Try")
-          end
-        end
+      it "get's fresh data on OSM place" do
+        expect_any_instance_of(OsmPlace).to receive(:sync)
+        post :create, params: { place: { note: "yay", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
       end
     end
   end

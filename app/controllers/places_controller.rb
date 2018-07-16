@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
       osm_place = OsmPlace.find_or_create_by(osm_id: params[:place][:osm_id],
                                                  osm_type: params[:place][:osm_type])
 
-      osm_place.update_attribute('display_name', params[:place][:osm_display_name])
+      osm_place.sync
       @place.osm_place = osm_place
     end
 
