@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'mapquest_search/create'
-  devise_for :users
+  devise_for :users, skip: :registrations
   root "home#index"
 
   resources :trips do
