@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   get 'mapquest_search/create'
   devise_for :users, skip: :registrations
-  root "home#index"
+
+  devise_scope :user do
+    authenticated :user do
+      root to: redirect('/trips')
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new'
+    end
+  end
 
   resources :trips do
     resources :places, only: [:new, :create]
