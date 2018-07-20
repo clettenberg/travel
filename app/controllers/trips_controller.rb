@@ -39,6 +39,7 @@ class TripsController < ApplicationController
         format.json { render :show, status: :ok, location: @trip }
       else
         format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
     end
