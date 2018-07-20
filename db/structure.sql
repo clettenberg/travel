@@ -172,7 +172,8 @@ CREATE TABLE public.places (
     note text,
     start_date date,
     end_date date,
-    osm_place_id bigint
+    osm_place_id bigint,
+    name character varying NOT NULL
 );
 
 
@@ -210,7 +211,7 @@ CREATE TABLE public.schema_migrations (
 
 CREATE TABLE public.trips (
     id bigint NOT NULL,
-    title character varying,
+    title character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -511,6 +512,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180702021329'),
 ('20180704203532'),
 ('20180704214210'),
-('20180709004717');
+('20180709004717'),
+('20180720012618'),
+('20180720020548');
 
 

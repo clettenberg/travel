@@ -26,10 +26,12 @@ RSpec.describe PlacesController, type: :controller do
   describe "POST #update" do
     it "updates the place" do
       new_note = "update it"
-      put :update, params: { id: place.id, place: { note: new_note } }
+      new_name = "updated place"
+      put :update, params: { id: place.id, place: { note: new_note, name: new_name } }
       expect(response).to redirect_to action: :show, id: place.id
       place.reload
       expect(place.note).to eq new_note
+      expect(place.name).to eq new_name
     end
   end
 
@@ -43,10 +45,11 @@ RSpec.describe PlacesController, type: :controller do
   describe "POST #create" do
     it "creates and redirects" do
       expect {
-        post :create, params: { place: { note: "yay" }, trip_id: trip.id }
+        post :create, params: { place: { note: "yay", name: "awesome place" }, trip_id: trip.id }
       }.to change { trip.places.count }.by(1)
       expect(response).to redirect_to action: :show, id: trip.places.last.id
       expect(trip.places.pluck(:note)).to include("yay")
+      expect(trip.places.pluck(:name)).to include("awesome place")
     end
 
 
@@ -58,7 +61,7 @@ RSpec.describe PlacesController, type: :controller do
       context "and the OSM place has never been added to Trips" do
         it "creates an OsmPlace" do
           expect {
-          post :create, params: { place: { note: "yay", osm_id: "123456", osm_type: "node", osm_display_name: "Cool Place" }, trip_id: trip.id }
+          post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "123456", osm_type: "node", osm_display_name: "Cool Place" }, trip_id: trip.id }
           }.to change { OsmPlace.count }.by(1)
           place = trip.places.last
           expect(response).to redirect_to action: :show, id: place.id
@@ -72,14 +75,14 @@ RSpec.describe PlacesController, type: :controller do
         it 'does not create an OsmPlace' do
           OsmPlace.create(osm_id: "1234", osm_type: "way", display_name: "First try")
           expect {
-            post :create, params: { place: { note: "yay", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
+            post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
           }.to change { OsmPlace.count }.by(0)
         end
       end
 
       it "get's fresh data on OSM place" do
         expect_any_instance_of(OsmPlace).to receive(:sync)
-        post :create, params: { place: { note: "yay", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
+        post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
       end
     end
   end
