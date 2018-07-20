@@ -29,7 +29,7 @@ class PlacesController < ApplicationController
   def create
     @place = @trip.places.new(place_params)
 
-    if params[:place][:osm_id]
+    if params[:place][:osm_id].present?
       osm_place = OsmPlace.find_or_create_by(osm_id: params[:place][:osm_id],
                                                  osm_type: params[:place][:osm_type])
 
