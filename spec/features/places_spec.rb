@@ -12,8 +12,8 @@ describe 'places', type: :feature, js: true do
       visit "/trips/#{trip.id}"
       expect(page).to have_content(trip.title)
 
-      click_link "Place #{trip.places.first.id}"
-      expect(page).to have_content("Place")
+      click_link trip.places.first.name
+      expect(page).to have_content(trip.places.first.name)
     end
 
     it "allows a user to add a new place to a trip", :vcr do
@@ -25,7 +25,7 @@ describe 'places', type: :feature, js: true do
       find(".mapquest-search-results", text: "Busch Stadium, South 8th Street").click
       click_on "Create Place"
       expect(page).to have_content("Place was successfully created")
-      expect(page).to have_content("Busch Stadium, South 8th Street")
+      expect(page).to have_content("Busch Stadium")
     end
   end
 end
