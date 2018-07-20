@@ -43,6 +43,7 @@ class PlacesController < ApplicationController
         format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new }
+        format.js { render :new }
         format.json { render json: @place.errors, status: :unprocessable_entity }
       end
     end
