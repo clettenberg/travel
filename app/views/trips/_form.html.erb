@@ -17,12 +17,6 @@
     </div>
   </div>
 
-
-  <% if trip.id %>
-    <h3>Places</h3>
-    <%= react_component("PlacesForm", { places: PlaceSerializer.new(trip.places), tripId: trip.id, csrfToken: form_authenticity_token }) %>
-  <% end %>
-
   <div class="form-group">
     <div class="actions form-group">
       <%= form.submit class: "btn btn-primary form-control" %>
