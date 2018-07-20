@@ -12,6 +12,7 @@ selectPlace = (e) ->
   $("#new_place_form #place_osm_id").val(osmId)
   $("#new_place_form #place_osm_type").val(osmType)
   $("#new_place_form #place_osm_display_name").val(osmDisplayName)
+  $("#new_place_form #place_name").val(osmDisplayName.split(',')[0])
 
 addSelectPlaceOnClickEvent = (element) ->
   $(element).on('click', selectPlace)

@@ -2,7 +2,7 @@ class Trip < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :places, dependent: :destroy
 
-  validates_presence_of :title
+  validates_presence_of :title, messsage: "can't be blank"
 
   def start_date
     places.where.not(start_date: nil).order(start_date: :desc).pluck(:start_date).first
