@@ -9,7 +9,13 @@
 <hr>
 
 <div class="trix-content">
-  <%= raw(@place.note) %>
+  <% if @place.note.present? %>
+    <%= raw(@place.note) %>
+  <% else %>
+    <p class="text-secondary font-weight-light font-italic">
+      No note yet. <%= link_to "Add one!", edit_place_path(@place) %>
+    </p>
+  <% end %>
 </div>
 
 <%= link_to trip_path(@place.trip), class: 'btn btn-primary btn-sm' do %>
