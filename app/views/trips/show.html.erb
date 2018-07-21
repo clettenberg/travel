@@ -10,7 +10,10 @@
   <%= [@trip.start_date&.strftime("%b %e, %Y"), @trip.end_date&.strftime("%b %e, %Y")].compact.join(' - ') %>
 </p>
 
-<% @trip.places.where.not(start_date: nil).group_by(&:start_date).each do |date, places| %>
+<% @trip.places.where.not(start_date: nil)
+                     .order(start_date: :asc)
+                     .group_by(&:start_date).each do |date, places| %>
+
   <h5><%= date.strftime("%b %e, %Y") %></h5>
   <div class="card-deck">
     <% places.each do |place| %>

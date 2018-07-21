@@ -5,7 +5,7 @@ class Trip < ApplicationRecord
   validates_presence_of :title, messsage: "can't be blank"
 
   def start_date
-    places.where.not(start_date: nil).order(start_date: :desc).pluck(:start_date).first
+    places.where.not(start_date: nil).order(start_date: :asc).pluck(:start_date).first
   end
 
   def end_date
