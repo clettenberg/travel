@@ -2,7 +2,7 @@
   <%= @place.name %>
 </h1>
 <h6>
-  <%= @place.start_date&.strftime('%A, %d %b %Y') %> - <%= @place.end_date&.strftime('%A, %d %b %Y') %>
+  <%= [@place.start_date&.strftime('%A, %d %b %Y'), @place.end_date&.strftime('%A, %d %b %Y')].compact.join(' - ') %>
   <%= link_to "Edit", edit_place_path(@place), class: "btn btn-primary btn-sm" %>
 </h6>
 
