@@ -14,5 +14,7 @@
   <br />
 <% end %>
 
-<h3>Trips without dates</h3>
-<%= render partial: "list_group", locals: { models: @trips.select { |trip| trip.start_date.nil? } } %>
+<% if @trips.select { |trip| trip.start_date.nil? }.any? %>
+  <h3>Trips without dates</h3>
+  <%= render partial: "list_group", locals: { models: @trips.select { |trip| trip.start_date.nil? } } %>
+<% end %>
