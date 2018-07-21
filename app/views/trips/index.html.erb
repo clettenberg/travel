@@ -10,9 +10,9 @@
 
 <% @trips.select { |trip| trip.start_date.present? }.group_by(&:start_date).each do |date, trips| %>
   <h3><%= date.strftime("%B %Y") %></h3>
-  <%= render partial: "trips_list_group", locals: { trips: trips } %>
+  <%= render partial: "list_group", locals: { models: trips } %>
   <br />
 <% end %>
 
 <h3>Trips without dates</h3>
-<%= render partial: "trips_list_group", locals: { trips: @trips.select { |trip| trip.start_date.nil? } } %>
+<%= render partial: "list_group", locals: { models: @trips.select { |trip| trip.start_date.nil? } } %>

@@ -10,10 +10,8 @@ feature 'trips' do
 
         visit "/trips"
         expect(page).to have_content("Trips")
-        within('.list-group') do
-          user.trips.each do |trip|
-            expect(page).to have_content(trip.title)
-          end
+        user.trips.each do |trip|
+          expect(page).to have_content(trip.title)
         end
       end
     end

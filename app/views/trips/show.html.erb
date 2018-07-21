@@ -15,19 +15,11 @@
                      .group_by(&:start_date).each do |date, places| %>
 
   <h5><%= date.strftime("%b %e, %Y") %></h5>
-  <div class="card-deck">
-    <% places.each do |place| %>
-      <%= render partial: 'place_card', locals: { place: place } %>
-    <% end %>
-  </div>
+  <%= render partial: "list_group", locals: { models: places } %>
   <br>
 <% end %>
 
 <% if @trip.places.where(start_date: nil).any? %>
   <hr>
-  <div class="card-deck">
-    <% @trip.places.where(start_date: nil).each do |place| %>
-      <%= render partial: 'place_card', locals: { place: place } %>
-    <% end %>
-  </div>
+  <%= render partial: "list_group", locals: { models: @trip.places.where(start_date: nil) } %>
 <% end %>
