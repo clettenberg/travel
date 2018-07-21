@@ -23,9 +23,11 @@
   <br>
 <% end %>
 
-<hr>
-<div class="card-deck">
-  <% @trip.places.where(start_date: nil).each do |place| %>
-    <%= render partial: 'place_card', locals: { place: place } %>
-  <% end %>
-</div>
+<% if @trip.places.where(start_date: nil).any? %>
+  <hr>
+  <div class="card-deck">
+    <% @trip.places.where(start_date: nil).each do |place| %>
+      <%= render partial: 'place_card', locals: { place: place } %>
+    <% end %>
+  </div>
+<% end %>
