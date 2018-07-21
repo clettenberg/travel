@@ -8,7 +8,8 @@
 
 <br>
 
-<% @trips.select { |trip| trip.start_date.present? }.group_by(&:start_date).each do |date, trips| %>
+<% @trips.select { |trip| trip.start_date.present? }
+         .group_by(&:start_date).sort.reverse.to_h.each do |date, trips| %>
   <h3><%= date.strftime("%B %Y") %></h3>
   <%= render partial: "list_group", locals: { models: trips } %>
   <br />
