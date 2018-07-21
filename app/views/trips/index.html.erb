@@ -8,17 +8,11 @@
 
 <br>
 
-<div class="list-group">
-  <% @trips.group_by(&:start_date).each do |date, trips| %>
-    <h3><%= date.strftime("%B %Y") %></h3>
-    <% trips.each do |trip| %>
-      <%= link_to trip, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
-        <h5 class="mb-1"><%= trip.title %></h5>
-        <small>
-          <%= [trip.start_date&.strftime("%b %e, %Y"), trip.end_date&.strftime("%b %e, %Y")].compact.join(' - ') %>
-        </small>
-      <% end %>
-    <% end %>
-    <br />
-  <% end %>
-</div>
+<% @trips.select { |trip| trip.start_date.present? }.group_by(&:start_date).each do |date, trips| %>
+  <h3><%= date.strftime("%B %Y") %></h3>
+  <%= render partial: "trips_list_group", locals: { trips: trips } %>
+  <br />
+<% end %>
+
+<h3>Trips without dates</h3>
+<%= render partial: "trips_list_group", locals: { trips: @trips.select { |trip| trip.start_date.nil? } } %>
