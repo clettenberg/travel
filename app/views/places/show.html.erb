@@ -11,3 +11,7 @@
 <div class="trix-content">
   <%= raw(@place.note) %>
 </div>
+
+<%= link_to trip_path(@place.trip), class: 'btn btn-primary btn-sm' do %>
+  <i class='far fa-arrow-alt-circle-left'></i> <%= @place.trip.title %>
+<% end %>
