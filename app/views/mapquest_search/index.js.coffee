@@ -9,10 +9,14 @@ selectPlace = (e) ->
   osmType = $place.data('osmType')
   osmDisplayName = $place.data('osmDisplayName')
 
-  $("#new_place_form #place_osm_id").val(osmId)
-  $("#new_place_form #place_osm_type").val(osmType)
-  $("#new_place_form #place_osm_display_name").val(osmDisplayName)
-  $("#new_place_form #place_name").val(osmDisplayName.split(',')[0])
+  $newPlaceForm = $("#new_place_form")
+  $newPlaceForm.find("#place_osm_id").val(osmId)
+  $newPlaceForm.find("#place_osm_type").val(osmType)
+  $newPlaceForm.find("#place_osm_display_name").val(osmDisplayName)
+
+  $editablePlaceName = $newPlaceForm.find("#place_name")
+  unless $editablePlaceName.val()
+    $editablePlaceName.val(osmDisplayName.split(',')[0])
 
 addSelectPlaceOnClickEvent = (element) ->
   $(element).on('click', selectPlace)
