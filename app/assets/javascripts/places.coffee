@@ -14,3 +14,12 @@ document.addEventListener "turbolinks:load", ->
                         </div>
                        """
     $('.mapquest-search-results-wrapper').html loadingIndicator
+
+clearNewPlaceForm = ->
+  $(".mapquest-search-results").remove()
+  $(":input", ".mapquest-search").val('')
+  $(":input", "#new_place_form").val('')
+  $("trix-editor", "#new_place_form").val('')
+
+document.addEventListener "turbolinks:before-cache", ->
+  clearNewPlaceForm()
