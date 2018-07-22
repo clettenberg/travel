@@ -5,7 +5,7 @@ FactoryBot.define do
 
   factory :place do
     osm_place
-    name { FFaker::Lorem.word }
+    name { FFaker::Lorem.street_name }
     note { FFaker::HTMLIpsum.fancy_string }
     start_date { Date.today }
     end_date { Date.today + 1.day }
