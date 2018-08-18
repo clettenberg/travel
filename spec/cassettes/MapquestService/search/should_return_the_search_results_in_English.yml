@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://open.mapquestapi.com/nominatim/v1/search.php?accept-language=en-US,en%3Bq=0.9&addressdetails=1&format=jsonv2&key=my-secret-key&q=Angkor%20Wat
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 19 Aug 2018 01:11:25 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) PHP/5.4.16
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+      X-Powered-By:
+      - PHP/5.4.16
+      Content-Length:
+      - '2934'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOiI5MTUwMDI3NCIsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6XC9cL29zbS5vcmdcL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjoiOTEyMTc3NjEiLCJib3VuZGluZ2JveCI6WyIxMy40MDg0MzAxIiwiMTMuNDE2NTYyMSIsIjEwMy44NjE0MTMzIiwiMTAzLjg3MTc1NDQiXSwibGF0IjoiMTMuNDEyNDk4OCIsImxvbiI6IjEwMy44NjY1Nzk5NTM3NjUiLCJkaXNwbGF5X25hbWUiOiJBbmdrb3IgV2F0LCBHcmFuZCBDaXJjdWl0IFwvIFBldGl0IENpcmN1aXQsIFNpZW0gUmVhcCwgMTcyOTUsIENhbWJvZGlhIiwicGxhY2VfcmFuayI6IjMwIiwiY2F0ZWdvcnkiOiJ0b3VyaXNtIiwidHlwZSI6ImF0dHJhY3Rpb24iLCJpbXBvcnRhbmNlIjowLjMxNjg2NzI4NjcxMTY4LCJpY29uIjoiaHR0cDpcL1wvaXAtMTAtOTgtMTc4LTMwLm1xLXVzLWVhc3QtMS5lYzIuYW9sY2xvdWQubmV0XC9ub21pbmF0aW1cL2ltYWdlc1wvbWFwaWNvbnNcL3BvaV9wb2ludF9vZl9pbnRlcmVzdC5wLjIwLnBuZyIsImFkZHJlc3MiOnsiYXR0cmFjdGlvbiI6IkFuZ2tvciBXYXQiLCJyb2FkIjoiR3JhbmQgQ2lyY3VpdCBcLyBQZXRpdCBDaXJjdWl0IiwiY2l0eSI6IlNpZW0gUmVhcCIsInN0YXRlIjoiU2llbSBSZWFwIiwicG9zdGNvZGUiOiIxNzI5NSIsImNvdW50cnkiOiJDYW1ib2RpYSIsImNvdW50cnlfY29kZSI6ImtoIn19LHsicGxhY2VfaWQiOiI1NTUwNTkwMiIsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6XC9cL29zbS5vcmdcL2NvcHlyaWdodCIsIm9zbV90eXBlIjoibm9kZSIsIm9zbV9pZCI6IjQ0MTkzNTMzODMiLCJib3VuZGluZ2JveCI6WyI1Mi4yNDEzMjg4IiwiNTIuMjYxMzI4OCIsIjguMDYxNDE0NiIsIjguMDgxNDE0NiJdLCJsYXQiOiI1Mi4yNTEzMjg4IiwibG9uIjoiOC4wNzE0MTQ2IiwiZGlzcGxheV9uYW1lIjoiQW5na29yIFdhdCwgT3NuYWJyw7xjaywgTG93ZXIgU2F4b255LCA0OTA4MiwgR2VybWFueSIsInBsYWNlX3JhbmsiOiIyMCIsImNhdGVnb3J5IjoicGxhY2UiLCJ0eXBlIjoibG9jYWxpdHkiLCJpbXBvcnRhbmNlIjowLjI2MjUsImljb24iOiJodHRwOlwvXC9pcC0xMC05OC0xNzgtMzAubXEtdXMtZWFzdC0xLmVjMi5hb2xjbG91ZC5uZXRcL25vbWluYXRpbVwvaW1hZ2VzXC9tYXBpY29uc1wvcG9pX3BsYWNlX3ZpbGxhZ2UucC4yMC5wbmciLCJhZGRyZXNzIjp7ImxvY2FsaXR5IjoiQW5na29yIFdhdCIsImNpdHkiOiJPc25hYnLDvGNrIiwiY291bnR5IjoiT3NuYWJyw7xjayIsInN0YXRlIjoiTG93ZXIgU2F4b255IiwicG9zdGNvZGUiOiI0OTA4MiIsImNvdW50cnkiOiJHZXJtYW55IiwiY291bnRyeV9jb2RlIjoiZGUifX0seyJwbGFjZV9pZCI6IjEyNTQ3OTA4MiIsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6XC9cL29zbS5vcmdcL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjoiMjIxNjg4ODU5IiwiYm91bmRpbmdib3giOlsiLTM5LjQ5MTk2NDEiLCItMzkuNDkxODUxNSIsIjE3Ni45MTYwMiIsIjE3Ni45MTYyMjk3Il0sImxhdCI6Ii0zOS40OTE5MDMzNSIsImxvbiI6IjE3Ni45MTYxMjQ4NzE1MjEiLCJkaXNwbGF5X25hbWUiOiJBbmdrb3IgV2F0LCAxMTAsIERpY2tlbnMgU3RyZWV0LCBOYXBpZXIgU291dGgsIE5hcGllciwgTmFwaWVyIENpdHksIEhhd2tlJ3MgQmF5LCA0MDAxLCBOZXcgWmVhbGFuZCIsInBsYWNlX3JhbmsiOiIzMCIsImNhdGVnb3J5IjoiYW1lbml0eSIsInR5cGUiOiJjYWZlIiwiaW1wb3J0YW5jZSI6MC4yMDEsImljb24iOiJodHRwOlwvXC9pcC0xMC05OC0xNzgtMzAubXEtdXMtZWFzdC0xLmVjMi5hb2xjbG91ZC5uZXRcL25vbWluYXRpbVwvaW1hZ2VzXC9tYXBpY29uc1wvZm9vZF9jYWZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjYWZlIjoiQW5na29yIFdhdCIsImhvdXNlX251bWJlciI6IjExMCIsInJvYWQiOiJEaWNrZW5zIFN0cmVldCIsInN1YnVyYiI6Ik5hcGllciBTb3V0aCIsImNpdHkiOiJOYXBpZXIiLCJjb3VudHkiOiJOYXBpZXIgQ2l0eSIsInJlZ2lvbiI6Ikhhd2tlJ3MgQmF5IiwicG9zdGNvZGUiOiI0MDAxIiwiY291bnRyeSI6Ik5ldyBaZWFsYW5kIiwiY291bnRyeV9jb2RlIjoibnoifX0seyJwbGFjZV9pZCI6IjU0ODg1NTU0IiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvb3NtLm9yZ1wvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJub2RlIiwib3NtX2lkIjoiNDQzNjI0MTI3MiIsImJvdW5kaW5nYm94IjpbIjEzLjQxMTQ4ODEiLCIxMy40MTE1ODgxIiwiMTAzLjg2Njg4NDMiLCIxMDMuODY2OTg0MyJdLCJsYXQiOiIxMy40MTE1MzgxIiwibG9uIjoiMTAzLjg2NjkzNDMiLCJkaXNwbGF5X25hbWUiOiJTb3V0aCBHYXRlLCBHcmFuZCBDaXJjdWl0IFwvIFBldGl0IENpcmN1aXQsIFNpZW0gUmVhcCwgMTcyOTUsIENhbWJvZGlhIiwicGxhY2VfcmFuayI6IjMwIiwiY2F0ZWdvcnkiOiJoaXN0b3JpYyIsInR5cGUiOiJtb251bWVudCIsImltcG9ydGFuY2UiOjAuMDAxLCJpY29uIjoiaHR0cDpcL1wvaXAtMTAtOTgtMTc4LTMwLm1xLXVzLWVhc3QtMS5lYzIuYW9sY2xvdWQubmV0XC9ub21pbmF0aW1cL2ltYWdlc1wvbWFwaWNvbnNcL3RvdXJpc3RfbW9udW1lbnQucC4yMC5wbmciLCJhZGRyZXNzIjp7Im1vbnVtZW50IjoiU291dGggR2F0ZSIsInJvYWQiOiJHcmFuZCBDaXJjdWl0IFwvIFBldGl0IENpcmN1aXQiLCJjaXR5IjoiU2llbSBSZWFwIiwic3RhdGUiOiJTaWVtIFJlYXAiLCJwb3N0Y29kZSI6IjE3Mjk1IiwiY291bnRyeSI6IkNhbWJvZGlhIiwiY291bnRyeV9jb2RlIjoia2gifX1d
+    http_version:
+  recorded_at: Sun, 19 Aug 2018 01:11:25 GMT
+recorded_with: VCR 4.0.0

@@ -7,20 +7,28 @@ describe MapquestService do
       it "should return the search results" do
         results = subject.search('Tower Grove Park')
         expect(results.length).to be(3)
-        expect(results.first.keys).to contain_exactly(:place_id,
-                                                      :licence,
-                                                      :osm_type,
-                                                      :osm_id,
+        expect(results.first.keys).to contain_exactly(:address,
                                                       :boundingbox,
-                                                      :lat,
-                                                      :lon,
+                                                      :category,
                                                       :display_name,
-                                                      :class,
-                                                      :type,
                                                       :importance,
-                                                      :address)
+                                                      :lat,
+                                                      :licence,
+                                                      :lon,
+                                                      :osm_id,
+                                                      :osm_type,
+                                                      :place_id,
+                                                      :place_rank,
+                                                      :type)
 
       end
+    end
+
+    it 'should return the search results in English' do
+      results = subject.search('Angkor Wat')
+      desired_result = results.detect { |res| res[:osm_id] == "91217761" }
+
+      expect(desired_result[:display_name]).to eq("Angkor Wat, Grand Circuit / Petit Circuit, Siem Reap, 17295, Cambodia")
     end
 
     context "when there are not search results" do
@@ -44,7 +52,13 @@ describe MapquestService do
             osm_id: "26996903",
             lat: "51.5217805",
             lon: "-0.162824059130876",
-            display_name: "The Landmark, Melcombe Place, Marylebone, City of Westminster, London, Greater London, England, NW1 6JR, UK",
+            category: "tourism",
+            display_name: "The Landmark, Melcombe Place, Marylebone, Westminster, London, Greater London, England, NW1 6JR, United Kingdom",
+            importance: "0.294144509293859",
+            name: "The Landmark",
+            place_rank: "30",
+            addresstype: "tourism",
+            type: "hotel",
             address: {
               hotel: "The Landmark",
               road: "Melcombe Place",
@@ -53,7 +67,7 @@ describe MapquestService do
               state_district: "Greater London",
               state: "England",
               postcode: "NW1 6JR",
-              country: "UK",
+              country: "United Kingdom",
               country_code: "gb"
             },
             boundingbox: [

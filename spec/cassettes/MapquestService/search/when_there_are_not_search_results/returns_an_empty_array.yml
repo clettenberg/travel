@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://open.mapquestapi.com/nominatim/v1/search.php?addressdetails=1&format=json&key=my-secret-key&q=sdklfjsdklfjskdlfjsdlkfj
+    uri: https://open.mapquestapi.com/nominatim/v1/search.php?accept-language=en-US,en%3Bq=0.9&addressdetails=1&format=jsonv2&key=my-secret-key&q=sdklfjsdklfjskdlfjsdlkfj
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sun, 15 Jul 2018 12:07:35 GMT
+      - Sun, 19 Aug 2018 01:11:26 GMT
       Server:
       - Apache/2.4.6 (CentOS) PHP/5.4.16
       Status:
@@ -42,5 +42,5 @@ http_interactions:
       encoding: UTF-8
       string: "[]"
     http_version:
-  recorded_at: Sun, 15 Jul 2018 12:07:35 GMT
+  recorded_at: Sun, 19 Aug 2018 01:11:26 GMT
 recorded_with: VCR 4.0.0
