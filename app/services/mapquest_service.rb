@@ -14,7 +14,9 @@ class MapquestService
     osm_type_code = osm_type.first.capitalize
     params = default_params.merge({
       osm_type: osm_type.first.capitalize,
-      osm_id: osm_id
+      osm_id: osm_id,
+      addressdetails: 1,
+      polygon_geojson: 1,
     }).to_query
 
     resp = send_request("#{MAPQUEST_NOMINATIM_ROOT_URL}/reverse.php?#{params}")

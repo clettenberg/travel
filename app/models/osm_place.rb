@@ -18,6 +18,7 @@ class OsmPlace < ActiveRecord::Base
       category: fresh_data[:category],
       addresstype: fresh_data[:addresstype],
       importance: fresh_data[:importance],
+      geojson: fresh_data[:geojson],
     }
 
     self.update_attributes(new_attrs)

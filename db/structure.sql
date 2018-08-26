@@ -141,7 +141,8 @@ CREATE TABLE public.osm_places (
     place_rank character varying,
     category character varying,
     addresstype character varying,
-    name character varying
+    name character varying,
+    geojson jsonb
 );
 
 
@@ -520,6 +521,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180720012618'),
 ('20180720020548'),
 ('20180826020343'),
-('20180826021156');
+('20180826021156'),
+('20180826022655');
 
 
