@@ -11,7 +11,7 @@ class OsmPlace < ActiveRecord::Base
       lonlat: "POINT(#{fresh_data[:lon]} #{fresh_data[:lat]})",
       display_name: fresh_data[:display_name],
       osm_class: fresh_data[:class],
-      type: fresh_data[:type],
+      tipe: fresh_data[:type],
       address: fresh_data[:address],
     }
 
