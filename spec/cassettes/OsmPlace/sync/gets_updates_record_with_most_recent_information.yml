@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://open.mapquestapi.com/nominatim/v1/reverse.php?accept-language=en-US,en%3Bq=0.9&format=jsonv2&key=my-secret-key&osm_id=4812032522&osm_type=N
+    uri: https://open.mapquestapi.com/nominatim/v1/reverse.php?accept-language=en-US,en%3Bq=0.9&addressdetails=1&format=jsonv2&key=my-secret-key&osm_id=4812032522&osm_type=N&polygon_geojson=1
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sun, 19 Aug 2018 01:11:24 GMT
+      - Sun, 26 Aug 2018 02:39:39 GMT
       Server:
       - Apache/2.4.6 (CentOS) PHP/5.4.16
       Status:
@@ -35,13 +35,13 @@ http_interactions:
       X-Powered-By:
       - PHP/5.4.16
       Content-Length:
-      - '781'
+      - '846'
       Connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJwbGFjZV9pZCI6IjYwMTQ1NzE4IiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvb3NtLm9yZ1wvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJub2RlIiwib3NtX2lkIjoiNDgxMjAzMjUyMiIsImxhdCI6IjQwLjcxNzgxMDIiLCJsb24iOiItNzQuMDA1NDQ5IiwicGxhY2VfcmFuayI6IjMwIiwiY2F0ZWdvcnkiOiJhbWVuaXR5IiwidHlwZSI6InJlc3RhdXJhbnQiLCJpbXBvcnRhbmNlIjoiMCIsImFkZHJlc3N0eXBlIjoiYW1lbml0eSIsImRpc3BsYXlfbmFtZSI6InR3byBoYW5kcywgMjUxLCBDaHVyY2ggU3RyZWV0LCBTb0hvLCBNYW5oYXR0YW4gQ29tbXVuaXR5IEJvYXJkIDIsIE5ldyBZb3JrIENvdW50eSwgTmV3IFlvcmsgQ2l0eSwgTmV3IFlvcmssIDEwMDEzLCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJuYW1lIjoidHdvIGhhbmRzIiwiYWRkcmVzcyI6eyJyZXN0YXVyYW50IjoidHdvIGhhbmRzIiwiaG91c2VfbnVtYmVyIjoiMjUxIiwicm9hZCI6IkNodXJjaCBTdHJlZXQiLCJuZWlnaGJvdXJob29kIjoiU29IbyIsImNpdHkiOiJOZXcgWW9yayBDaXR5IiwiY291bnR5IjoiTmV3IFlvcmsgQ291bnR5Iiwic3RhdGUiOiJOZXcgWW9yayIsInBvc3Rjb2RlIjoiMTAwMTMiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifSwiYm91bmRpbmdib3giOlsiNDAuNzE3NzEwMiIsIjQwLjcxNzkxMDIiLCItNzQuMDA1NTQ5IiwiLTc0LjAwNTM0OSJdfQ==
+        eyJwbGFjZV9pZCI6IjYwMTQ1NzE4IiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvb3NtLm9yZ1wvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJub2RlIiwib3NtX2lkIjoiNDgxMjAzMjUyMiIsImxhdCI6IjQwLjcxNzgxMDIiLCJsb24iOiItNzQuMDA1NDQ5IiwicGxhY2VfcmFuayI6IjMwIiwiY2F0ZWdvcnkiOiJhbWVuaXR5IiwidHlwZSI6InJlc3RhdXJhbnQiLCJpbXBvcnRhbmNlIjoiMCIsImFkZHJlc3N0eXBlIjoiYW1lbml0eSIsImRpc3BsYXlfbmFtZSI6InR3byBoYW5kcywgMjUxLCBDaHVyY2ggU3RyZWV0LCBTb0hvLCBNYW5oYXR0YW4gQ29tbXVuaXR5IEJvYXJkIDIsIE5ldyBZb3JrIENvdW50eSwgTmV3IFlvcmsgQ2l0eSwgTmV3IFlvcmssIDEwMDEzLCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJuYW1lIjoidHdvIGhhbmRzIiwiYWRkcmVzcyI6eyJyZXN0YXVyYW50IjoidHdvIGhhbmRzIiwiaG91c2VfbnVtYmVyIjoiMjUxIiwicm9hZCI6IkNodXJjaCBTdHJlZXQiLCJuZWlnaGJvdXJob29kIjoiU29IbyIsImNpdHkiOiJOZXcgWW9yayBDaXR5IiwiY291bnR5IjoiTmV3IFlvcmsgQ291bnR5Iiwic3RhdGUiOiJOZXcgWW9yayIsInBvc3Rjb2RlIjoiMTAwMTMiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifSwiYm91bmRpbmdib3giOlsiNDAuNzE3NzEwMiIsIjQwLjcxNzkxMDIiLCItNzQuMDA1NTQ5IiwiLTc0LjAwNTM0OSJdLCJnZW9qc29uIjp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbLTc0LjAwNTQ0OSw0MC43MTc4MTAyXX19
     http_version:
-  recorded_at: Sun, 19 Aug 2018 01:11:24 GMT
+  recorded_at: Sun, 26 Aug 2018 02:39:39 GMT
 recorded_with: VCR 4.0.0
