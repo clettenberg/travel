@@ -10,9 +10,14 @@ class OsmPlace < ActiveRecord::Base
       boundingbox: create_geometry_from_bounding_box(bounding_box: fresh_data[:boundingbox]),
       lonlat: "POINT(#{fresh_data[:lon]} #{fresh_data[:lat]})",
       display_name: fresh_data[:display_name],
+      name: fresh_data[:name],
       osm_class: fresh_data[:class],
       tipe: fresh_data[:type],
       address: fresh_data[:address],
+      place_rank: fresh_data[:place_rank],
+      category: fresh_data[:category],
+      addresstype: fresh_data[:addresstype],
+      importance: fresh_data[:importance],
     }
 
     self.update_attributes(new_attrs)

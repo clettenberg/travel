@@ -137,7 +137,11 @@ CREATE TABLE public.osm_places (
     importance numeric,
     address jsonb DEFAULT '"{}"'::jsonb NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    place_rank character varying,
+    category character varying,
+    addresstype character varying,
+    name character varying
 );
 
 
@@ -515,6 +519,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180709004717'),
 ('20180720012618'),
 ('20180720020548'),
-('20180826020343');
+('20180826020343'),
+('20180826021156');
 
 
