@@ -19,7 +19,9 @@ describe MapquestService do
                                                       :osm_type,
                                                       :place_id,
                                                       :place_rank,
-                                                      :type)
+                                                      :type,
+                                                      :geojson,
+                                                      :namedetails)
 
       end
     end
@@ -43,7 +45,7 @@ describe MapquestService do
     let(:subject) { described_class.new }
     context 'with a valid osm place ID and osm type' do
       it 'should return info' do
-        result = subject.reverse(osm_id: 26996903, osm_type: 'way')
+        result = subject.reverse({osm_id: 26996903, osm_type: 'way'})
         expect(result).to include(
           {
             place_id: "78354868",
@@ -83,7 +85,7 @@ describe MapquestService do
 
     context "with an invalid osm_id" do
       it 'returns an error' do
-        result = subject.reverse(osm_id: 1234, osm_type: 'way')
+        result = subject.reverse({osm_id: 1234, osm_type: 'way'})
         expect(result).to eq({
           error: "Unable to geocode"
         })

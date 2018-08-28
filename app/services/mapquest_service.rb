@@ -10,14 +10,9 @@ class MapquestService
     send_request("#{MAPQUEST_NOMINATIM_ROOT_URL}/search.php?#{params}")
   end
 
-  def reverse(osm_id:, osm_type:)
-    osm_type_code = osm_type.first.capitalize
-    params = default_params.merge({
-      osm_type: osm_type.first.capitalize,
-      osm_id: osm_id,
-      addressdetails: 1,
-      polygon_geojson: 1,
-    }).to_query
+  def reverse(params)
+    params[:osm_type] = params[:osm_type]&.first.capitalize
+    params = default_params.merge(params).to_query
 
     resp = send_request("#{MAPQUEST_NOMINATIM_ROOT_URL}/reverse.php?#{params}")
   end
@@ -39,7 +34,11 @@ class MapquestService
     {
       "key" => ENV['MAPQUEST_API_KEY'],
       "format" => 'jsonv2',
-      "accept-language" => 'en-US,en;q=0.9'
+      "accept-language" => 'en-US,en;q=0.9',
+      "addressdetails" => "1",
+      "polygon_geojson" => "1",
+      "namedetails" => "1",
+      "dedup" => "1",
     }
   end
 end

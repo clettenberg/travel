@@ -1,11 +1,17 @@
 <div class="list-group mapquest-search-results">
   <% if places.any? %>
-    <% places.each do |place| %>
-      <%= content_tag(:li, class: ['list-group-item', 'list-group-item-action', 'flex-column', 'align-items-start', 'mapquest-search-result'],
-                      data: { osm_id: place[:osm_id], osm_type: place[:osm_type], osm_display_name: place[:display_name] }
+    <% places.sort_by { |place| place[:importance] }.reverse.each do |place| %>
+      <%= content_tag(:li,
+                      class: ['list-group-item', 'list-group-item-action', 'flex-column', 'align-items-start', 'mapquest-search-result'],
+                      data: {
+                        osm_id: place[:osm_id],
+                        osm_type: place[:osm_type],
+                        osm_display_name: place[:display_name]
+                      }
       ) do %>
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1"><%= place[:display_name] %></h5>
+          <h4><%= place[:type] %></h4>
         </div>
       <% end %>
     <% end %>
