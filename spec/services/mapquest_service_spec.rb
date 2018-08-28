@@ -39,6 +39,20 @@ describe MapquestService do
         expect(results).to match([])
       end
     end
+
+    context 'when the request encounters an error' do
+      let!(:og_api_key) { ENV["MAPQUEST_API_KEY"] }
+      after do
+        ENV["MAPQUEST_API_KEY"] = og_api_key
+      end
+
+      it "should return an error message" do
+        ENV['MAPQUEST_API_KEY'] = 'this-is-bad'
+
+        results = subject.search('Tower Grove Park')
+        expect(results).to eq({ errors: "The AppKey submitted with this request is invalid." })
+      end
+    end
   end
 
   describe 'reverse', :vcr do

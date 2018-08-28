@@ -21,12 +21,15 @@ class MapquestService
 
   def send_request(url)
     response = Faraday.get(url)
-    # TODO Handle API errors
-    json_body = JSON.parse(response.body)
-    if json_body.kind_of?(Array)
-      json_body.map(&:deep_symbolize_keys)
+    if response.success?
+      json_body = JSON.parse(response.body)
+      if json_body.kind_of?(Array)
+        json_body.map(&:deep_symbolize_keys)
+      else
+        json_body.deep_symbolize_keys
+      end
     else
-      json_body.deep_symbolize_keys
+      { errors: response.body }
     end
   end
 
