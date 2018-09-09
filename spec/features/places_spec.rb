@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'places', type: :feature, js: true do
+xdescribe 'places', type: :feature, js: true do
   let!(:user) { FactoryBot.create(:user_with_trips, trips_count: 1) }
   let(:trip) { user.trips.first}
   before do
