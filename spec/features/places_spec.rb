@@ -12,6 +12,7 @@ describe 'places', type: :feature, js: true do
       visit "/trips/#{trip.id}"
       expect(page).to have_content(trip.title)
 
+      find('#pills-list-tab').click
       click_link trip.places.first.name
       expect(page).to have_content(trip.places.first.name)
     end

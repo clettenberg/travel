@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :osm_place do
     osm_id { SecureRandom.hex }
+    lonlat { "POINT(#{FFaker::Geolocation.lng} #{FFaker::Geolocation.lat})" }
   end
 
   factory :place do
@@ -16,7 +17,7 @@ FactoryBot.define do
 
     factory :trip_with_places do
       transient do
-        places_count 5
+        places_count { 5 }
       end
 
       after(:create) do |trip, evaluator|
@@ -34,8 +35,8 @@ FactoryBot.define do
 
       factory :user_with_trips do
         transient do
-          trips_count 5
-          places_count 3
+          trips_count { 5 }
+          places_count { 3 }
         end
 
         after(:create) do |user, evaluator|

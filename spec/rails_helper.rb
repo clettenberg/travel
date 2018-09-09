@@ -10,7 +10,7 @@ Capybara.javascript_driver = :webkit
 Capybara::Webkit.configure do |config|
   # Enable debug mode. Prints a log of everything the driver is doing.
   # config.debug = true
-  config.block_unknown_urls
+  config.allow_url("use.fontawesome.com")
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
