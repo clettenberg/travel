@@ -11,4 +11,18 @@ class Trip < ApplicationRecord
   def end_date
     places.where.not(end_date: nil).order(end_date: :desc).pluck(:end_date).first
   end
+
+  def points
+    places.where.not(osm_place_id: nil).map do |place|
+      lonlat = place.osm_place.lonlat
+      [lonlat.lon, lonlat.lat]
+    end
+  end
+
+  def center
+    bounding_box = RGeo::Cartesian::BoundingBox.new(RGeo::Cartesian.simple_factory)
+    points = places.where.not(osm_place_id: nil).map { |p| p.osm_place.lonlat }
+    points.each {|p| bounding_box.add(p) }
+    [ bounding_box.center_x, bounding_box.center_y ]
+  end
 end

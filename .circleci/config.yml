@@ -11,6 +11,7 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: travel-test-user
           RAILS_ENV: test
+          MAPBOX_TOKEN: replace-me
       - image: circleci/postgres:9.6-alpine-postgis
         environment:
           POSTGRES_USER: travel-test-user
@@ -23,7 +24,7 @@ jobs:
           name: Install Dependencies
           command: |
             sudo apt-get update -y
-            sudo apt-get install postgresql-client xvfb qt5-default libqt5webkit5-dev libqt4-dev libqtwebkit-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x -y
+            sudo apt-get install postgresql-client xvfb qt5-default libqt5webkit5-dev libqtwebkit-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x -y
 
       - run:
           name: Which bundler?
@@ -69,7 +70,7 @@ jobs:
 
       - run:
           name: Compile Webpacker Assets
-          command: bin/rails webpacker:compile
+          command: MAPBOX_TOKEN=replace-me bin/rails webpacker:compile
 
       - type: shell
         command: |

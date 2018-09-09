@@ -12,12 +12,13 @@
  *
  *= require bootstrap/dist/css/bootstrap
  *= require trix/dist/trix.css
+ *= require mapbox-gl/dist/mapbox-gl.css
  *= require_tree .
  *= require_self
  */
 
 .app {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .trix-content {

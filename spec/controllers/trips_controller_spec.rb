@@ -7,14 +7,16 @@ describe TripsController, type: :controller do
     let(:user) { FactoryBot.create(:confirmed_user) }
     it "should create a Trip" do
       sign_in user
-      post :create, params: { trip: {
-                                title: "Los Angeles",
-                                start_date: Date.today,
-                                end_date: Date.today + 1
+      expect do
+        post :create, params: { trip: {
+                                  title: "Los Angeles",
+                                  start_date: Date.today,
+                                  end_date: Date.today + 1
+                                }
                               }
-                            }
-      expect(response).to redirect_to action: :show, id: Trip.first.id
-      expect(Trip.count).to eq(1)
+      end.to change { Trip.count }.by(1)
+
+      expect(response).to redirect_to action: :show, id: Trip.last.id
     end
   end
 
