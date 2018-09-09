@@ -9,7 +9,7 @@ describe 'places', type: :feature, js: true do
 
   describe "index" do
     # I can't get Circle to work with this spec
-    xit "displays a trips index" do
+    it "displays a trips index", :vcr do
       visit "/trips/#{trip.id}"
       expect(page).to have_content(trip.title)
 

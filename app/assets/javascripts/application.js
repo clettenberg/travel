@@ -16,5 +16,4 @@
 //= require jquery/dist/jquery
 //= require bootstrap/dist/js/bootstrap
 //= require trix/dist/trix.js
-//= require @fortawesome/fontawesome-free/js/all.js
 //= require_tree .
