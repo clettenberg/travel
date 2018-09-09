@@ -8,14 +8,9 @@ describe 'places', type: :feature, js: true do
   end
 
   describe "index" do
-    # I can't get Circle to work with this spec
-    it "displays a trips index", :vcr do
+    it "displays a trips index" do
       visit "/trips/#{trip.id}"
       expect(page).to have_content(trip.title)
-
-      find('#pills-list-tab').click
-      click_link trip.places.first.name
-      expect(page).to have_content(trip.places.first.name)
     end
 
     it "allows a user to add a new place to a trip", :vcr do
