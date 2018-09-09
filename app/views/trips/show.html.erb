@@ -31,7 +31,9 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-home-tab">
-    <%= react_component("Map", points: @trip.points, center: @trip.center) %>
+    <% if @trip.points.any? %>
+      <%= react_component("Map", points: @trip.points, center: @trip.center) %>
+    <% end %>
   </div>
   <div class="tab-pane fade" id="pills-list" role="tabpanel" aria-labelledby="pills-profile-tab">
     <% @trip.places.where.not(start_date: nil)

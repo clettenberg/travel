@@ -70,7 +70,7 @@ jobs:
 
       - run:
           name: Compile Webpacker Assets
-          command: bin/rails webpacker:compile
+          command: MAPBOX_TOKEN=replace-me bin/rails webpacker:compile
 
       - type: shell
         command: |
