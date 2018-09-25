@@ -7,7 +7,6 @@ gem 'rails', '~> 5.2.0'
 
 gem 'pg', '~> 0.18'
 gem 'activerecord-postgis-adapter'
-gem 'faraday'
 
 gem 'puma', '~> 3.11'
 
@@ -25,6 +24,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'fast_jsonapi'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'mapquest-api', '0.0.2'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -111,7 +111,7 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faraday (0.15.2)
+    faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
     fast_jsonapi (1.3)
       activesupport (>= 4.2)
@@ -149,6 +149,9 @@ GEM
       activesupport (>= 3.1.0)
       rack (>= 1.4.0)
       rest-client
+    mapquest-api (0.0.2)
+      addressable (~> 2.5)
+      faraday (~> 0.15)
     marcel (0.3.2)
       mimemagic (~> 0.3.2)
     method_source (0.9.0)
@@ -352,13 +355,13 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot_rails
-  faraday
   fast_jsonapi
   ffaker
   jbuilder (~> 2.5)
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mailjet
+  mapquest-api (= 0.0.2)
   pg (~> 0.18)
   pry-byebug
   puma (~> 3.11)
@@ -383,4 +386,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.1
+   1.16.4
