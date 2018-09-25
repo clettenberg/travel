@@ -9,17 +9,29 @@ class MapquestService
 
     client = Mapquest::API::Client.new
     results = client.search(params)
-    results.map(&:deep_symbolize_keys)
+
+    results.is_a?(Array) ? results.map(&:deep_symbolize_keys) : results
   end
 
   def reverse(params)
     params[:osm_type] = params[:osm_type]&.first.capitalize
-    params = default_params.merge(params).to_query
+    params = { "key" => ENV['MAPQUEST_API_KEY']}.merge(default_params).merge(params).to_query
 
-    resp = send_request("#{MAPQUEST_NOMINATIM_ROOT_URL}/reverse.php?#{params}")
+    response = Faraday.get("#{MAPQUEST_NOMINATIM_ROOT_URL}/reverse.php?#{params}")
+
+    if response.success?
+      json_body = JSON.parse(response.body)
+      if json_body.kind_of?(Array)
+        json_body.map(&:deep_symbolize_keys)
+      else
+        json_body.deep_symbolize_keys
+      end
+    else
+      { errors: response.body }
+    end
   end
 
-  private
+private
 
   def default_params
     {
