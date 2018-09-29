@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/clettenberg/mapquest-api.git
+  revision: 93a432911493221daece97d21b00842050dd6f0c
+  branch: master
+  specs:
+    mapquest-api (0.0.2)
+      addressable (~> 2.5)
+      faraday (~> 0.15)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -149,9 +158,6 @@ GEM
       activesupport (>= 3.1.0)
       rack (>= 1.4.0)
       rest-client
-    mapquest-api (0.0.2)
-      addressable (~> 2.5)
-      faraday (~> 0.15)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.0)
@@ -361,7 +367,7 @@ DEPENDENCIES
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mailjet
-  mapquest-api (= 0.0.2)
+  mapquest-api!
   pg (~> 0.18)
   pry-byebug
   puma (~> 3.11)

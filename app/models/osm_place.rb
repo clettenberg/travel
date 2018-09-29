@@ -2,7 +2,8 @@ class OsmPlace < ActiveRecord::Base
   has_many :places
 
   def sync
-    fresh_data = MapquestService.new.reverse({osm_id: osm_id, osm_type: osm_type})
+    formatted_osm_type = osm_type&.first.capitalize
+    fresh_data = MapquestService.new.reverse({osm_id: osm_id, osm_type: formatted_osm_type})
     new_attrs = {
       osm_api_place_id: fresh_data[:place_id],
       osm_type: fresh_data[:osm_type],

@@ -5,29 +5,29 @@ describe MapquestService do
     let(:subject) { described_class.new }
     context 'returns results' do
       it "should return the search results" do
-        results = subject.search('Tower Grove Park')
+        results = subject.search(q: 'Tower Grove Park', addressdetails: 1)
         expect(results.length).to be(3)
-        expect(results.first.keys).to contain_exactly(:address,
-                                                      :boundingbox,
-                                                      :category,
-                                                      :display_name,
-                                                      :importance,
-                                                      :lat,
-                                                      :licence,
-                                                      :lon,
-                                                      :osm_id,
-                                                      :osm_type,
-                                                      :place_id,
-                                                      :place_rank,
-                                                      :type,
-                                                      :geojson,
-                                                      :namedetails)
+        expect(results.first.keys).to contain_exactly("address",
+                                                      "boundingbox",
+                                                      "category",
+                                                      "display_name",
+                                                      "importance",
+                                                      "lat",
+                                                      "licence",
+                                                      "lon",
+                                                      "osm_id",
+                                                      "osm_type",
+                                                      "place_id",
+                                                      "place_rank",
+                                                      "type",
+                                                      "geojson",
+                                                      "namedetails")
 
       end
     end
 
     it 'should return the search results in English' do
-      results = subject.search('Angkor Wat')
+      results = subject.search(q: 'Angkor Wat', addressdetails: 1)
       desired_result = results.detect { |res| res[:osm_id] == "91217761" }
 
       expect(desired_result[:display_name]).to eq("Angkor Wat, Grand Circuit / Petit Circuit, Siem Reap, 17295, Cambodia")
@@ -35,7 +35,7 @@ describe MapquestService do
 
     context "when there are not search results" do
       it 'returns an empty array' do
-        results = subject.search('sdklfjsdklfjskdlfjsdlkfj')
+        results = subject.search(q: 'sdklfjsdklfjskdlfjsdlkfj', addressdetails: 1)
         expect(results).to match([])
       end
     end
@@ -49,8 +49,8 @@ describe MapquestService do
       it "should return an error message" do
         ENV['MAPQUEST_API_KEY'] = 'this-is-bad'
 
-        results = subject.search('Tower Grove Park')
-        expect(results).to eq({ errors: "The AppKey submitted with this request is invalid." })
+        results = subject.search(q: 'Tower Grove Park', addressdetails: 1)
+        expect(results).to eq({ "errors" => "The AppKey submitted with this request is invalid." })
       end
     end
   end
@@ -59,7 +59,7 @@ describe MapquestService do
     let(:subject) { described_class.new }
     context 'with a valid osm place ID and osm type' do
       it 'should return info' do
-        result = subject.reverse({osm_id: 26996903, osm_type: 'way'})
+        result = subject.reverse(osm_id: 26996903, osm_type: 'W')
         expect(result).to include(
           {
             place_id: "78354868",
@@ -70,8 +70,23 @@ describe MapquestService do
             lon: "-0.162824059130876",
             category: "tourism",
             display_name: "The Landmark, Melcombe Place, Marylebone, Westminster, London, Greater London, England, NW1 6JR, United Kingdom",
+            geojson: {
+              coordinates:[
+                [
+                  [-0.1635263, 51.52202],
+                  [-0.1630194, 51.5213853],
+                  [-0.1621871, 51.521541],
+                  [-0.1625362, 51.5222046],
+                  [-0.1629548, 51.5221274],
+                  [-0.1630475, 51.5221101],
+                  [-0.1635263, 51.52202]
+                ]
+              ],
+              type:"Polygon"
+            },
             importance: "0.294144509293859",
             name: "The Landmark",
+            namedetails: { name: "The Landmark" },
             place_rank: "30",
             addresstype: "tourism",
             type: "hotel",
@@ -99,9 +114,9 @@ describe MapquestService do
 
     context "with an invalid osm_id" do
       it 'returns an error' do
-        result = subject.reverse({osm_id: 1234, osm_type: 'way'})
+        result = subject.reverse(osm_id: 1234, osm_type: 'W')
         expect(result).to eq({
-          error: "Unable to geocode"
+          "error" => "Unable to geocode"
         })
       end
     end

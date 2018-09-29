@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'fast_jsonapi'
 
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'mapquest-api', '0.0.2'
+gem 'mapquest-api', github: 'clettenberg/mapquest-api', branch: 'master'
 
 group :development, :test do
   gem 'pry-byebug'

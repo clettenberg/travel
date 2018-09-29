@@ -1,34 +1,20 @@
 class MapquestService
   MAPQUEST_NOMINATIM_ROOT_URL = "https://open.mapquestapi.com/nominatim/v1"
 
-  def search(query)
-    params = default_params.merge({
-      q: query,
-      addressdetails: 1
-    })
+  def search(params)
+    params = default_params.merge(params)
 
-    client = Mapquest::API::Client.new
     results = client.search(params)
 
-    results.is_a?(Array) ? results.map(&:deep_symbolize_keys) : results
+    results_with_indifferent_access(results)
   end
 
   def reverse(params)
-    params[:osm_type] = params[:osm_type]&.first.capitalize
-    params = { "key" => ENV['MAPQUEST_API_KEY']}.merge(default_params).merge(params).to_query
+    params = default_params.merge(params)
 
-    response = Faraday.get("#{MAPQUEST_NOMINATIM_ROOT_URL}/reverse.php?#{params}")
+    results = client.reverse(params)
 
-    if response.success?
-      json_body = JSON.parse(response.body)
-      if json_body.kind_of?(Array)
-        json_body.map(&:deep_symbolize_keys)
-      else
-        json_body.deep_symbolize_keys
-      end
-    else
-      { errors: response.body }
-    end
+    results_with_indifferent_access(results)
   end
 
 private
@@ -42,5 +28,13 @@ private
       "namedetails" => "1",
       "dedup" => "1",
     }
+  end
+
+  def client
+    @client ||= Mapquest::API::Client.new
+  end
+
+  def results_with_indifferent_access(results)
+    results.is_a?(Array) ? results.map(&:with_indifferent_access) : results.with_indifferent_access
   end
 end

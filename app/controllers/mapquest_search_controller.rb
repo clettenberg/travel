@@ -4,6 +4,6 @@ class MapquestSearchController < ApplicationController
 
   def index
     mapquest = MapquestService.new
-    @places = mapquest.search(params[:q])
+    @places = mapquest.search(q: params[:q], addressdetails: 1)
   end
 end
