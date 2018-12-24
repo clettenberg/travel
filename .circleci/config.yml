@@ -3,7 +3,7 @@ jobs:
   build:
     parallelism: 1
     docker:
-      - image: circleci/ruby:2.5-node
+      - image: circleci/ruby:2.5-node-browsers
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -24,7 +24,7 @@ jobs:
           name: Install Dependencies
           command: |
             sudo apt-get update -y
-            sudo apt-get install postgresql-client xvfb qt5-default libqt5webkit5-dev libqtwebkit-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x -y
+            sudo apt-get install postgresql-client -y
 
       - run:
           name: Which bundler?
@@ -74,7 +74,7 @@ jobs:
 
       - type: shell
         command: |
-          xvfb-run -a bundle exec rspec --profile 10 \
+          bundle exec rspec --profile 10 \
                             --format RspecJunitFormatter \
                             --out test_results/rspec.xml \
                             --format progress \

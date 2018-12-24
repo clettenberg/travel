@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe TripsController, type: :controller do
+RSpec.describe TripsController, type: :controller do
   render_views
 
   describe "#create" do

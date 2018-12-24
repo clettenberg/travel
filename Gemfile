@@ -28,17 +28,19 @@ gem 'mapquest-api', github: 'clettenberg/mapquest-api', branch: 'master'
 group :development, :test do
   gem 'pry-byebug'
   gem 'factory_bot_rails'
-  gem "rspec-rails"
-  gem "rspec_junit_formatter"
-  gem 'capybara', '~> 2.15'
-  gem "capybara-webkit"
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
   gem 'awesome_print'
   gem 'ffaker'
+  gem 'dotenv-rails'
+end
+
+group :test do
+  gem "rspec-rails"
+  gem "rspec_junit_formatter"
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'vcr'
   gem 'webmock'
-  gem 'dotenv-rails'
 end
 
 group :development do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe OsmPlace do
+RSpec.describe OsmPlace do
   describe 'sync', :vcr do
     it 'gets updates record with most recent information' do
       osm_place = OsmPlace.create(osm_id: '4812032522',

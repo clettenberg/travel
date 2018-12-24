@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'system_helper'
 
-xdescribe 'places', type: :feature, js: true do
+RSpec.describe 'places', type: :system do
   let!(:user) { FactoryBot.create(:user_with_trips, trips_count: 1) }
   let(:trip) { user.trips.first}
   before do
@@ -16,12 +16,12 @@ xdescribe 'places', type: :feature, js: true do
     it "allows a user to add a new place to a trip", :vcr do
       visit "/trips/#{trip.id}/places/new"
 
-      find("#q").set("Busch Stadium St Louis\n")
-      expect(page).to have_css('.mapquest-search-results')
+      fill_in 'Place Name', with: "Busch Stadium St Louis\n"
+      # expect(page).to have_css('.mapquest-search-results')
 
-      find(".mapquest-search-results", text: "Busch Stadium, South 8th Street").click
-      click_on "Create Place"
-      expect(page).to have_content("Place was successfully created")
+      find("label", text: "Busch Stadium, South 8th Street").click
+      click_on "Submit"
+
       expect(page).to have_content("Busch Stadium")
     end
   end
