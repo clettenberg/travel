@@ -15,7 +15,7 @@ describe('PlaceSearch Component', () => {
   describe('Lat/Lon', () => {
     it('should render correctly', () => {
       const wrapper = shallow(<PlaceSearch onPlaceSelection={jest.fn()} />);
-      wrapper.find('input#latlon').simulate('click');
+      wrapper.find('button#latlon').simulate('click');
 
       expect(toJson(wrapper)).toMatchSnapshot();
     });

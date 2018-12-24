@@ -5,6 +5,7 @@ import PlaceSearch from './PlaceSearch';
 class PlaceForm extends Component {
   constructor(props) {
     super(props);
+
     this.trixRef = React.createRef();
     this.state = {
       selectedPlace: null,
@@ -82,10 +83,6 @@ class PlaceForm extends Component {
         <PlaceSearch onPlaceSelection={this.onPlaceSelection} />
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
-            <input id="place_osm_id" type="hidden" name="place[osm_id]" />
-            <input id="place_osm_type" type="hidden" name="place[osm_type]" />
-            <input id="place_osm_display_name" type="hidden" name="place[osm_display_name]" />
-
             <div className="form-group col-md-12 col-lg-12 col-sm-12">
               <input
                 className="form-control"
@@ -123,8 +120,12 @@ class PlaceForm extends Component {
               />
             </div>
           </div>
-          <input ref={this.trixRef} id="place_note" type="hidden" name="note" />
-          <trix-editor input="place_note" class="trix-content" placeholder="Note" />
+
+          <div className="form-group">
+            <input ref={this.trixRef} id="place_note" type="hidden" name="note" />
+            <trix-editor input="place_note" class="trix-content" placeholder="Note" />
+          </div>
+
           <button className="btn btn-primary" type="submit">Submit</button>
         </form>
       </div>

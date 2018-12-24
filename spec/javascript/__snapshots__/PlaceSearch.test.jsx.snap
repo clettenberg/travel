@@ -2,64 +2,58 @@
 
 exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
 <div>
-  <div
-    className="row"
+  <form
+    onSubmit={[Function]}
   >
     <div
-      className="col btn-group btn-group-toggle"
+      className="input-group mb-3"
     >
-      <label
-        className="btn btn-secondary active"
-        htmlFor="name"
+      <div
+        className="input-group-prepend"
       >
-        <input
-          autoComplete="off"
-          checked={true}
+        <button
+          className="btn btn-outline-secondary "
           id="name"
-          name="options"
-          onChange={[Function]}
-          type="radio"
-          value="name"
-        />
-        Place Name
-      </label>
-      <label
-        className="btn btn-secondary "
-        htmlFor="latlon"
-      >
-        <input
-          autoComplete="off"
-          checked={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Place Name
+        </button>
+        <button
+          className="btn btn-outline-secondary active"
           id="latlon"
-          name="options"
-          onChange={[Function]}
-          type="radio"
-          value="latlon"
-        />
-        Lat/Lon
-      </label>
+          onClick={[Function]}
+          type="button"
+        >
+          Lat/Lon
+        </button>
+      </div>
+      <input
+        className="form-control"
+        name="lat"
+        onChange={[Function]}
+        placeholder="Latitude"
+        type="text"
+        value=""
+      />
+      <input
+        className="form-control"
+        name="lon"
+        onChange={[Function]}
+        placeholder="Longitude"
+        type="text"
+        value=""
+      />
+      <input
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        type="submit"
+      />
     </div>
-  </div>
-  <div
-    className="row"
-  >
-    <div
-      className="col"
-    >
-      <form
-        onSubmit={[Function]}
-      >
-        <input
-          className="form-control"
-          name="name"
-          onChange={[Function]}
-          placeholder="Place Name"
-          type="text"
-          value=""
-        />
-      </form>
-    </div>
-  </div>
+  </form>
   <div
     className="row"
   >
@@ -78,64 +72,42 @@ exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
 
 exports[`PlaceSearch Component Place Name should render correctly 1`] = `
 <div>
-  <div
-    className="row"
+  <form
+    onSubmit={[Function]}
   >
     <div
-      className="col btn-group btn-group-toggle"
+      className="input-group mb-3"
     >
-      <label
-        className="btn btn-secondary active"
-        htmlFor="name"
+      <div
+        className="input-group-prepend"
       >
-        <input
-          autoComplete="off"
-          checked={true}
+        <button
+          className="btn btn-outline-secondary active"
           id="name"
-          name="options"
-          onChange={[Function]}
-          type="radio"
-          value="name"
-        />
-        Place Name
-      </label>
-      <label
-        className="btn btn-secondary "
-        htmlFor="latlon"
-      >
-        <input
-          autoComplete="off"
-          checked={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Place Name
+        </button>
+        <button
+          className="btn btn-outline-secondary "
           id="latlon"
-          name="options"
-          onChange={[Function]}
-          type="radio"
-          value="latlon"
-        />
-        Lat/Lon
-      </label>
+          onClick={[Function]}
+          type="button"
+        >
+          Lat/Lon
+        </button>
+      </div>
+      <input
+        className="form-control"
+        name="name"
+        onChange={[Function]}
+        placeholder="Place Name"
+        type="text"
+        value=""
+      />
     </div>
-  </div>
-  <div
-    className="row"
-  >
-    <div
-      className="col"
-    >
-      <form
-        onSubmit={[Function]}
-      >
-        <input
-          className="form-control"
-          name="name"
-          onChange={[Function]}
-          placeholder="Place Name"
-          type="text"
-          value=""
-        />
-      </form>
-    </div>
-  </div>
+  </form>
   <div
     className="row"
   >

@@ -11,11 +11,11 @@ class PlaceSearch extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleSearchTypeChange = this.handleSearchTypeChange.bind(this);
     this.handleNameSearchFormSubmit = this.handleNameSearchFormSubmit.bind(this);
     this.handleLatLonSearchFormSubmit = this.handleLatLonSearchFormSubmit.bind(this);
     this.handleSearchValueChange = this.handleSearchValueChange.bind(this);
     this.handlePlaceSelection = this.handlePlaceSelection.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       searchType: 'name',
@@ -28,8 +28,8 @@ class PlaceSearch extends React.Component {
     };
   }
 
-  handleSearchTypeChange(changeEvent) {
-    this.setState({ searchType: changeEvent.target.value });
+  handleSearchTypeChange(searchType) {
+    this.setState({ searchType });
   }
 
   handleSearchValueChange(event) {
@@ -37,19 +37,28 @@ class PlaceSearch extends React.Component {
     this.setState({ [name]: event.target.value });
   }
 
-  handleNameSearchFormSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
 
+    if (this.state.searchType === 'name') {
+      this.handleNameSearchFormSubmit();
+    } else {
+      this.handleLatLonSearchFormSubmit();
+    }
+  }
+
+  handleNameSearchFormSubmit() {
     MapquestSearchClient
       .findPlacesByName(this.state.name)
       .then((placeSearchResults) => {
         this.setState({ placeSearchResults, errors: [] });
+      })
+      .catch((error) => {
+        this.setState({ placeSearchResults: [], errors: [error] });
       });
   }
 
-  handleLatLonSearchFormSubmit(event) {
-    event.preventDefault();
-
+  handleLatLonSearchFormSubmit() {
     MapquestSearchClient
       .findPlaceByLatLon({ lat: this.state.lat, lon: this.state.lon })
       .then((placeSearchResults) => {
@@ -70,28 +79,26 @@ class PlaceSearch extends React.Component {
   }
 
   render() {
-    let placeSearchForm;
+    let placeSearchInput;
 
     const errors = this.state.errors.map(err => (
       <p key={err.message}>{err.message}</p>
     ));
 
     if (this.state.searchType === 'name') {
-      placeSearchForm = (
-        <form onSubmit={this.handleNameSearchFormSubmit}>
-          <input
-            placeholder="Place Name"
-            type="text"
-            className="form-control"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleSearchValueChange}
-          />
-        </form>
+      placeSearchInput = (
+        <input
+          placeholder="Place Name"
+          type="text"
+          className="form-control"
+          name="name"
+          value={this.state.name}
+          onChange={this.handleSearchValueChange}
+        />
       );
     } else {
-      placeSearchForm = (
-        <form onSubmit={this.handleLatLonSearchFormSubmit}>
+      placeSearchInput = (
+        <React.Fragment>
           <input
             placeholder="Latitude"
             type="text"
@@ -112,54 +119,35 @@ class PlaceSearch extends React.Component {
             type="submit"
             style={{ display: 'none' }}
           />
-        </form>
+        </React.Fragment>
       );
     }
 
-    const searchByName = this.state.searchType === 'name';
-    const searchByLatLon = this.state.searchType === 'latlon';
-
     return (
       <div>
-        <div className="row">
-          <div className="col btn-group btn-group-toggle">
-            <label
-              className={`btn btn-secondary ${searchByName ? 'active' : ''}`}
-              htmlFor="name"
-            >
-              <input
-                type="radio"
-                name="options"
+        <form onSubmit={this.handleSubmit}>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <button
+                onClick={() => this.handleSearchTypeChange('name')}
+                className={`btn btn-outline-secondary ${this.state.searchType === 'name' ? 'active' : ''}`}
                 id="name"
-                autoComplete="off"
-                onChange={this.handleSearchTypeChange}
-                value="name"
-                checked={searchByName}
-              />
-              Place Name
-            </label>
-            <label
-              className={`btn btn-secondary ${searchByLatLon ? 'active' : ''}`}
-              htmlFor="latlon"
-            >
-              <input
-                type="radio"
-                name="options"
+                type="button"
+              >
+                Place Name
+              </button>
+              <button
+                onClick={() => this.handleSearchTypeChange('latlon')}
+                className={`btn btn-outline-secondary ${this.state.searchType === 'latlon' ? 'active' : ''}`}
                 id="latlon"
-                autoComplete="off"
-                onChange={this.handleSearchTypeChange}
-                value="latlon"
-                checked={searchByLatLon}
-              />
-              Lat/Lon
-            </label>
+                type="button"
+              >
+                Lat/Lon
+              </button>
+            </div>
+            {placeSearchInput}
           </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            {placeSearchForm}
-          </div>
-        </div>
+        </form>
         <div className="row">
           <ul className="col">
             <PlaceSearchResults
@@ -169,7 +157,6 @@ class PlaceSearch extends React.Component {
             />
           </ul>
           {errors}
-
         </div>
       </div>
     );
