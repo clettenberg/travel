@@ -10,14 +10,14 @@
   </h6>
 </div>
 
-<ul class="nav nav-pills mb-3 d-flex" id="pills-tab" role="tablist">
+<ul class="nav nav-pills mb-3 d-flex" id="trip-tab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-home" aria-selected="true">
+    <a class="nav-link active" id="map-tab" data-toggle="pill" href="#map" role="tab" aria-controls="pills-map" aria-selected="true">
       <i class="fas fa-globe"></i>
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-list-tab" data-toggle="pill" href="#pills-list" role="tab" aria-controls="pills-profile" aria-selected="false">
+    <a class="nav-link" id="pills-list-tab" data-toggle="pill" href="#list" role="tab" aria-controls="pills-list" aria-selected="false">
       <i class="fas fa-th-list"></i>
     </a>
   </li>
@@ -29,15 +29,15 @@
   </li>
 </ul>
 
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-home-tab">
+<div class="tab-content" id="trip-tabContent">
+  <div class="tab-pane fade show active" id="map" role="tabpanel" aria-labelledby="map-tab">
     <% if @trip.points.any? %>
       <%= react_component("Map", points: @trip.points, center: @trip.center) %>
     <% else %>
       Add some places to see a map!
     <% end %>
   </div>
-  <div class="tab-pane fade" id="pills-list" role="tabpanel" aria-labelledby="pills-profile-tab">
+  <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="pills-list-tab">
     <% @trip.places.where.not(start_date: nil)
                         .order(start_date: :asc)
                         .group_by(&:start_date).each do |date, places| %>
