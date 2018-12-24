@@ -41,17 +41,5 @@
     "regenerator-runtime": "^0.11.1",
     "sinon": "^4.3.0",
     "webpack-dev-server": "2.11.2"
-  },
-  "jest": {
-    "roots": [
-      "spec/javascript"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "app/javascript/packs"
-    ],
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-    "verbose": true,
-    "testURL": "http://localhost/"
   }
 }
