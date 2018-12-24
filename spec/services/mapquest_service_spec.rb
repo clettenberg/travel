@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe MapquestService do
+RSpec.describe MapquestService do
   describe 'search', :vcr do
     let(:subject) { described_class.new }
     context 'returns results' do

@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://open.mapquestapi.com/nominatim/v1/reverse.php?accept-language=en-US,en%3Bq=0.9&addressdetails=1&dedup=1&format=jsonv2&key=<API_KEY>&lat=40.6892474&lon=-74.0445405280149&namedetails=1&polygon_geojson=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 24 Dec 2018 14:58:01 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) PHP/5.4.16
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+      X-Powered-By:
+      - PHP/5.4.16
+      Content-Length:
+      - '2579'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJwbGFjZV9pZCI6IjgwMDIyNjY2IiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvb3NtLm9yZ1wvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOiIzMjk2NTQxMiIsImxhdCI6IjQwLjY4OTI0NzQiLCJsb24iOiItNzQuMDQ0NTQwNTI4MDE0OSIsInBsYWNlX3JhbmsiOiIzMCIsImNhdGVnb3J5IjoidG91cmlzbSIsInR5cGUiOiJhdHRyYWN0aW9uIiwiaW1wb3J0YW5jZSI6IjAuNTU3NjIzNDg5MTY5MjI2IiwiYWRkcmVzc3R5cGUiOiJ0b3VyaXNtIiwiZGlzcGxheV9uYW1lIjoiU3RhdHVlIG9mIExpYmVydHksIEZsYWdwb2xlIFBsYXphLCBNYW5oYXR0YW4gQ29tbXVuaXR5IEJvYXJkIDEsIE5ldyBZb3JrIENvdW50eSwgTmV3IFlvcmsgQ2l0eSwgTGliZXJ0eSBJc2xhbmQsIDEwMDA0LCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJuYW1lIjoiU3RhdHVlIG9mIExpYmVydHkiLCJhZGRyZXNzIjp7ImF0dHJhY3Rpb24iOiJTdGF0dWUgb2YgTGliZXJ0eSIsInBlZGVzdHJpYW4iOiJGbGFncG9sZSBQbGF6YSIsImNpdHkiOiJOZXcgWW9yayBDaXR5IiwiY291bnR5IjoiTmV3IFlvcmsgQ291bnR5Iiwic3RhdGUiOiJMaWJlcnR5IElzbGFuZCIsInBvc3Rjb2RlIjoiMTAwMDQiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifSwibmFtZWRldGFpbHMiOnsibmFtZSI6IlN0YXR1ZSBvZiBMaWJlcnR5IiwibmFtZTphZiI6IlZyeWhlaWRzdGFuZGJlZWxkIiwibmFtZTpiYSI6ItCQ0LfQsNGC0LvRi9KhINGB0YLQsNGC0YPRj9K70YsiLCJuYW1lOmJlIjoi0KHRgtCw0YLRg9GPINCh0LLQsNCx0L7QtNGLIiwibmFtZTpjcyI6IlNvY2hhIFN2b2JvZHkiLCJuYW1lOmRhIjoiRnJpaGVkc2d1ZGluZGVuIiwibmFtZTpkZSI6IkZyZWloZWl0c3N0YXR1ZSIsIm5hbWU6ZWwiOiLOhs6zzrHOu868zrEgz4TOt8+CIM6VzrvOtc+FzrjOtc+Bzq/Osc+CIiwibmFtZTplbiI6IlN0YXR1ZSBvZiBMaWJlcnR5IiwibmFtZTplcyI6IkVzdGF0dWEgZGUgbGEgTGliZXJ0YWQiLCJuYW1lOmV0IjoiVmFiYWR1c3NhbW1hcyIsIm5hbWU6ZmkiOiJWYXBhdWRlbnBhdHNhcyIsIm5hbWU6ZnIiOiJTdGF0dWUgZGUgbGEgTGliZXJ0w6kiLCJuYW1lOmhlIjoi16TXodecINeU15fXmdeo15XXqiIsIm5hbWU6aHUiOiJTemFiYWRzw6FnLXN6b2JvciIsIm5hbWU6aXQiOiJTdGF0dWEgZGVsbGEgTGliZXJ0w6AiLCJuYW1lOmphIjoi6Ieq55Sx44Gu5aWz56We5YOPIiwibmFtZTprbyI6IuyekOycoOydmCDsl6zsi6Dsg4EiLCJuYW1lOm5sIjoiVnJpamhlaWRzYmVlbGQiLCJuYW1lOnBsIjoiU3RhdHVhIFdvbG5vxZtjaSIsIm5hbWU6cHQiOiJFc3TDoXR1YSBkYSBMaWJlcmRhZGUiLCJuYW1lOnJvIjoiU3RhdHVpYSBMaWJlcnTEg8ibaWkiLCJuYW1lOnJ1Ijoi0KHRgtCw0YLRg9GPINCh0LLQvtCx0L7QtNGLIiwibmFtZTpzayI6IlNvY2hhIHNsb2JvZHkiLCJuYW1lOnNsIjoiS2lwIHN2b2JvZGUiLCJuYW1lOnN2IjoiRnJpaGV0c2d1ZGlubmFuIiwibmFtZTp0dCI6ItCQ0LfQsNGC0LvRi9C6INGB0YvQvdGLIiwibmFtZTp1ayI6ItCh0YLQsNGC0YPRjyDQodCy0L7QsdC+0LTQuCIsIm5hbWU6emgiOiLoh6rnlLHlpbPnpZ7lg48iLCJvZmZpY2lhbF9uYW1lIjoiTGliZXJ0eSBFbmxpZ2h0ZW5pbmcgdGhlIFdvcmxkIn0sImJvdW5kaW5nYm94IjpbIjQwLjY4ODgwMTYiLCI0MC42ODk2NzM4IiwiLTc0LjA0NTEwMzEiLCItNzQuMDQzOTYzNyJdLCJnZW9qc29uIjp7InR5cGUiOiJQb2x5Z29uIiwiY29vcmRpbmF0ZXMiOltbWy03NC4wNDUxMDMxLDQwLjY4OTMzNzJdLFstNzQuMDQ0OTk2Miw0MC42ODkyMTVdLFstNzQuMDQ1MDk0Miw0MC42ODkxMDE3XSxbLTc0LjA0NDkwMjMsNDAuNjg5MDY1Ml0sWy03NC4wNDQ5NDQ3LDQwLjY4ODkyODRdLFstNzQuMDQ0NzYxOCw0MC42ODg5NDcxXSxbLTc0LjA0NDYzNDQsNDAuNjg4ODAxNl0sWy03NC4wNDQ0NzkyLDQwLjY4ODkwNjZdLFstNzQuMDQ0MTkwMyw0MC42ODg4NTU2XSxbLTc0LjA0NDEzNyw0MC42ODkwNjU1XSxbLTc0LjA0NDEzNDIsNDAuNjg5MDc2N10sWy03NC4wNDQxMzE2LDQwLjY4OTA4N10sWy03NC4wNDQxMDc4LDQwLjY4OTA5NDJdLFstNzQuMDQzOTYzNyw0MC42ODkxMzc2XSxbLTc0LjA0NDA4MzksNDAuNjg5Mjc5OF0sWy03NC4wNDQwMDIzLDQwLjY4OTQwNDVdLFstNzQuMDQ0MTgyMyw0MC42ODk0MjI2XSxbLTc0LjA0NDE1MDMsNDAuNjg5NTczMV0sWy03NC4wNDQzMTIyLDQwLjY4OTU1XSxbLTc0LjA0NDQxNjgsNDAuNjg5NjczOF0sWy03NC4wNDQ1ODY1LDQwLjY4OTU5MDZdLFstNzQuMDQ0NzA5Niw0MC42ODk2NDk2XSxbLTc0LjA0NDc1NSw0MC42ODk2NzE0XSxbLTc0LjA0NDc4NjEsNDAuNjg5NTYyNV0sWy03NC4wNDQ4MDMxLDQwLjY4OTU1MzJdLFstNzQuMDQ0ODE2Myw0MC42ODk1NDY5XSxbLTc0LjA0NDk2MzgsNDAuNjg5NTcxOF0sWy03NC4wNDQ5NTU3LDQwLjY4OTUzMl0sWy03NC4wNDQ5MzI5LDQwLjY4OTQyMDZdLFstNzQuMDQ1MTAzMSw0MC42ODkzMzcyXV1dfX0=
+    http_version: 
+  recorded_at: Mon, 24 Dec 2018 14:58:01 GMT
+recorded_with: VCR 4.0.0

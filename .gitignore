@@ -29,3 +29,5 @@ yarn-debug.log*
 .env
 .env.development
 .env.test
+
+spec/examples.txt
