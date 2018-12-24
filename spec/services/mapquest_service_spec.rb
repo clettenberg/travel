@@ -7,22 +7,13 @@ describe MapquestService do
       it "should return the search results" do
         results = subject.search(q: 'Tower Grove Park', addressdetails: 1)
         expect(results.length).to be(3)
-        expect(results.first.keys).to contain_exactly("address",
-                                                      "boundingbox",
-                                                      "category",
-                                                      "display_name",
-                                                      "importance",
-                                                      "lat",
-                                                      "licence",
-                                                      "lon",
-                                                      "osm_id",
-                                                      "osm_type",
-                                                      "place_id",
-                                                      "place_rank",
-                                                      "type",
-                                                      "geojson",
-                                                      "namedetails")
+        first_result = results.first
 
+        expect(first_result[:osm_id]).to eq('439815368')
+        expect(first_result[:osm_type]).to eq('way')
+        expect(first_result[:display_name]).to eq('Tower Grove Park, Tower Grove South, St. Louis, City of St. Louis, Missouri, 63111, United States of America')
+        expect(first_result[:importance]).to eq(0.3375)
+        expect(first_result[:type]).to eq('park')
       end
     end
 
@@ -60,6 +51,7 @@ describe MapquestService do
     context 'with a valid osm place ID and osm type' do
       it 'should return info' do
         result = subject.reverse(osm_id: 26996903, osm_type: 'W')
+
         expect(result).to include(
           {
             place_id: "78354868",

@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
+<div>
+  <div
+    className="row"
+  >
+    <div
+      className="col btn-group btn-group-toggle"
+    >
+      <label
+        className="btn btn-secondary active"
+        htmlFor="name"
+      >
+        <input
+          autoComplete="off"
+          checked={true}
+          id="name"
+          name="options"
+          onChange={[Function]}
+          type="radio"
+          value="name"
+        />
+        Place Name
+      </label>
+      <label
+        className="btn btn-secondary "
+        htmlFor="latlon"
+      >
+        <input
+          autoComplete="off"
+          checked={false}
+          id="latlon"
+          name="options"
+          onChange={[Function]}
+          type="radio"
+          value="latlon"
+        />
+        Lat/Lon
+      </label>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-control"
+          name="name"
+          onChange={[Function]}
+          placeholder="Place Name"
+          type="text"
+          value=""
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <ul
+      className="col"
+    >
+      <PlaceSearchResults
+        onPlaceSelection={[Function]}
+        results={Array []}
+        selectedId={null}
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`PlaceSearch Component Place Name should render correctly 1`] = `
+<div>
+  <div
+    className="row"
+  >
+    <div
+      className="col btn-group btn-group-toggle"
+    >
+      <label
+        className="btn btn-secondary active"
+        htmlFor="name"
+      >
+        <input
+          autoComplete="off"
+          checked={true}
+          id="name"
+          name="options"
+          onChange={[Function]}
+          type="radio"
+          value="name"
+        />
+        Place Name
+      </label>
+      <label
+        className="btn btn-secondary "
+        htmlFor="latlon"
+      >
+        <input
+          autoComplete="off"
+          checked={false}
+          id="latlon"
+          name="options"
+          onChange={[Function]}
+          type="radio"
+          value="latlon"
+        />
+        Lat/Lon
+      </label>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-control"
+          name="name"
+          onChange={[Function]}
+          placeholder="Place Name"
+          type="text"
+          value=""
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <ul
+      className="col"
+    >
+      <PlaceSearchResults
+        onPlaceSelection={[Function]}
+        results={Array []}
+        selectedId={null}
+      />
+    </ul>
+  </div>
+</div>
+`;

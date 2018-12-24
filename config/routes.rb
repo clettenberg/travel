@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   end
   resources :places, only: [:show, :edit, :update, :destroy]
 
-  get 'search', to: 'mapquest_search#index', as: 'mapquest_search'
+  get 'search', to: 'mapquest#search', as: 'mapquest_search'
+  get 'reverse', to: 'mapquest#reverse', as: 'mapquest_reverse'
 end

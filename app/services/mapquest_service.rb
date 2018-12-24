@@ -1,3 +1,5 @@
+class MapquestSearchError < StandardError
+end
 class MapquestService
   MAPQUEST_NOMINATIM_ROOT_URL = "https://open.mapquestapi.com/nominatim/v1"
 

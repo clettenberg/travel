@@ -43,11 +43,11 @@ RSpec.describe PlacesController, type: :controller do
   end
 
   describe "POST #create" do
-    it "creates and redirects" do
+    it "creates" do
       expect {
-        post :create, params: { place: { note: "yay", name: "awesome place" }, trip_id: trip.id }
+        post :create, params: { place: { note: "yay", name: "awesome place" }, trip_id: trip.id, format: :json }
       }.to change { trip.places.count }.by(1)
-      expect(response).to redirect_to action: :show, id: trip.places.last.id
+      expect(response).to be_created
       expect(trip.places.pluck(:note)).to include("yay")
       expect(trip.places.pluck(:name)).to include("awesome place")
     end
@@ -61,10 +61,10 @@ RSpec.describe PlacesController, type: :controller do
       context "and the OSM place has never been added to Trips" do
         it "creates an OsmPlace" do
           expect {
-          post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "123456", osm_type: "node", osm_display_name: "Cool Place" }, trip_id: trip.id }
+          post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "123456", osm_type: "node", osm_display_name: "Cool Place" }, trip_id: trip.id, format: :json }
           }.to change { OsmPlace.count }.by(1)
           place = trip.places.last
-          expect(response).to redirect_to action: :show, id: place.id
+          expect(response).to be_created
           expect(place.osm_place.osm_id).to eq("123456")
           expect(place.osm_place.osm_type).to eq("node")
 
@@ -75,14 +75,14 @@ RSpec.describe PlacesController, type: :controller do
         it 'does not create an OsmPlace' do
           OsmPlace.create(osm_id: "1234", osm_type: "way", display_name: "First try")
           expect {
-            post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
+            post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "1234", osm_type: "way" }, trip_id: trip.id, format: :json }
           }.to change { OsmPlace.count }.by(0)
         end
       end
 
       it "get's fresh data on OSM place" do
         expect_any_instance_of(OsmPlace).to receive(:sync)
-        post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "1234", osm_type: "way" }, trip_id: trip.id }
+        post :create, params: { place: { note: "yay", name: "awesome place", osm_id: "1234", osm_type: "way" }, trip_id: trip.id, format: :json }
       end
     end
   end

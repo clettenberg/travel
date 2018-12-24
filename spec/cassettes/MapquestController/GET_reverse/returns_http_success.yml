@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://open.mapquestapi.com/nominatim/v1/reverse.php?accept-language=en-US,en%3Bq=0.9&addressdetails=1&dedup=1&format=jsonv2&key=<API_KEY>&lat=38.6212456&lon=-90.2526174&namedetails=1&polygon_geojson=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 03 Dec 2018 02:18:13 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) PHP/5.4.16
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+      X-Powered-By:
+      - PHP/5.4.16
+      Content-Length:
+      - '974'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJwbGFjZV9pZCI6IjgzMTgwMjg5IiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvb3NtLm9yZ1wvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOiI0MzA5MTI3NCIsImxhdCI6IjM4LjYyMDkxMDIiLCJsb24iOiItOTAuMjQ5ODYwMyIsInBsYWNlX3JhbmsiOiIyNiIsImNhdGVnb3J5IjoiaGlnaHdheSIsInR5cGUiOiJyZXNpZGVudGlhbCIsImltcG9ydGFuY2UiOiIwLjEiLCJhZGRyZXNzdHlwZSI6InJvYWQiLCJkaXNwbGF5X25hbWUiOiJGb2xzb20gQXZlbnVlLCBTaGF3LCBTdC4gTG91aXMsIENpdHkgb2YgU3QuIExvdWlzLCBNaXNzb3VyaSwgNjMxMTAsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsIm5hbWUiOiJGb2xzb20gQXZlbnVlIiwiYWRkcmVzcyI6eyJyb2FkIjoiRm9sc29tIEF2ZW51ZSIsIm5laWdoYm91cmhvb2QiOiJTaGF3IiwiY2l0eSI6IlN0LiBMb3VpcyIsImNvdW50eSI6IkNpdHkgb2YgU3QuIExvdWlzIiwic3RhdGUiOiJNaXNzb3VyaSIsInBvc3Rjb2RlIjoiNjMxMTAiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifSwibmFtZWRldGFpbHMiOnsibmFtZSI6IkZvbHNvbSBBdmVudWUifSwiYm91bmRpbmdib3giOlsiMzguNjE5OTE4MSIsIjM4LjYyMTQxMDQiLCItOTAuMjU1NjUzNiIsIi05MC4yNDE3OTMiXSwiZ2VvanNvbiI6eyJ0eXBlIjoiTGluZVN0cmluZyIsImNvb3JkaW5hdGVzIjpbWy05MC4yNDE3OTMsMzguNjE5OTE4MV0sWy05MC4yNDE5ODQ3LDM4LjYyMDE0NDldLFstOTAuMjQ0NTA1MiwzOC42MjA0NDc2XSxbLTkwLjI0NzIzMzksMzguNjIwNjc1NV0sWy05MC4yNDk4NjAzLDM4LjYyMDkxMDJdLFstOTAuMjUyODMwMSwzOC42MjExODUxXSxbLTkwLjI1NDg5MTMsMzguNjIxMzQzXSxbLTkwLjI1NTY1MzYsMzguNjIxNDEwNF1dfX0=
+    http_version: 
+  recorded_at: Mon, 03 Dec 2018 02:18:13 GMT
+recorded_with: VCR 4.0.0
