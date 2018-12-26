@@ -25,6 +25,10 @@ class OsmPlace < ActiveRecord::Base
     self.update_attributes(new_attrs)
   end
 
+  def point
+    [lonlat.lon, lonlat.lat]
+  end
+
   private
 
   def create_geometry_from_bounding_box(bounding_box:)
