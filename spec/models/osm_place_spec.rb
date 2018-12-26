@@ -13,4 +13,13 @@ RSpec.describe OsmPlace do
       expect(osm_place.boundingbox).to be_kind_of(RGeo::Cartesian::PolygonImpl)
     end
   end
+
+  describe '#point' do
+    let(:lonlat) { [-90.2555654, 38.6273435]}
+    subject(:osm_place) { FactoryBot.create(:osm_place, lonlat: "POINT(#{lonlat.join(" ")})") }
+
+    it 'returns points in lonlat' do
+      expect(osm_place.point).to eq(lonlat)
+    end
+  end
 end

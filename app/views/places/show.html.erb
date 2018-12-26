@@ -21,3 +21,9 @@
 <%= link_to trip_path(@place.trip), class: 'btn btn-primary btn-sm' do %>
   <i class='far fa-arrow-alt-circle-left'></i> <%= @place.trip.title %>
 <% end %>
+
+<% if @place.osm_place.present? %>
+  <%= react_component("Map", points: [@place.osm_place.point],
+                             center: @place.osm_place.point,
+                             zoom: 15) %>
+<% end %>
