@@ -9,7 +9,7 @@ class Map extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       center: this.props.center,
-      zoom: 4,
+      zoom: this.props.zoom,
       style: 'mapbox://styles/mapbox/streets-v9',
       pitchWithRotate: false,
     });
@@ -40,11 +40,13 @@ class Map extends React.Component {
 
 Map.defaultProps = {
   center: [-74.50, 40],
+  zoom: 4,
 };
 
 Map.propTypes = {
   points: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   center: PropTypes.arrayOf(PropTypes.number),
+  zoom: PropTypes.number
 };
 
 export default Map;

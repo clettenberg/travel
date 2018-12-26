@@ -23,5 +23,7 @@
 <% end %>
 
 <% if @place.osm_place.present? %>
-  <%= react_component("Map", points: [@place.osm_place.point], center: @place.osm_place.point) %>
+  <%= react_component("Map", points: [@place.osm_place.point],
+                             center: @place.osm_place.point,
+                             zoom: 15) %>
 <% end %>
