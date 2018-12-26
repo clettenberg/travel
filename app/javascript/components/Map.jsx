@@ -4,6 +4,16 @@ import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
 
+const propTypes = {
+  points: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  center: PropTypes.arrayOf(PropTypes.number),
+  zoom: PropTypes.number,
+};
+
+const defaultProps = {
+  center: [-74.50, 40],
+  zoom: 4,
+};
 class Map extends React.Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
@@ -38,15 +48,7 @@ class Map extends React.Component {
   }
 }
 
-Map.defaultProps = {
-  center: [-74.50, 40],
-  zoom: 4,
-};
-
-Map.propTypes = {
-  points: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  center: PropTypes.arrayOf(PropTypes.number),
-  zoom: PropTypes.number
-};
+Map.propTypes = propTypes;
+Map.defaultProps = defaultProps;
 
 export default Map;
