@@ -9,7 +9,7 @@
 <hr>
 
 <div class="row">
-  <div class="trix-content col-6">
+  <div class="trix-content col-md-6 col-sm-12">
     <% if @place.note.present? %>
       <%= raw(@place.note) %>
     <% else %>
@@ -20,7 +20,7 @@
   </div>
 
   <% if @place.osm_place.present? %>
-    <div class="col-6">
+    <div class="col-md-6 col-sm-12">
       <%= react_component("Map", points: [@place.osm_place.point],
                                 center: @place.osm_place.point,
                                 zoom: 15) %>
@@ -28,6 +28,6 @@
   <% end %>
 </div>
 
-<%= link_to trip_path(@place.trip), class: 'btn btn-primary btn-sm mb-3' do %>
+<%= link_to trip_path(@place.trip), class: 'btn btn-primary btn-sm mt-3' do %>
   <i class='far fa-arrow-alt-circle-left'></i> <%= @place.trip.title %>
 <% end %>
