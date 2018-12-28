@@ -8,22 +8,26 @@
 
 <hr>
 
-<div class="trix-content">
-  <% if @place.note.present? %>
-    <%= raw(@place.note) %>
-  <% else %>
-    <p class="text-secondary font-weight-light font-italic">
-      No note yet. <%= link_to "Add one!", edit_place_path(@place) %>
-    </p>
+<div class="row">
+  <div class="trix-content col-6">
+    <% if @place.note.present? %>
+      <%= raw(@place.note) %>
+    <% else %>
+      <p class="text-secondary font-weight-light font-italic">
+        No note yet. <%= link_to "Add one!", edit_place_path(@place) %>
+      </p>
+    <% end %>
+  </div>
+
+  <% if @place.osm_place.present? %>
+    <div class="col-6">
+      <%= react_component("Map", points: [@place.osm_place.point],
+                                center: @place.osm_place.point,
+                                zoom: 15) %>
+    </div>
   <% end %>
 </div>
 
 <%= link_to trip_path(@place.trip), class: 'btn btn-primary btn-sm mb-3' do %>
   <i class='far fa-arrow-alt-circle-left'></i> <%= @place.trip.title %>
-<% end %>
-
-<% if @place.osm_place.present? %>
-  <%= react_component("Map", points: [@place.osm_place.point],
-                             center: @place.osm_place.point,
-                             zoom: 15) %>
 <% end %>
