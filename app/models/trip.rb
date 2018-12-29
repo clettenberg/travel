@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :places, dependent: :destroy
+  has_many :osm_places, through: :places
 
   validates_presence_of :title, messsage: "can't be blank"
 
