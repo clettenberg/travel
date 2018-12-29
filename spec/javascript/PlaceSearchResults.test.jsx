@@ -7,8 +7,12 @@ import PlaceSearchResults from '../../app/javascript/components/PlaceSearchResul
 describe('PlaceSearchResults', () => {
   it('should render correctly', () => {
     const results = [
-      { place_id: 'foo', description: 'bar' },
-      { place_id: 'another', description: 'fake-place' },
+      {
+        place_id: 'foo', description: 'bar', osm_type: 'way', osm_id: '123456',
+      },
+      {
+        place_id: 'another', description: 'fake-place', osm_type: 'way', osm_id: '123456',
+      },
     ];
 
     const wrapper = shallow(<PlaceSearchResults

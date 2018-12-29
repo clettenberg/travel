@@ -27,7 +27,13 @@ const PlaceSearchResults = ({ results, selectedId, onPlaceSelection }) => (
             checked={selectedId === result.place_id}
             onChange={onPlaceSelection}
           />
-          {result.display_name}
+          <a
+            href={`https://www.openstreetmap.org/${result.osm_type}/${result.osm_id}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {result.display_name}
+          </a>
         </label>
       </div>
     );

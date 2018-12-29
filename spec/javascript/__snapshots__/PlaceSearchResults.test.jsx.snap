@@ -19,6 +19,11 @@ Array [
         type="radio"
         value="foo"
       />
+      <a
+        href="https://www.openstreetmap.org/way/123456"
+        rel="noopener noreferrer"
+        target="_blank"
+      />
     </label>
   </div>,
   <div
@@ -37,6 +42,11 @@ Array [
         onChange={[Function]}
         type="radio"
         value="another"
+      />
+      <a
+        href="https://www.openstreetmap.org/way/123456"
+        rel="noopener noreferrer"
+        target="_blank"
       />
     </label>
   </div>,

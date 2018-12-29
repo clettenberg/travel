@@ -51,6 +51,7 @@ class PlaceSearch extends React.Component {
     MapquestSearchClient
       .findPlacesByName(this.state.name)
       .then((placeSearchResults) => {
+        console.log(placeSearchResults);
         this.setState({ placeSearchResults, errors: [] });
       })
       .catch((error) => {
