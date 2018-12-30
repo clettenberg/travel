@@ -10,7 +10,8 @@ Rails.application.config.content_security_policy do |p|
   p.script_src  :self, :https, :unsafe_inline
   p.style_src   :self, :https, :unsafe_inline
   p.worker_src :blob
-  p.connect_src :self, 'https://*.tiles.mapbox.com', 'https://api.mapbox.com'
+  p.child_src :blob
+  p.connect_src :self, 'https://*.tiles.mapbox.com', 'https://api.mapbox.com', 'https://events.mapbox.com'
   p.connect_src :self, :https, 'http://localhost:3035', 'ws://localhost:3035' if Rails.env.development?
 
   # Specify URI for violation reports
