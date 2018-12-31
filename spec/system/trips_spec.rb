@@ -10,6 +10,7 @@ RSpec.describe 'trips', type: :system do
 
         visit "/trips"
         expect(page).to have_content("Trips")
+        find("a[href='#list']").click
         user.trips.each do |trip|
           expect(page).to have_content(trip.title)
         end
@@ -26,7 +27,7 @@ RSpec.describe 'trips', type: :system do
 
         visit "/trips"
 
-        click_link "Trips"
+        click_link "Add Trip"
         within('form') do
           fill_in "trip[title]", with: trip_title
         end
