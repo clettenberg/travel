@@ -68,11 +68,11 @@ jobs:
 
       - run:
           name: Database setup
-          command: bin/rails db:structure:load --trace
+          command: bundle exec rails db:structure:load --trace
 
       - run:
           name: Compile Webpacker Assets
-          command: MAPBOX_TOKEN=replace-me bin/rails webpacker:compile
+          command: MAPBOX_TOKEN=replace-me bundle exec rails webpacker:compile
 
       - type: shell
         command: |
