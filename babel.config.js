@@ -70,6 +70,8 @@ module.exports = function (api) {
       [
         require('@babel/plugin-transform-regenerator').default,
         {
+          asyncGenerators: false,
+          generators: false,
           async: false
         }
       ],
