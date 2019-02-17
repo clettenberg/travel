@@ -15,7 +15,7 @@ gem 'mailjet'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker'
+gem 'webpacker', '>= 4.0.x'
 gem 'react-rails'
 
 gem 'coffee-rails', '~> 4.2'
