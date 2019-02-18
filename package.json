@@ -18,9 +18,9 @@
     "mapbox-gl": "^0.52.0",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.12.9",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "react_ujs": "^2.4.3",
     "trix": "1.0.0",
     "whatwg-fetch": "^3.0.0"
