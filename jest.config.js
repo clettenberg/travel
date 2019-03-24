@@ -1,10 +1,10 @@
 module.exports = {
   roots: [
-    'spec/javascript',
+    'app/javascript',
   ],
   verbose: true,
   setupFiles: [
-    './spec/javascript/setup/enzyme.js',
+    './app/javascript/testing/enzyme.js',
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
@@ -12,4 +12,7 @@ module.exports = {
     '/spec/setup/',
   ],
   testURL: 'http://localhost/',
+  moduleNameMapper: {
+    '\\.(css|scss|jpg|png|svg)$': '<rootDir>/app/javascript/testing/empty-module.js',
+  },
 };

@@ -1,5 +1,5 @@
 import { fetch } from 'whatwg-fetch';
-import MapquestSearchClient from '../../../app/javascript/api/MapquestSearchClient';
+import MapquestSearchClient from './MapquestSearchClient';
 
 jest.mock('whatwg-fetch');
 

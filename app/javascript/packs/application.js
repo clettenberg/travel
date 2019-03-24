@@ -9,7 +9,11 @@
 
 import '@babel/polyfill';
 
-const componentRequireContext = require.context('components', true);
-const ReactRailsUJS = require('react_ujs');
+import WebpackerReact from 'webpacker-react';
+import Map from '../components/Map';
+import PlaceForm from '../components/PlaceForm';
 
-ReactRailsUJS.useContext(componentRequireContext);
+WebpackerReact.setup({
+  Map,
+  PlaceForm,
+});

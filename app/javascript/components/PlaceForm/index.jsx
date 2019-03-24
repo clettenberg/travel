@@ -1,6 +1,6 @@
 import { fetch } from 'whatwg-fetch';
 import React, { Component } from 'react';
-import PlaceSearch from './PlaceSearch';
+import PlaceSearch from '../PlaceSearch';
 
 class PlaceForm extends Component {
   constructor(props) {
