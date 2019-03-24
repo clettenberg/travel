@@ -1,10 +1,10 @@
 module.exports = {
   roots: [
-    'spec/javascript',
+    'app/javascript',
   ],
   verbose: true,
   setupFiles: [
-    './spec/javascript/setup/enzyme.js',
+    './app/javascript/testing/enzyme.js',
   ],
   testPathIgnorePatterns: [
     '/node_modules/',

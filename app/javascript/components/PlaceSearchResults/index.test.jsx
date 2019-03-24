@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import PlaceSearchResults from '../../app/javascript/components/PlaceSearchResults';
+import PlaceSearchResults from './index';
 
 describe('PlaceSearchResults', () => {
   it('should render correctly', () => {

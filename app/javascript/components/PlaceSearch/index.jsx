@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MapquestSearchClient from '../api/MapquestSearchClient';
-import PlaceSearchResults from './PlaceSearchResults';
+import MapquestSearchClient from '../../api/MapquestSearchClient';
+import PlaceSearchResults from '../PlaceSearchResults';
 
 const propTypes = {
   onPlaceSelection: PropTypes.func.isRequired,
