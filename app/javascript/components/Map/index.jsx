@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 
+import './style.module.scss';
+
 mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
 
 const propTypes = {
@@ -36,15 +38,7 @@ class Map extends React.Component {
   }
 
   render() {
-    const style = {
-      position: 'relative',
-      top: 0,
-      bottom: 0,
-      width: '100%',
-      height: '400px',
-    };
-
-    return <div style={style} ref={(el) => { this.mapContainer = el; }} />;
+    return <div styleName="map" ref={(el) => { this.mapContainer = el; }} />;
   }
 }
 

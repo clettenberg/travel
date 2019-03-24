@@ -12,4 +12,7 @@ module.exports = {
     '/spec/setup/',
   ],
   testURL: 'http://localhost/',
+  moduleNameMapper: {
+    '\\.(css|scss|jpg|png|svg)$': '<rootDir>/app/javascript/testing/empty-module.js',
+  },
 };
