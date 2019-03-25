@@ -24,7 +24,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -58,7 +58,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -68,10 +68,10 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "travel_#{Rails.env}"
   config.action_mailer.delivery_method = :mailjet
 
-  if ENV["FOR_REAL_PRODUCTION"].present?
-    config.action_mailer.default_url_options = { :host => 'clettenberg-travel.herokuapp.com' }
+  config.action_mailer.default_url_options = if ENV["FOR_REAL_PRODUCTION"].present?
+    {host: "clettenberg-travel.herokuapp.com"}
   else
-    config.action_mailer.default_url_options = { :host => 'clettenberg-travel-staging.herokuapp.com' }
+    {host: "clettenberg-travel-staging.herokuapp.com"}
   end
 
   config.action_mailer.perform_caching = false

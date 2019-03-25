@@ -8,5 +8,4 @@ namespace :osm_places do
       puts "Finished."
     end
   end
-
 end

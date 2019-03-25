@@ -16,7 +16,7 @@ class PlacesController < ApplicationController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+        format.html { redirect_to @place, notice: "Place was successfully updated." }
         format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit }
@@ -25,7 +25,6 @@ class PlacesController < ApplicationController
       end
     end
   end
-
 
   def create
     @place = @trip.places.new(place_params)
@@ -40,9 +39,9 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
-        format.json { render json: { place: @place, url: "/places/#{@place.id}" }, status: :created }
+        format.json { render json: {place: @place, url: "/places/#{@place.id}"}, status: :created }
       else
-        format.json { render json: { errors: @place.errors }, status: :unprocessable_entity }
+        format.json { render json: {errors: @place.errors}, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +51,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.destroy
-        format.html { redirect_to trip, notice: 'Place was successfully deleted.' }
+        format.html { redirect_to trip, notice: "Place was successfully deleted." }
         format.json { render :show, status: :ok, location: trip }
       else
         format.html { render :show }

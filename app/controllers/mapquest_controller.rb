@@ -14,7 +14,8 @@ class MapquestController < ApplicationController
     render json: @places
   end
 
-private
+  private
+
   def mapquest
     @mapquest ||= MapquestService.new
   end

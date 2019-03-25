@@ -19,12 +19,12 @@ class MapquestService
     results_with_indifferent_access(results)
   end
 
-private
+  private
 
   def default_params
     {
-      "format" => 'jsonv2',
-      "accept-language" => 'en-US,en;q=0.9',
+      "format" => "jsonv2",
+      "accept-language" => "en-US,en;q=0.9",
       "addressdetails" => "1",
       "polygon_geojson" => "1",
       "namedetails" => "1",

@@ -1,4 +1,4 @@
-require 'vcr_setup'
+require "vcr_setup"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

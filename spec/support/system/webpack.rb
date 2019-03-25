@@ -1,4 +1,4 @@
-require 'English'
+require "English"
 
 RSpec.configure do |config|
   config.before :suite do

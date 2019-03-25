@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe MapquestController, type: :controller do
   let(:user_with_trip) { FactoryBot.create(:user_with_trips)}
@@ -9,7 +9,7 @@ RSpec.describe MapquestController, type: :controller do
 
   describe "GET #search" do
     it "returns http success", :vcr do
-      get :search, params: { q: 'Tower Grove Park' }, xhr: true
+      get :search, params: {q: "Tower Grove Park"}, xhr: true
 
       expect(response).to be_successful
       expect(response.content_type).to eq "application/json"
@@ -17,8 +17,8 @@ RSpec.describe MapquestController, type: :controller do
   end
 
   describe "GET reverse" do
-    it 'returns http success', :vcr do
-      get :reverse, params: { lat: '38.6212456' , lon: '-90.2526174' }
+    it "returns http success", :vcr do
+      get :reverse, params: {lat: "38.6212456", lon: "-90.2526174"}
 
       expect(response).to be_successful
       expect(response.content_type).to eq "application/json"

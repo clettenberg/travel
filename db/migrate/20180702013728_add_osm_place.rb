@@ -10,7 +10,7 @@ class AddOsmPlace < ActiveRecord::Migration[5.2]
       t.string :class
       t.string :type
       t.decimal :importance
-      t.jsonb :address, null: false, default: '{}'
+      t.jsonb :address, null: false, default: "{}"
 
       t.timestamps
     end

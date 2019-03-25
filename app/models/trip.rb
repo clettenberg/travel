@@ -24,6 +24,6 @@ class Trip < ApplicationRecord
     bounding_box = RGeo::Cartesian::BoundingBox.new(RGeo::Cartesian.simple_factory)
     points = places.where.not(osm_place_id: nil).map { |p| p.osm_place.lonlat }
     points.each {|p| bounding_box.add(p) }
-    [ bounding_box.center_x, bounding_box.center_y ]
+    [bounding_box.center_x, bounding_box.center_y]
   end
 end

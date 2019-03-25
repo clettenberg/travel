@@ -2,7 +2,8 @@ class OsmPlace < ActiveRecord::Base
   has_many :places
 
   def sync
-    formatted_osm_type = osm_type&.first.capitalize
+    osm_type = osm_type&.first
+    formatted_osm_type = osm_type.capitalize
     fresh_data = MapquestService.new.reverse({osm_id: osm_id, osm_type: formatted_osm_type})
     new_attrs = {
       osm_api_place_id: fresh_data[:place_id],
@@ -22,7 +23,7 @@ class OsmPlace < ActiveRecord::Base
       geojson: fresh_data[:geojson],
     }
 
-    self.update_attributes(new_attrs)
+    update_attributes(new_attrs)
   end
 
   def point
@@ -39,4 +40,3 @@ class OsmPlace < ActiveRecord::Base
     RGeo::Cartesian::BoundingBox.create_from_points(sw, ne).to_geometry
   end
 end
-

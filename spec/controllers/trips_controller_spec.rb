@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe TripsController, type: :controller do
   render_views
@@ -7,14 +7,13 @@ RSpec.describe TripsController, type: :controller do
     let(:user) { FactoryBot.create(:confirmed_user) }
     it "should create a Trip" do
       sign_in user
-      expect do
-        post :create, params: { trip: {
-                                  title: "Los Angeles",
-                                  start_date: Date.today,
-                                  end_date: Date.today + 1
-                                }
-                              }
-      end.to change { Trip.count }.by(1)
+      expect {
+        post :create, params: {trip: {
+          title: "Los Angeles",
+          start_date: Date.today,
+          end_date: Date.today + 1,
+        }}
+      }.to change { Trip.count }.by(1)
 
       expect(response).to redirect_to action: :show, id: Trip.last.id
     end
@@ -29,18 +28,17 @@ RSpec.describe TripsController, type: :controller do
     end
 
     it "should destroy a Trip" do
-      expect do
-        delete :destroy, params: { id: trip_to_destroy }
-      end.to change { Trip.count }.by(-1)
+      expect {
+        delete :destroy, params: {id: trip_to_destroy}
+      }.to change { Trip.count }.by(-1)
       expect(response).to redirect_to action: :index
     end
 
     it "should destory the Trip's Places" do
-      expect do
-        delete :destroy, params: { id: trip_to_destroy }
-      end.to change { Place.count }.by(-(places_count))
+      expect {
+        delete :destroy, params: {id: trip_to_destroy}
+      }.to change { Place.count }.by(-places_count)
       expect(response).to redirect_to action: :index
     end
-
   end
 end
