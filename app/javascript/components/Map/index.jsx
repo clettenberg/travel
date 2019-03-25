@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 
-import './style.module.scss';
+import styles from './style.module.scss';
 
 mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
 
@@ -38,7 +38,7 @@ class Map extends React.Component {
   }
 
   render() {
-    return <div styleName="map" ref={(el) => { this.mapContainer = el; }} />;
+    return <div className={styles.map} ref={(el) => { this.mapContainer = el; }} />;
   }
 }
 

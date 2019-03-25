@@ -75,17 +75,6 @@ module.exports = function(api) {
           async: false
         }
       ],
-      [
-        require('babel-plugin-react-css-modules').default,
-        {
-          "generateScopedName": "[path]--[name]--[local]--[hash:base64:5]",
-          'filetypes': {
-            ".scss": {
-              'syntax': "postcss-scss",
-            }
-          }
-        }
-      ],
       require('@babel/plugin-transform-react-jsx'),
       isProductionEnv && [
         require('babel-plugin-transform-react-remove-prop-types').default,
