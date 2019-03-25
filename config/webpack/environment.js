@@ -13,6 +13,8 @@ nodeModulesLoader.exclude.push(/mapbox-gl/);
 const cssModulesOptions = {
   // This must match the value of generateScopedName
   // in the .babelrc settings of react-css-modules.
+  modules: true,
+  sourceMap: true,
   localIdentName: '[path]--[name]--[local]--[hash:base64:5]',
 };
 
