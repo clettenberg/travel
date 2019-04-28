@@ -15,22 +15,7 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <div class="container app">
-      <div class="notice-container">
-        <%- if notice -%>
-          <div data-dismiss="alert" class="alert alert-primary alert-dismissible fade show" role="alert">
-            <%= notice %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <%- end -%>
-      </div>
-      <div class="alert-container">
-        <%- if alert -%>
-          <%= render 'shared/dismissable_alert', message: alert %>
-        <%- end -%>
-      </div>
+    <div class="app">
       <%= yield %>
     </div>
   </body>

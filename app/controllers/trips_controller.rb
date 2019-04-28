@@ -3,10 +3,13 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
-    @trips = current_user.trips
+    @trips = current_user.trips.map { |trip|
+      TripPresenter.new(trip).to_h
+    }
   end
 
   def show
+    @presented_trip = TripPresenter.new(@trip).to_h
   end
 
   def new

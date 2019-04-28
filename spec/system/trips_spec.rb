@@ -9,8 +9,6 @@ RSpec.describe "trips", type: :system do
         login_as(user, scope: :user, run_callbacks: false)
 
         visit "/trips"
-        expect(page).to have_content("Trips")
-        find("a[href='#list']").click
         user.trips.each do |trip|
           expect(page).to have_content(trip.title)
         end
@@ -33,7 +31,6 @@ RSpec.describe "trips", type: :system do
         end
 
         click_button "Create Trip"
-        expect(page).to have_content("Trip was successfully created")
         expect(page).to have_content(trip_title)
       end
     end
