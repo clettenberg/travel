@@ -1,0 +1,27 @@
+$mobile-breakpoint: 768px;
+
+.container {
+  display: grid;
+
+  @media (max-width: $mobile-breakpoint) {
+    grid-template-columns: auto;
+    grid-template-rows: [row1-start] 40vh [row1-end row2-start] 60vh [row2-end];
+    grid-template-areas: "maps"
+      "trips";
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    grid-template-columns: 30vw auto;
+    grid-template-rows: [row1-start] 100vh [row1-end];
+    grid-template-areas: "trips maps";
+  }
+}
+
+.trips {
+  grid-area: trips;
+  overflow: scroll;
+}
+
+.maps {
+  grid-area: maps;
+}

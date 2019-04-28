@@ -7,14 +7,18 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 
-import WebpackerReact from 'webpacker-react';
-import Map from '../components/Map';
-import PlaceForm from '../components/PlaceForm';
+import WebpackerReact from 'webpacker-react'
+import Map from '../components/Map'
+import PlaceForm from '../components/PlaceForm'
+import Trips from '../components/Trips'
+import Trip from '../components/Trip'
 
 WebpackerReact.setup({
   Map,
   PlaceForm,
-});
+  Trips,
+  Trip
+})

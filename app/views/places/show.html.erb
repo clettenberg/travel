@@ -19,10 +19,10 @@
     <% end %>
   </div>
 
-  <% if @place.osm_place.present? %>
+  <% if @place.point.present? %>
     <div class="col-md-6 col-sm-12">
-      <%= react_component("Map", points: [@place.osm_place.point],
-                                center: @place.osm_place.point,
+      <%= react_component("Map", points: [@place.point],
+                                center: @place.point,
                                 zoom: 15) %>
     </div>
   <% end %>
