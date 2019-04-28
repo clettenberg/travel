@@ -1,9 +1,9 @@
-import { fetch, Response } from 'whatwg-fetch'
+import { fetch } from 'whatwg-fetch'
 import MapquestSearchClient from './MapquestSearchClient'
 jest.mock('whatwg-fetch')
 
 const mockResponse = (status, statusText, response) => (
-  new Response(response, {
+  new Response(response, { // eslint-disable-line no-undef
     status,
     statusText,
     headers: {
