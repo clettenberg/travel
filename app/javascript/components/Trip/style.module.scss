@@ -25,3 +25,17 @@ $mobile-breakpoint: 768px;
 .maps {
   grid-area: maps;
 }
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 1.25rem;
+}
+
+.sticky {
+  position: fixed;
+  position: sticky;
+  bottom: 0px;
+  z-index: 2;
+  width: 100%;
+}

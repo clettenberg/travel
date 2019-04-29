@@ -21,8 +21,14 @@ const Trip = (props) => {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.trips}`}>
-        <h1>{props.trip.title}</h1>
+      <Map
+        className={styles.map}
+        points={points}
+        center={props.trip.center}
+        zoom={3}
+      />
+      <div className={styles.trips}>
+        <h1 className={styles.title}>{props.trip.title}</h1>
         <ul className={`list-group list-group-flush`}>
 
           {props.trip.places.map(place => (
@@ -35,13 +41,13 @@ const Trip = (props) => {
             </a>
           ))}
         </ul>
+        <a
+          className={`${styles.sticky} btn btn-primary`}
+          href={`/trips/${props.trip.id}/places/new`}
+        >
+          Add Place
+        </a>
       </div>
-      <Map
-        className={styles.map}
-        points={points}
-        center={props.trip.center}
-        zoom={3}
-      />
     </div>
   )
 }
