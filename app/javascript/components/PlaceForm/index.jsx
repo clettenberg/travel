@@ -2,6 +2,8 @@ import { fetch } from 'whatwg-fetch'
 import React, { Component } from 'react'
 import PlaceSearch from '../PlaceSearch'
 
+import styles from './style.module.scss'
+
 class PlaceForm extends Component {
   constructor (props) {
     super(props)
@@ -74,7 +76,7 @@ class PlaceForm extends Component {
 
   render () {
     return (
-      <div>
+      <div className={styles.container}>
         {this.state.errors.length > 0 &&
           <div className='alert alert-warning' role='alert'>
             {this.state.errors.join('\n')}
