@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MapquestSearchClient from '../../api/MapquestSearchClient'
 import PlaceSearchResults from '../PlaceSearchResults'
+import Spinner from '../Spinner'
 
 const propTypes = {
   onPlaceSelection: PropTypes.func.isRequired
@@ -24,7 +25,8 @@ class PlaceSearch extends React.Component {
       lon: '',
       selectedPlaceId: null,
       errors: [],
-      placeSearchResults: []
+      placeSearchResults: null,
+      isSearching: false
     }
   }
 
@@ -48,17 +50,21 @@ class PlaceSearch extends React.Component {
   }
 
   handleNameSearchFormSubmit () {
+    this.setState({ isSearching: true, placeSearchResults: null })
+
     MapquestSearchClient
       .findPlacesByName(this.state.name)
       .then((placeSearchResults) => {
-        this.setState({ placeSearchResults, errors: [] })
+        this.setState({ placeSearchResults, errors: [], isSearching: false })
       })
       .catch((error) => {
-        this.setState({ placeSearchResults: [], errors: [error] })
+        this.setState({ placeSearchResults: [], errors: [error], isSearching: false })
       })
   }
 
   handleLatLonSearchFormSubmit () {
+    this.setState({ isSearching: true, placeSearchResults: null })
+
     MapquestSearchClient
       .findPlaceByLatLon({ lat: this.state.lat, lon: this.state.lon })
       .then((placeSearchResults) => {
@@ -148,16 +154,25 @@ class PlaceSearch extends React.Component {
             {placeSearchInput}
           </div>
         </form>
-        <div className='row'>
-          <ul className='col'>
-            <PlaceSearchResults
-              results={this.state.placeSearchResults}
-              selectedId={this.state.selectedPlaceId}
-              onPlaceSelection={this.handlePlaceSelection}
-            />
-          </ul>
-          {errors}
-        </div>
+        {this.state.isSearching &&
+          <Spinner />
+        }
+
+        {this.state.placeSearchResults &&
+          <div className='row'>
+            <ul className='col'>
+              {this.state.placeSearchResults.length > 0
+                ? <PlaceSearchResults
+                  results={this.state.placeSearchResults}
+                  selectedId={this.state.selectedPlaceId}
+                  onPlaceSelection={this.handlePlaceSelection}
+                />
+                : <h1>No results!</h1>
+              }
+            </ul>
+            {errors}
+          </div>
+        }
       </div>
     )
   }

@@ -54,19 +54,6 @@ exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
       />
     </div>
   </form>
-  <div
-    className="row"
-  >
-    <ul
-      className="col"
-    >
-      <PlaceSearchResults
-        onPlaceSelection={[Function]}
-        results={Array []}
-        selectedId={null}
-      />
-    </ul>
-  </div>
 </div>
 `;
 
@@ -108,18 +95,5 @@ exports[`PlaceSearch Component Place Name should render correctly 1`] = `
       />
     </div>
   </form>
-  <div
-    className="row"
-  >
-    <ul
-      className="col"
-    >
-      <PlaceSearchResults
-        onPlaceSelection={[Function]}
-        results={Array []}
-        selectedId={null}
-      />
-    </ul>
-  </div>
 </div>
 `;
