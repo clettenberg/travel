@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Place should render 1`] = `
+<div>
+  <h1
+    className="display-4 text-truncate"
+  />
+  <h6>
+    <a
+      className="btn btn-primary btn-sm"
+      href="//edit"
+    >
+      Edit
+    </a>
+  </h6>
+  <hr />
+  <div
+    className="row"
+  >
+    <div
+      className="undefined trix-content col-md-6 col-sm-12"
+    >
+      <p
+        className="text-secondary font-weight-light font-italic"
+      >
+        No note yet.
+      </p>
+    </div>
+  </div>
+</div>
+`;

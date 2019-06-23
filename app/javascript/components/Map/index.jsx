@@ -7,12 +7,14 @@ mapboxgl.accessToken = process.env.MAPBOX_TOKEN
 const propTypes = {
   points: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   center: PropTypes.arrayOf(PropTypes.number),
-  zoom: PropTypes.number
+  zoom: PropTypes.number,
+  mapClassName: PropTypes.string
 }
 
 const defaultProps = {
   center: [-74.50, 40],
-  zoom: 4
+  zoom: 4,
+  mapClassName: 'this-is-the-map'
 }
 class Map extends React.Component {
   componentDidMount () {
@@ -37,7 +39,10 @@ class Map extends React.Component {
 
   render () {
     return (
-      <div ref={(el) => { this.mapContainer = el }} />
+      <div
+        className={this.props.mapClassName}
+        ref={(el) => { this.mapContainer = el }}
+      />
     )
   }
 }

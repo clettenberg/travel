@@ -12,12 +12,14 @@ import 'regenerator-runtime/runtime'
 
 import WebpackerReact from 'webpacker-react'
 import Map from '../components/Map'
+import Place from '../components/Place'
 import PlaceForm from '../components/PlaceForm'
 import Trips from '../components/Trips'
 import Trip from '../components/Trip'
 
 WebpackerReact.setup({
   Map,
+  Place,
   PlaceForm,
   Trips,
   Trip

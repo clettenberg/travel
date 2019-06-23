@@ -4,7 +4,8 @@ module.exports = {
   ],
   verbose: true,
   setupFiles: [
-    './app/javascript/testing/enzyme.js'
+    './app/javascript/testing/enzyme.js',
+    './app/javascript/testing/windowSetup.js'
   ],
   testPathIgnorePatterns: [
     '/node_modules/',

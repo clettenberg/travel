@@ -1,0 +1,8 @@
+$mobile-breakpoint: 768px;
+
+.container {
+  div[class*=this-is-the-map] {
+    height: 500px;
+    width: auto;
+  }
+}
