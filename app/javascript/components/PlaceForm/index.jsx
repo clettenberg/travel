@@ -46,8 +46,8 @@ class PlaceForm extends Component {
     } = this.state
 
     let place = {
-      start_date, // eslint-disable-line camelcase
-      end_date, // eslint-disable-line camelcase
+      start_date,
+      end_date,
       note: this.trixRef.current.value,
       name
     }
