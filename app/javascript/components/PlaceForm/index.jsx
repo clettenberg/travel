@@ -11,16 +11,24 @@ class PlaceForm extends Component {
     this.trixRef = React.createRef()
     this.state = {
       selectedPlace: null,
-      errors: []
+      errors: [],
+      end_date: ''
     }
 
     this.onPlaceSelection = this.onPlaceSelection.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleStartDateBlur = this.handleStartDateBlur.bind(this)
   }
 
   onPlaceSelection (selectedPlace) {
     this.setState({ selectedPlace })
+  }
+
+  handleStartDateBlur () {
+    if (this.state.start_date && !this.state.end_date) {
+      this.setState(prevState => ({ end_date: prevState.start_date }))
+    }
   }
 
   handleChange (event) {
@@ -105,6 +113,7 @@ class PlaceForm extends Component {
                 type='date'
                 name='start_date'
                 id='place_start_date'
+                onBlur={this.handleStartDateBlur}
                 onChange={this.handleChange}
               />
             </div>
@@ -119,6 +128,7 @@ class PlaceForm extends Component {
                 name='end_date'
                 id='place_end_date'
                 onChange={this.handleChange}
+                value={this.state.end_date}
               />
             </div>
           </div>
