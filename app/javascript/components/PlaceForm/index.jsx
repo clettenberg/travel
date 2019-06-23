@@ -85,6 +85,7 @@ class PlaceForm extends Component {
   render () {
     return (
       <div className={styles.container}>
+        <h1>Add Place</h1>
         {this.state.errors.length > 0 &&
           <div className='alert alert-warning' role='alert'>
             {this.state.errors.join('\n')}
