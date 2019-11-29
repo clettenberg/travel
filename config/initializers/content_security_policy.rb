@@ -4,11 +4,11 @@
 
 Rails.application.config.content_security_policy do |p|
   p.default_src :self, :https
-  p.font_src    :self, :https, :data
-  p.img_src     :self, :https, :data, :blob
-  p.object_src  :none
-  p.script_src  :self, :https, :unsafe_inline
-  p.style_src   :self, :https, :unsafe_inline
+  p.font_src :self, :https, :data
+  p.img_src :self, :https, :data, :blob
+  p.object_src :none
+  p.script_src :self, :https, :unsafe_inline
+  p.style_src :self, :https, :unsafe_inline
   p.worker_src :blob
   p.child_src :blob
   p.connect_src :self, "https://*.tiles.mapbox.com", "https://api.mapbox.com", "https://events.mapbox.com"
@@ -17,6 +17,12 @@ Rails.application.config.content_security_policy do |p|
   # Specify URI for violation reports
   # p.report_uri "/csp-violation-report-endpoint"
 end
+
+# If you are using UJS then enable automatic nonce generation
+# Rails.application.config.content_security_policy_nonce_generator = ->(request) { SecureRandom.base64(16) }
+
+# Set the nonce only to specific directives
+# Rails.application.config.content_security_policy_nonce_directives = %w(script-src)
 
 # Report CSP violations to a specified URI
 # For further information see the following documentation:

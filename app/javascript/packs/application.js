@@ -9,6 +9,7 @@
 
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
+import 'trix'
 
 import WebpackerReact from 'webpacker-react'
 import Map from '../components/Map'
@@ -16,6 +17,9 @@ import Place from '../components/Place'
 import PlaceForm from '../components/PlaceForm'
 import Trips from '../components/Trips'
 import Trip from '../components/Trip'
+
+require('@rails/ujs').start()
+require('jquery/dist/jquery')
 
 WebpackerReact.setup({
   Map,
