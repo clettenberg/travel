@@ -15,7 +15,7 @@ RSpec.describe OsmPlace do
   end
 
   describe "#point" do
-    let(:lonlat) { [-90.2555654, 38.6273435]}
+    let(:lonlat) { [-90.2555654, 38.6273435] }
     subject(:osm_place) { FactoryBot.create(:osm_place, lonlat: "POINT(#{lonlat.join(" ")})") }
 
     it "returns points in lonlat" do

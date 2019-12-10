@@ -2,7 +2,7 @@ require "system_helper"
 
 RSpec.describe "places", type: :system do
   let!(:user) { FactoryBot.create(:user_with_trips, trips_count: 1) }
-  let(:trip) { user.trips.first}
+  let(:trip) { user.trips.first }
   before do
     login_as(user, scope: :user, run_callbacks: false)
   end
