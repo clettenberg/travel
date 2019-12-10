@@ -23,7 +23,7 @@ class OsmPlace < ActiveRecord::Base
       geojson: fresh_data[:geojson],
     }
 
-    update_attributes(new_attrs)
+    update(new_attrs)
   end
 
   def point
