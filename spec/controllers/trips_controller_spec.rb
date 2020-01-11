@@ -21,8 +21,8 @@ RSpec.describe TripsController, type: :controller do
 
   describe "#destroy" do
     let(:places_count) { 2 }
-    let(:user_with_trip) { FactoryBot.create(:user_with_trips, trips_count: 1, places_count: places_count)}
-    let(:trip_to_destroy) { user_with_trip.trips.first.id}
+    let(:user_with_trip) { FactoryBot.create(:user_with_trips, trips_count: 1, places_count: places_count) }
+    let(:trip_to_destroy) { user_with_trip.trips.first.id }
     before do
       sign_in user_with_trip
     end

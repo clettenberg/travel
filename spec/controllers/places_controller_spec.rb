@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe PlacesController, type: :controller do
-  let(:user_with_trip) { FactoryBot.create(:user_with_trips, trips_count: 1, places_count: 2)}
+  let(:user_with_trip) { FactoryBot.create(:user_with_trips, trips_count: 1, places_count: 2) }
   let(:trip) { user_with_trip.trips.first }
   let(:place) { trip.places.first }
 
