@@ -1,35 +1,31 @@
-$mobile-breakpoint: 768px;
+@import '../shared/breakpoints.scss';
 
 .container {
-  display: grid;
+  div[class*=this-is-the-map] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
 
   @media (max-width: $mobile-breakpoint) {
-    grid-template-columns: auto;
-    grid-template-rows: [row1-start] 40vh [row1-end row2-start] 60vh [row2-end];
-    grid-template-areas: "maps"
-    "trips";
-  }
 
-  @media (min-width: $mobile-breakpoint) {
-    grid-template-columns: 30vw auto;
-    grid-template-rows: [row1-start] 100vh [row1-end];
-    grid-template-areas: "trips maps";
   }
 }
 
-.trips {
-  grid-area: trips;
+.content {
+  position: absolute;
+  background: white;
+  padding: 10px;
+  margin: 10px;
+  max-height: 90vh;
+  width: 400px;
   overflow: scroll;
-}
 
-.maps {
-  grid-area: maps;
-}
-
-.sticky {
-  position: fixed;
-  position: sticky;
-  bottom: 0px;
-  z-index: 2;
-  width: 100%;
+  @media (max-width: $mobile-breakpoint) {
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    max-height: 40%;
+  }
 }

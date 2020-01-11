@@ -22,14 +22,15 @@ const Trips = (props) => {
     .filter(Boolean)
 
   return (
-    <div className={styles.container} >
-      <Map
-        className={styles.map}
-        points={points}
-        center={[-98.2518834, 39.8112442]}
-        zoom={1}
-      />
-      <div className={`${styles.trips}`}>
+    <React.Fragment>
+      <div className={styles.container} >
+        <Map
+          points={points}
+          center={[-98.2518834, 39.8112442]}
+          zoom={1}
+        />
+      </div>
+      <div className={styles.content}>
         <ul className={`list-group list-group-flush`}>
           {props.trips.map(trip => (
             <a
@@ -43,7 +44,7 @@ const Trips = (props) => {
         </ul>
         <a className={`${styles.sticky} btn btn-primary`} href='/trips/new'>Add Trip</a>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
