@@ -33,10 +33,9 @@ const Trips = (props) => {
       <div className={styles.content}>
         <ul>
           {props.trips.map(trip => (
-            <li>
+            <li key={trip.id}>
               <a
                 href={`/trips/${trip.id}`}
-                key={trip.id}
               >
                 {trip.title}
               </a>
