@@ -4,9 +4,7 @@ exports[`Place should render 1`] = `
 <Fragment>
   <div />
   <div>
-    <h1
-      className="display-4 text-truncate"
-    />
+    <h1 />
     <h6>
       <a
         href="//edit"
@@ -15,15 +13,11 @@ exports[`Place should render 1`] = `
       </a>
     </h6>
     <hr />
-    <div
-      className="row"
-    >
+    <div>
       <div
-        className="undefined trix-content col-md-6 col-sm-12"
+        className="trix-content"
       >
-        <p
-          className="text-secondary font-weight-light font-italic"
-        >
+        <p>
           No note yet.
         </p>
       </div>

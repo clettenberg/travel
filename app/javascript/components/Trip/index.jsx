@@ -23,7 +23,6 @@ const Trip = (props) => {
     <React.Fragment>
       <div className={styles.container}>
         <Map
-          className={styles.map}
           points={points}
           center={props.trip.center}
           zoom={3}

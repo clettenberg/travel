@@ -13,7 +13,7 @@ const Place = ({ name, date, note, point }) => (
       }
     </div>
     <div className={styles.content}>
-      <h1 className='display-4 text-truncate'>
+      <h1>
         {name}
       </h1>
       <h6>
@@ -28,9 +28,9 @@ const Place = ({ name, date, note, point }) => (
 
       <hr />
 
-      <div className='row'>
-        <div className={`${styles.note} trix-content col-md-6 col-sm-12`}>
-          {note || <p className='text-secondary font-weight-light font-italic'>
+      <div>
+        <div className='trix-content'>
+          {note || <p>
             No note yet.
           </p>
           }
