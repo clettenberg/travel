@@ -20,14 +20,16 @@ const Trip = (props) => {
   const points = props.trip.places.map(place => place.point).filter(Boolean)
 
   return (
-    <div className={styles.container}>
-      <Map
-        className={styles.map}
-        points={points}
-        center={props.trip.center}
-        zoom={3}
-      />
-      <div className={styles.trips}>
+    <React.Fragment>
+      <div className={styles.container}>
+        <Map
+          className={styles.map}
+          points={points}
+          center={props.trip.center}
+          zoom={3}
+        />
+      </div>
+      <div className={styles.content}>
         <h1 className={styles.title}>{props.trip.title}</h1>
         <ul className={`list-group list-group-flush`}>
 
@@ -48,7 +50,7 @@ const Trip = (props) => {
           Add Place
         </a>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
