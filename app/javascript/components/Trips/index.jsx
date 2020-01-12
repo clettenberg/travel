@@ -31,18 +31,19 @@ const Trips = (props) => {
         />
       </div>
       <div className={styles.content}>
-        <ul className={`list-group list-group-flush`}>
+        <ul>
           {props.trips.map(trip => (
-            <a
-              href={`/trips/${trip.id}`}
-              key={trip.id}
-              className='list-group-item list-group-item-action'
-            >
-              {trip.title}
-            </a>
+            <li>
+              <a
+                href={`/trips/${trip.id}`}
+                key={trip.id}
+              >
+                {trip.title}
+              </a>
+            </li>
           ))}
         </ul>
-        <a className={`${styles.sticky} btn btn-primary`} href='/trips/new'>Add Trip</a>
+        <a href='/trips/new'>Add Trip</a>
       </div>
     </React.Fragment>
   )

@@ -31,22 +31,19 @@ const Trip = (props) => {
       </div>
       <div className={styles.content}>
         <h1 className={styles.title}>{props.trip.title}</h1>
-        <ul className={`list-group list-group-flush`}>
-
+        <ul>
           {props.trip.places.map(place => (
-            <a
-              href={`/places/${place.id}`}
-              key={place.id}
-              className='list-group-item list-group-item-action'
-            >
-              {place.name}
-            </a>
+            <li>
+              <a
+                href={`/places/${place.id}`}
+                key={place.id}
+              >
+                {place.name}
+              </a>
+            </li>
           ))}
         </ul>
-        <a
-          className={`${styles.sticky} btn btn-primary`}
-          href={`/trips/${props.trip.id}/places/new`}
-        >
+        <a href={`/trips/${props.trip.id}/places/new`} >
           Add Place
         </a>
       </div>

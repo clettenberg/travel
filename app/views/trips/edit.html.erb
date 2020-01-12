@@ -1,7 +1,7 @@
 <h1>
   Editing Trip
-  <%= link_to 'Cancel', trip_path(@trip), class: 'btn btn-secondary btn-sm' %>
+  <%= link_to 'Cancel', trip_path(@trip) %>
 </h1>
 
 <%= render 'form', trip: @trip %>
-<%= link_to 'Delete', trip_path(@trip), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete #{@trip.title}?\nYou will lose all of the data associated with this trip." } %>
+<%= link_to 'Delete', trip_path(@trip), method: :delete, data: { confirm: "Are you sure you want to delete #{@trip.title}?\nYou will lose all of the data associated with this trip." } %>

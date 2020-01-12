@@ -20,7 +20,6 @@ const Place = ({ name, date, note, point }) => (
         {date}
 
         <a
-          className='btn btn-primary btn-sm'
           href={window.location.pathname.concat('/edit')}
         >
           Edit

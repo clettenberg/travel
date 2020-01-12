@@ -96,7 +96,6 @@ class PlaceSearch extends React.Component {
         <input
           placeholder='Place Name'
           type='text'
-          className='form-control'
           name='name'
           value={this.state.name}
           onChange={this.handleSearchValueChange}
@@ -108,7 +107,6 @@ class PlaceSearch extends React.Component {
           <input
             placeholder='Latitude'
             type='text'
-            className='form-control'
             name='lat'
             value={this.state.lat}
             onChange={this.handleSearchValueChange}
@@ -116,7 +114,6 @@ class PlaceSearch extends React.Component {
           <input
             placeholder='Longitude'
             type='text'
-            className='form-control'
             name='lon'
             value={this.state.lon}
             onChange={this.handleSearchValueChange}
@@ -132,11 +129,11 @@ class PlaceSearch extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div className='input-group mb-3'>
-            <div className='input-group-prepend'>
+          <div>
+            <div>
               <button
                 onClick={() => this.handleSearchTypeChange('name')}
-                className={`btn btn-outline-secondary ${this.state.searchType === 'name' ? 'active' : ''}`}
+                className={`${this.state.searchType === 'name' ? 'active' : ''}`}
                 id='name'
                 type='button'
               >
@@ -144,7 +141,7 @@ class PlaceSearch extends React.Component {
               </button>
               <button
                 onClick={() => this.handleSearchTypeChange('latlon')}
-                className={`btn btn-outline-secondary ${this.state.searchType === 'latlon' ? 'active' : ''}`}
+                className={`${this.state.searchType === 'latlon' ? 'active' : ''}`}
                 id='latlon'
                 type='button'
               >
@@ -159,8 +156,8 @@ class PlaceSearch extends React.Component {
         }
 
         {this.state.placeSearchResults &&
-          <div className='row'>
-            <ul className='col'>
+          <div>
+            <ul>
               {this.state.placeSearchResults.length > 0
                 ? <PlaceSearchResults
                   results={this.state.placeSearchResults}

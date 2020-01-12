@@ -9,7 +9,6 @@ exports[`Place should render 1`] = `
     />
     <h6>
       <a
-        className="btn btn-primary btn-sm"
         href="//edit"
       >
         Edit

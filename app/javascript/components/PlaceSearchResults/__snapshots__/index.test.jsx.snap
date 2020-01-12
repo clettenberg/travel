@@ -3,16 +3,13 @@
 exports[`PlaceSearchResults should render correctly 1`] = `
 Array [
   <div
-    className="form-check"
     key="foo"
   >
     <label
-      className="form-check-label"
       htmlFor="placeSearchResult-foo"
     >
       <input
         checked={false}
-        className="form-check-input"
         id="placeSearchResult-foo"
         name="placeSearchResults"
         onChange={[Function]}
@@ -27,16 +24,13 @@ Array [
     </label>
   </div>,
   <div
-    className="form-check"
     key="another"
   >
     <label
-      className="form-check-label"
       htmlFor="placeSearchResult-another"
     >
       <input
         checked={false}
-        className="form-check-input"
         id="placeSearchResult-another"
         name="placeSearchResults"
         onChange={[Function]}

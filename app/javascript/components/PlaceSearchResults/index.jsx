@@ -16,11 +16,10 @@ const PlaceSearchResults = ({ results, selectedId, onPlaceSelection }) => (
     const inputId = `placeSearchResult-${result.place_id}`
 
     return (
-      <div key={result.place_id} className='form-check'>
-        <label className='form-check-label' htmlFor={inputId}>
+      <div key={result.place_id}>
+        <label htmlFor={inputId}>
           <input
             type='radio'
-            className='form-check-input'
             name='placeSearchResults'
             id={inputId}
             value={result.place_id}

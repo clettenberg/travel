@@ -5,14 +5,10 @@ exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <div
-      className="input-group mb-3"
-    >
-      <div
-        className="input-group-prepend"
-      >
+    <div>
+      <div>
         <button
-          className="btn btn-outline-secondary "
+          className=""
           id="name"
           onClick={[Function]}
           type="button"
@@ -20,7 +16,7 @@ exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
           Place Name
         </button>
         <button
-          className="btn btn-outline-secondary active"
+          className="active"
           id="latlon"
           onClick={[Function]}
           type="button"
@@ -29,7 +25,6 @@ exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
         </button>
       </div>
       <input
-        className="form-control"
         name="lat"
         onChange={[Function]}
         placeholder="Latitude"
@@ -37,7 +32,6 @@ exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
         value=""
       />
       <input
-        className="form-control"
         name="lon"
         onChange={[Function]}
         placeholder="Longitude"
@@ -62,14 +56,10 @@ exports[`PlaceSearch Component Place Name should render correctly 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <div
-      className="input-group mb-3"
-    >
-      <div
-        className="input-group-prepend"
-      >
+    <div>
+      <div>
         <button
-          className="btn btn-outline-secondary active"
+          className="active"
           id="name"
           onClick={[Function]}
           type="button"
@@ -77,7 +67,7 @@ exports[`PlaceSearch Component Place Name should render correctly 1`] = `
           Place Name
         </button>
         <button
-          className="btn btn-outline-secondary "
+          className=""
           id="latlon"
           onClick={[Function]}
           type="button"
@@ -86,7 +76,6 @@ exports[`PlaceSearch Component Place Name should render correctly 1`] = `
         </button>
       </div>
       <input
-        className="form-control"
         name="name"
         onChange={[Function]}
         placeholder="Place Name"
