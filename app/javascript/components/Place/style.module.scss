@@ -1,8 +1,19 @@
+@import '../shared/breakpoints.scss';
+
+$map-content-split-percentage: 60%;
+
 .container {
   div[class*=this-is-the-map] {
     position: absolute;
     top: 0;
     bottom: 0;
+    width: 100%;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    position: absolute;
+    top: 0;
+    bottom: $map-content-split-percentage;
     width: 100%;
   }
 }
@@ -12,5 +23,15 @@
   background: white;
   padding: 10px;
   margin: 10px;
-  max-width: 100vw
+  max-height: 90vh;
+  width: 400px;
+  overflow: scroll;
+
+  @media (max-width: $mobile-breakpoint) {
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    height: $map-content-split-percentage;
+    min-width: 100%;
+  }
 }
