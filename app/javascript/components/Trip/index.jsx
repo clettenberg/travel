@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Paper from '@material-ui/core/Paper'
 
 import Map from '../Map'
 import styles from './style.module.scss'
@@ -28,7 +29,7 @@ const Trip = (props) => {
           zoom={3}
         />
       </div>
-      <div className={styles.content}>
+      <Paper className={styles.content}>
         <h1 className={styles.title}>{props.trip.title}</h1>
         <ul>
           {props.trip.places.map(place => (
@@ -45,7 +46,7 @@ const Trip = (props) => {
         <a href={`/trips/${props.trip.id}/places/new`} >
           Add Place
         </a>
-      </div>
+      </Paper>
     </React.Fragment>
   )
 }

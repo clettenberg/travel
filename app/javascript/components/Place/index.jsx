@@ -1,6 +1,7 @@
 import React from 'react'
-import Map from '../Map'
+import Paper from '@material-ui/core/Paper'
 
+import Map from '../Map'
 import styles from './style.module.scss'
 
 const Place = ({ name, date, note, point }) => (
@@ -12,7 +13,7 @@ const Place = ({ name, date, note, point }) => (
         </div>
       }
     </div>
-    <div className={styles.content}>
+    <Paper className={styles.content}>
       <h1>
         {name}
       </h1>
@@ -36,7 +37,7 @@ const Place = ({ name, date, note, point }) => (
           }
         </div>
       </div>
-    </div>
+    </Paper>
   </React.Fragment>
 )
 

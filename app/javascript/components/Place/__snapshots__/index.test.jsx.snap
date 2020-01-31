@@ -3,7 +3,7 @@
 exports[`Place should render 1`] = `
 <Fragment>
   <div />
-  <div>
+  <WithStyles(ForwardRef(Paper))>
     <h1 />
     <h6>
       <a
@@ -22,6 +22,6 @@ exports[`Place should render 1`] = `
         </p>
       </div>
     </div>
-  </div>
+  </WithStyles(ForwardRef(Paper))>
 </Fragment>
 `;
