@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core'
 import MapquestSearchClient from '../../api/MapquestSearchClient'
 import PlaceSearchResults from '../PlaceSearchResults'
 import Spinner from '../Spinner'
@@ -17,6 +18,7 @@ class PlaceSearch extends React.Component {
     this.handleSearchValueChange = this.handleSearchValueChange.bind(this)
     this.handlePlaceSelection = this.handlePlaceSelection.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSearchTypeChange = this.handleSearchTypeChange.bind(this)
 
     this.state = {
       searchType: 'name',
@@ -30,8 +32,8 @@ class PlaceSearch extends React.Component {
     }
   }
 
-  handleSearchTypeChange (searchType) {
-    this.setState({ searchType })
+  handleSearchTypeChange (event) {
+    this.setState({ searchType: event.target.value })
   }
 
   handleSearchValueChange (event) {
@@ -139,24 +141,20 @@ class PlaceSearch extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <div>
-              <button
-                onClick={() => this.handleSearchTypeChange('name')}
-                className={`${searchType === 'name' ? 'active' : ''}`}
-                id='name'
-                type='button'
-              >
-                Place Name
-              </button>
-              <button
-                onClick={() => this.handleSearchTypeChange('latlon')}
-                className={`${searchType === 'latlon' ? 'active' : ''}`}
-                id='latlon'
-                type='button'
-              >
-                Lat/Lon
-              </button>
-            </div>
+            <RadioGroup value={searchType} onChange={this.handleSearchTypeChange} row>
+              <FormControlLabel
+                value='name'
+                control={<Radio color='primary' />}
+                label='Name'
+                labelPlacement='end'
+              />
+              <FormControlLabel
+                value='latlon'
+                control={<Radio color='primary' />}
+                label='LatLon'
+                labelPlacement='end'
+              />
+            </RadioGroup>
             {placeSearchInput}
           </div>
         </form>

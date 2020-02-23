@@ -12,13 +12,4 @@ describe('PlaceSearch Component', () => {
       expect(toJson(wrapper)).toMatchSnapshot()
     })
   })
-
-  describe('Lat/Lon', () => {
-    it('should render correctly', () => {
-      const wrapper = shallow(<PlaceSearch onPlaceSelection={jest.fn()} />)
-      wrapper.find('button#latlon').simulate('click')
-
-      expect(toJson(wrapper)).toMatchSnapshot()
-    })
-  })
 })

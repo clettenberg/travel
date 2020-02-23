@@ -1,80 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlaceSearch Component Lat/Lon should render correctly 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <div>
-      <div>
-        <button
-          className=""
-          id="name"
-          onClick={[Function]}
-          type="button"
-        >
-          Place Name
-        </button>
-        <button
-          className="active"
-          id="latlon"
-          onClick={[Function]}
-          type="button"
-        >
-          Lat/Lon
-        </button>
-      </div>
-      <input
-        name="lat"
-        onChange={[Function]}
-        placeholder="Latitude"
-        type="text"
-        value=""
-      />
-      <input
-        name="lon"
-        onChange={[Function]}
-        placeholder="Longitude"
-        type="text"
-        value=""
-      />
-      <input
-        style={
-          Object {
-            "display": "none",
-          }
-        }
-        type="submit"
-      />
-    </div>
-  </form>
-</div>
-`;
-
 exports[`PlaceSearch Component Place Name should render correctly 1`] = `
 <div>
   <form
     onSubmit={[Function]}
   >
     <div>
-      <div>
-        <button
-          className="active"
-          id="name"
-          onClick={[Function]}
-          type="button"
-        >
-          Place Name
-        </button>
-        <button
-          className=""
-          id="latlon"
-          onClick={[Function]}
-          type="button"
-        >
-          Lat/Lon
-        </button>
-      </div>
+      <ForwardRef(RadioGroup)
+        onChange={[Function]}
+        row={true}
+        value="name"
+      >
+        <WithStyles(ForwardRef(FormControlLabel))
+          control={
+            <ForwardRef(WithStyles)
+              color="primary"
+            />
+          }
+          label="Name"
+          labelPlacement="end"
+          value="name"
+        />
+        <WithStyles(ForwardRef(FormControlLabel))
+          control={
+            <ForwardRef(WithStyles)
+              color="primary"
+            />
+          }
+          label="LatLon"
+          labelPlacement="end"
+          value="latlon"
+        />
+      </ForwardRef(RadioGroup)>
       <input
         name="name"
         onChange={[Function]}
