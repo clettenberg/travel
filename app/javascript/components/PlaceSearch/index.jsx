@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core'
+import { Radio, RadioGroup, FormControlLabel, TextField } from '@material-ui/core'
 import MapquestSearchClient from '../../api/MapquestSearchClient'
 import PlaceSearchResults from '../PlaceSearchResults'
 import Spinner from '../Spinner'
@@ -104,7 +104,7 @@ class PlaceSearch extends React.Component {
 
     if (searchType === 'name') {
       placeSearchInput = (
-        <input
+        <TextField
           placeholder='Place Name'
           type='text'
           name='name'
@@ -115,14 +115,14 @@ class PlaceSearch extends React.Component {
     } else {
       placeSearchInput = (
         <React.Fragment>
-          <input
+          <TextField
             placeholder='Latitude'
             type='text'
             name='lat'
             value={lat}
             onChange={this.handleSearchValueChange}
           />
-          <input
+          <TextField
             placeholder='Longitude'
             type='text'
             name='lon'

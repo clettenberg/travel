@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PlaceSearch from '../PlaceSearch'
 
 import styles from './style.module.scss'
+import { TextField, Button } from '@material-ui/core'
 
 class PlaceForm extends Component {
   constructor (props) {
@@ -95,7 +96,7 @@ class PlaceForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <div>
-              <input
+              <TextField
                 placeholder='Name'
                 type='text'
                 name='name'
@@ -108,7 +109,7 @@ class PlaceForm extends Component {
               <div>
                 <span>Start Date</span>
               </div>
-              <input
+              <TextField
                 type='date'
                 name='start_date'
                 id='place_start_date'
@@ -121,7 +122,7 @@ class PlaceForm extends Component {
               <div>
                 <span>End Date</span>
               </div>
-              <input
+              <TextField
                 type='date'
                 name='end_date'
                 id='place_end_date'
@@ -136,7 +137,7 @@ class PlaceForm extends Component {
             <trix-editor input='place_note' class='trix-content' placeholder='Note' />
           </div>
 
-          <button type='submit'>Submit</button>
+          <Button type='submit' variant='contained' color='primary'>Submit</Button>
         </form>
       </div>
     )
