@@ -87,17 +87,26 @@ class PlaceSearch extends React.Component {
   render () {
     let placeSearchInput
 
-    const errorComponents = this.state.errors.map(err => (
-      <p key={err.message}>{err.message}</p>
-    ))
+    const {
+      searchType,
+      errors,
+      lat,
+      lon,
+      name,
+      isSearching,
+      placeSearchResults,
+      selectedPlaceId
+    } = this.state
 
-    if (this.state.searchType === 'name') {
+    const errorComponents = errors.map(err => <p key={err.message}>{err.message}</p>)
+
+    if (searchType === 'name') {
       placeSearchInput = (
         <input
           placeholder='Place Name'
           type='text'
           name='name'
-          value={this.state.name}
+          value={name}
           onChange={this.handleSearchValueChange}
         />
       )
@@ -108,14 +117,14 @@ class PlaceSearch extends React.Component {
             placeholder='Latitude'
             type='text'
             name='lat'
-            value={this.state.lat}
+            value={lat}
             onChange={this.handleSearchValueChange}
           />
           <input
             placeholder='Longitude'
             type='text'
             name='lon'
-            value={this.state.lon}
+            value={lon}
             onChange={this.handleSearchValueChange}
           />
           <input
@@ -133,7 +142,7 @@ class PlaceSearch extends React.Component {
             <div>
               <button
                 onClick={() => this.handleSearchTypeChange('name')}
-                className={`${this.state.searchType === 'name' ? 'active' : ''}`}
+                className={`${searchType === 'name' ? 'active' : ''}`}
                 id='name'
                 type='button'
               >
@@ -141,7 +150,7 @@ class PlaceSearch extends React.Component {
               </button>
               <button
                 onClick={() => this.handleSearchTypeChange('latlon')}
-                className={`${this.state.searchType === 'latlon' ? 'active' : ''}`}
+                className={`${searchType === 'latlon' ? 'active' : ''}`}
                 id='latlon'
                 type='button'
               >
@@ -151,17 +160,16 @@ class PlaceSearch extends React.Component {
             {placeSearchInput}
           </div>
         </form>
-        {this.state.isSearching &&
-          <Spinner />
-        }
 
-        {this.state.placeSearchResults &&
+        {isSearching && <Spinner />}
+
+        {placeSearchResults &&
           <div>
             <ul>
-              {this.state.placeSearchResults.length > 0
+              {placeSearchResults.length > 0
                 ? <PlaceSearchResults
-                  results={this.state.placeSearchResults}
-                  selectedId={this.state.selectedPlaceId}
+                  results={placeSearchResults}
+                  selectedId={selectedPlaceId}
                   onPlaceSelection={this.handlePlaceSelection}
                 />
                 : <h1>No results!</h1>
