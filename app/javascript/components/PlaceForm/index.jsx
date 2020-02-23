@@ -2,12 +2,13 @@ import { fetch } from 'whatwg-fetch'
 import React, { Component } from 'react'
 import PlaceSearch from '../PlaceSearch'
 
-import { TextField, Button, Grid, Container } from '@material-ui/core'
+import styles from './style.module.scss'
+
+import { TextField, Button, Grid, Container, Card, CardContent } from '@material-ui/core'
 
 class PlaceForm extends Component {
   constructor (props) {
     super(props)
-
     this.trixRef = React.createRef()
     this.state = {
       selectedPlace: null,
@@ -84,59 +85,63 @@ class PlaceForm extends Component {
 
   render () {
     return (
-      <Container>
+      <Container className={styles.container}>
         <h1>Add Place</h1>
         {this.state.errors.length > 0 &&
           <div role='alert'>
             {this.state.errors.join('\n')}
           </div>
         }
-        <Grid container>
-          <Grid item xs={12}>
-            <PlaceSearch onPlaceSelection={this.onPlaceSelection} />
-          </Grid>
-          <Grid item xs={4}>
-            <TextField
-              placeholder='Name'
-              type='text'
-              name='name'
-              id='place_name'
-              onChange={this.handleChange}
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <TextField
-              label='Start Date'
-              type='date'
-              name='start_date'
-              id='place_start_date'
-              InputLabelProps={{
-                shrink: true
-              }}
-              onBlur={this.handleStartDateBlur}
-              onChange={this.handleChange}
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <TextField
-              type='date'
-              label='End Date'
-              name='end_date'
-              id='place_end_date'
-              InputLabelProps={{
-                shrink: true
-              }}
-              onChange={this.handleChange}
-              value={this.state.end_date}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <input ref={this.trixRef} id='place_note' type='hidden' name='note' />
-            <trix-editor input='place_note' class='trix-content' placeholder='Note' />
-          </Grid>
-        </Grid>
 
-        <Button onClick={this.handleSubmit} type='submit' variant='contained' color='primary'>Submit</Button>
+        <PlaceSearch onPlaceSelection={this.onPlaceSelection} />
+
+        <Card >
+          <CardContent>
+            <Grid container>
+              <Grid item xs={4}>
+                <TextField
+                  placeholder='Name'
+                  type='text'
+                  name='name'
+                  id='place_name'
+                  onChange={this.handleChange}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <TextField
+                  label='Start Date'
+                  type='date'
+                  name='start_date'
+                  id='place_start_date'
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  onBlur={this.handleStartDateBlur}
+                  onChange={this.handleChange}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <TextField
+                  type='date'
+                  label='End Date'
+                  name='end_date'
+                  id='place_end_date'
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  onChange={this.handleChange}
+                  value={this.state.end_date}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <input ref={this.trixRef} id='place_note' type='hidden' name='note' />
+                <trix-editor input='place_note' class='trix-content' placeholder='Note' />
+              </Grid>
+            </Grid>
+
+            <Button onClick={this.handleSubmit} type='submit' variant='contained' color='primary'>Submit</Button>
+          </CardContent>
+        </Card>
       </Container>
     )
   }

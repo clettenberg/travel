@@ -1,36 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlaceSearch Component Place Name should render correctly 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <div>
-      <WithStyles(ForwardRef(ToggleButton))
-        aria-label="search type"
-        exclusive={true}
-        onChange={[Function]}
-        value="name"
-      >
+<WithStyles(ForwardRef(Card))>
+  <WithStyles(ForwardRef(CardContent))>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
         <WithStyles(ForwardRef(ToggleButton))
+          aria-label="search type"
+          exclusive={true}
+          onChange={[Function]}
           value="name"
         >
-          Name
+          <WithStyles(ForwardRef(ToggleButton))
+            value="name"
+          >
+            Name
+          </WithStyles(ForwardRef(ToggleButton))>
+          <WithStyles(ForwardRef(ToggleButton))
+            value="latlon"
+          >
+            LatLon
+          </WithStyles(ForwardRef(ToggleButton))>
         </WithStyles(ForwardRef(ToggleButton))>
-        <WithStyles(ForwardRef(ToggleButton))
-          value="latlon"
-        >
-          LatLon
-        </WithStyles(ForwardRef(ToggleButton))>
-      </WithStyles(ForwardRef(ToggleButton))>
-    </div>
-    <WithStyles(ForwardRef(TextField))
-      name="name"
-      onChange={[Function]}
-      placeholder="Place Name"
-      type="text"
-      value=""
-    />
-  </form>
-</div>
+      </div>
+      <WithStyles(ForwardRef(TextField))
+        name="name"
+        onChange={[Function]}
+        placeholder="Place Name"
+        type="text"
+        value=""
+      />
+    </form>
+  </WithStyles(ForwardRef(CardContent))>
+</WithStyles(ForwardRef(Card))>
 `;

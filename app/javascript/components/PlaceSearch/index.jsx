@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TextField } from '@material-ui/core'
+import { TextField, Card, CardContent } from '@material-ui/core'
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
 import MapquestSearchClient from '../../api/MapquestSearchClient'
 import PlaceSearchResults from '../PlaceSearchResults'
@@ -139,33 +139,34 @@ class PlaceSearch extends React.Component {
     }
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <ToggleButtonGroup
-              value={searchType}
-              exclusive
-              onChange={this.handleSearchTypeChange}
-              aria-label='search type'
-            >
-              <ToggleButton
-                value='name'
+      <Card>
+        <CardContent>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <ToggleButtonGroup
+                value={searchType}
+                exclusive
+                onChange={this.handleSearchTypeChange}
+                aria-label='search type'
               >
+                <ToggleButton
+                  value='name'
+                >
                 Name
-              </ToggleButton>
-              <ToggleButton
-                value='latlon'
-              >
+                </ToggleButton>
+                <ToggleButton
+                  value='latlon'
+                >
                 LatLon
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </div>
-          {placeSearchInput}
-        </form>
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
+            {placeSearchInput}
+          </form>
 
-        {isSearching && <Spinner />}
+          {isSearching && <Spinner />}
 
-        {placeSearchResults &&
+          {placeSearchResults &&
           <div>
             <ul>
               {placeSearchResults.length > 0
@@ -179,8 +180,9 @@ class PlaceSearch extends React.Component {
             </ul>
             {errorComponents}
           </div>
-        }
-      </div>
+          }
+        </CardContent>
+      </Card>
     )
   }
 }
