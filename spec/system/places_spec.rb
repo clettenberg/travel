@@ -30,7 +30,7 @@ RSpec.describe "places", type: :system do
 
     it "allows a user to add a new place by lat lon", :vcr do
       visit "/trips/#{trip.id}/places/new"
-      click_on "Lat/Lon"
+      click_on "LatLon"
       fill_in "Latitude", with: "40.6892474"
       fill_in "Longitude", with: "-74.0445405280149\n"
       find("label", text: "Statue of Liberty, Flagpole Plaza").click
