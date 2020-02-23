@@ -87,7 +87,7 @@ class PlaceSearch extends React.Component {
   render () {
     let placeSearchInput
 
-    const errors = this.state.errors.map(err => (
+    const errorComponents = this.state.errors.map(err => (
       <p key={err.message}>{err.message}</p>
     ))
 
@@ -167,7 +167,7 @@ class PlaceSearch extends React.Component {
                 : <h1>No results!</h1>
               }
             </ul>
-            {errors}
+            {errorComponents}
           </div>
         }
       </div>
