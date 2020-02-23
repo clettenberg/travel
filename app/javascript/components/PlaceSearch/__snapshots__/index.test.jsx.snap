@@ -6,40 +6,31 @@ exports[`PlaceSearch Component Place Name should render correctly 1`] = `
     onSubmit={[Function]}
   >
     <div>
-      <ForwardRef(RadioGroup)
+      <WithStyles(ForwardRef(ToggleButton))
+        aria-label="search type"
+        exclusive={true}
         onChange={[Function]}
-        row={true}
         value="name"
       >
-        <WithStyles(ForwardRef(FormControlLabel))
-          control={
-            <ForwardRef(WithStyles)
-              color="primary"
-            />
-          }
-          label="Name"
-          labelPlacement="end"
+        <WithStyles(ForwardRef(ToggleButton))
           value="name"
-        />
-        <WithStyles(ForwardRef(FormControlLabel))
-          control={
-            <ForwardRef(WithStyles)
-              color="primary"
-            />
-          }
-          label="LatLon"
-          labelPlacement="end"
+        >
+          Name
+        </WithStyles(ForwardRef(ToggleButton))>
+        <WithStyles(ForwardRef(ToggleButton))
           value="latlon"
-        />
-      </ForwardRef(RadioGroup)>
-      <WithStyles(ForwardRef(TextField))
-        name="name"
-        onChange={[Function]}
-        placeholder="Place Name"
-        type="text"
-        value=""
-      />
+        >
+          LatLon
+        </WithStyles(ForwardRef(ToggleButton))>
+      </WithStyles(ForwardRef(ToggleButton))>
     </div>
+    <WithStyles(ForwardRef(TextField))
+      name="name"
+      onChange={[Function]}
+      placeholder="Place Name"
+      type="text"
+      value=""
+    />
   </form>
 </div>
 `;

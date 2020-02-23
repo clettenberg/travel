@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Radio, RadioGroup, FormControlLabel, TextField } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
+import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
 import MapquestSearchClient from '../../api/MapquestSearchClient'
 import PlaceSearchResults from '../PlaceSearchResults'
 import Spinner from '../Spinner'
@@ -32,8 +33,8 @@ class PlaceSearch extends React.Component {
     }
   }
 
-  handleSearchTypeChange (event) {
-    this.setState({ searchType: event.target.value })
+  handleSearchTypeChange (event, newSearchType) {
+    this.setState({ searchType: newSearchType })
   }
 
   handleSearchValueChange (event) {
@@ -141,22 +142,25 @@ class PlaceSearch extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <RadioGroup value={searchType} onChange={this.handleSearchTypeChange} row>
-              <FormControlLabel
+            <ToggleButtonGroup
+              value={searchType}
+              exclusive
+              onChange={this.handleSearchTypeChange}
+              aria-label='search type'
+            >
+              <ToggleButton
                 value='name'
-                control={<Radio color='primary' />}
-                label='Name'
-                labelPlacement='end'
-              />
-              <FormControlLabel
+              >
+                Name
+              </ToggleButton>
+              <ToggleButton
                 value='latlon'
-                control={<Radio color='primary' />}
-                label='LatLon'
-                labelPlacement='end'
-              />
-            </RadioGroup>
-            {placeSearchInput}
+              >
+                LatLon
+              </ToggleButton>
+            </ToggleButtonGroup>
           </div>
+          {placeSearchInput}
         </form>
 
         {isSearching && <Spinner />}

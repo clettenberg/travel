@@ -2,8 +2,7 @@ import { fetch } from 'whatwg-fetch'
 import React, { Component } from 'react'
 import PlaceSearch from '../PlaceSearch'
 
-import styles from './style.module.scss'
-import { TextField, Button } from '@material-ui/core'
+import { TextField, Button, Grid, Container } from '@material-ui/core'
 
 class PlaceForm extends Component {
   constructor (props) {
@@ -85,61 +84,60 @@ class PlaceForm extends Component {
 
   render () {
     return (
-      <div className={styles.container}>
+      <Container>
         <h1>Add Place</h1>
         {this.state.errors.length > 0 &&
           <div role='alert'>
             {this.state.errors.join('\n')}
           </div>
         }
-        <PlaceSearch onPlaceSelection={this.onPlaceSelection} />
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <div>
-              <TextField
-                placeholder='Name'
-                type='text'
-                name='name'
-                id='place_name'
-                onChange={this.handleChange}
-              />
-            </div>
-
-            <div>
-              <div>
-                <span>Start Date</span>
-              </div>
-              <TextField
-                type='date'
-                name='start_date'
-                id='place_start_date'
-                onBlur={this.handleStartDateBlur}
-                onChange={this.handleChange}
-              />
-            </div>
-
-            <div>
-              <div>
-                <span>End Date</span>
-              </div>
-              <TextField
-                type='date'
-                name='end_date'
-                id='place_end_date'
-                onChange={this.handleChange}
-                value={this.state.end_date}
-              />
-            </div>
-          </div>
-
-          <div>
+        <Grid container>
+          <Grid item xs={12}>
+            <PlaceSearch onPlaceSelection={this.onPlaceSelection} />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              placeholder='Name'
+              type='text'
+              name='name'
+              id='place_name'
+              onChange={this.handleChange}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              label='Start Date'
+              type='date'
+              name='start_date'
+              id='place_start_date'
+              InputLabelProps={{
+                shrink: true
+              }}
+              onBlur={this.handleStartDateBlur}
+              onChange={this.handleChange}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              type='date'
+              label='End Date'
+              name='end_date'
+              id='place_end_date'
+              InputLabelProps={{
+                shrink: true
+              }}
+              onChange={this.handleChange}
+              value={this.state.end_date}
+            />
+          </Grid>
+          <Grid item xs={12}>
             <input ref={this.trixRef} id='place_note' type='hidden' name='note' />
             <trix-editor input='place_note' class='trix-content' placeholder='Note' />
-          </div>
+          </Grid>
+        </Grid>
 
-          <Button type='submit' variant='contained' color='primary'>Submit</Button>
-        </form>
-      </div>
+        <Button onClick={this.handleSubmit} type='submit' variant='contained' color='primary'>Submit</Button>
+      </Container>
     )
   }
 }
