@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper'
 
 import Map from '../Map'
 import styles from './style.module.scss'
+import { List, ListItem, ListItemText, Fab, makeStyles } from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
 
 const propTypes = {
   trips: PropTypes.arrayOf(PropTypes.shape({
@@ -16,7 +18,24 @@ const propTypes = {
   })).isRequired
 }
 
+const ListItemLink = (props) => (
+  <ListItem button component='a' {...props} />
+)
+
+const useStyles = makeStyles(theme => ({
+  fab: {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed'
+  }
+}))
+
 const Trips = (props) => {
+  const classes = useStyles()
+
   const points = props.trips.map(trip => (
     trip.places.map(place => place.point)
   )).reduce((a, b) => a.concat(b), [])
@@ -32,20 +51,22 @@ const Trips = (props) => {
         />
       </div>
       <Paper elevation={3} className={styles.content}>
-        <div >
-          <ul>
-            {props.trips.map(trip => (
-              <li key={trip.id}>
-                <a
-                  href={`/trips/${trip.id}`}
-                >
-                  {trip.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href='/trips/new'>Add Trip</a>
-        </div>
+        <List>
+          {props.trips.map(({ id, title }) => (
+            <ListItemLink href={`/trips/${id}`} key={id}>
+              <ListItemText primary={title} />
+            </ListItemLink>
+          ))}
+          <Fab
+            href='/trips/new'
+            className={classes.fab}
+            variant='extended'
+            color='primary'
+          >
+            New Trip
+            <AddIcon />
+          </Fab>
+        </List>
       </Paper>
     </React.Fragment>
   )
