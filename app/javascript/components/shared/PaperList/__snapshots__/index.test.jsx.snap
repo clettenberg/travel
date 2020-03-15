@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaperList when provided with things to list should render 1`] = `
+<WithStyles(ForwardRef(List))
+  className="makeStyles-root-1"
+  subheader={
+    <ForwardRef(WithStyles)
+      className="makeStyles-subheader-2"
+      component="div"
+    >
+      <span
+        id="heading"
+      >
+        Testing
+      </span>
+      <ForwardRef(WithStyles)>
+        <ForwardRef(WithStyles)
+          aria-label="new place"
+          color="primary"
+          endIcon={<UNDEFINED />}
+          href="/test/it"
+          variant="contained"
+        >
+          Add Place
+        </ForwardRef(WithStyles)>
+      </ForwardRef(WithStyles)>
+      <ForwardRef(WithStyles) />
+    </ForwardRef(WithStyles)>
+  }
+>
+  <ListItemLink
+    href="/url/1"
+    key="1"
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="title 1"
+    />
+  </ListItemLink>
+  <ListItemLink
+    href="/url/2"
+    key="2"
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="title 2"
+    />
+  </ListItemLink>
+  <ListItemLink
+    href="/url/3"
+    key="3"
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="title 3"
+    />
+  </ListItemLink>
+</WithStyles(ForwardRef(List))>
+`;
