@@ -4,7 +4,16 @@ import Paper from '@material-ui/core/Paper'
 
 import Map from '../Map'
 import styles from './style.module.scss'
-import { List, ListItem, ListItemText, ListSubheader, Fab, makeStyles, Divider } from '@material-ui/core'
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListSubheader,
+  makeStyles,
+  Divider,
+  ListItemSecondaryAction,
+  Button
+} from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 
 const propTypes = {
@@ -24,23 +33,14 @@ const ListItemLink = (props) => (
 )
 
 const useStyles = makeStyles(theme => ({
-  fab: {
-    margin: 0,
-    top: 'auto',
-    right: 20,
-    bottom: 20,
-    left: 'auto',
-    position: 'fixed'
-  },
   root: {
     backgroundColor: 'white'
   },
   subheader: {
     fontSize: '1.7rem',
     padding: 0,
-    '& span': {
-      paddingLeft: '10px',
-      paddingRight: '10px'
+    '& #heading': {
+      marginLeft: '10px'
     }
   }
 }))
@@ -63,13 +63,21 @@ const Trip = (props) => {
         <List
           className={classes.root}
           subheader={
-            <ListSubheader
-              component='div'
-              className={classes.subheader}>
-              <span>{props.trip.title}</span>
+            <ListSubheader component='div' className={classes.subheader}>
+              <span id='heading'>{props.trip.title}</span>
+              <ListItemSecondaryAction>
+                <Button
+                  href={`/trips/${props.trip.id}/places/new`}
+                  color='primary'
+                  variant='contained'
+                  aria-label='new place'
+                  endIcon={<AddIcon />}
+                >
+                  Add Place
+                </Button>
+              </ListItemSecondaryAction>
               <Divider />
             </ListSubheader>
-
           }>
           {props.trip.places.map(({ id, name }) => (
             <ListItemLink href={`/places/${id}`} key={id}>
@@ -77,15 +85,6 @@ const Trip = (props) => {
             </ListItemLink>
           ))}
         </List>
-        <Fab
-          href={`/trips/${props.trip.id}/places/new`}
-          className={classes.fab}
-          variant='extended'
-          color='primary'
-        >
-          New Place
-          <AddIcon />
-        </Fab>
       </Paper>
     </React.Fragment>
   )
