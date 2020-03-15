@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   }
 })
 
-const PaperList = ({ title, actionButtonUrl, thingsToList }) => {
+const PaperList = ({ title, actionButtonUrl, actionButtonText, thingsToList }) => {
   const classes = useStyles()
   return (
     <List
@@ -50,10 +50,10 @@ const PaperList = ({ title, actionButtonUrl, thingsToList }) => {
               href={actionButtonUrl}
               color='primary'
               variant='contained'
-              aria-label='new place'
+              aria-label={actionButtonText}
               endIcon={<AddIcon />}
             >
-              Add Place
+              {actionButtonText}
             </Button>
           </ListItemSecondaryAction>
           <Divider />

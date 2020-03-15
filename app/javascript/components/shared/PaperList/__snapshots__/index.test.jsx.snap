@@ -15,13 +15,13 @@ exports[`PaperList when provided with things to list should render 1`] = `
       </span>
       <ForwardRef(WithStyles)>
         <ForwardRef(WithStyles)
-          aria-label="new place"
+          aria-label="Test It"
           color="primary"
           endIcon={<UNDEFINED />}
           href="/test/it"
           variant="contained"
         >
-          Add Place
+          Test It
         </ForwardRef(WithStyles)>
       </ForwardRef(WithStyles)>
       <ForwardRef(WithStyles) />

@@ -17,6 +17,7 @@ describe('PaperList', () => {
         <PaperList
           title='Testing'
           actionButtonUrl='/test/it'
+          actionButtonText='Test It'
           thingsToList={thingsToList}
         />
       )
