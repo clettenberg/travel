@@ -32,7 +32,7 @@ const ListItemLink = (props) => (
   <ListItem button component='a' {...props} />
 )
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     backgroundColor: 'white'
   },
@@ -43,19 +43,19 @@ const useStyles = makeStyles(theme => ({
       marginLeft: '10px'
     }
   }
-}))
+})
 
-const Trip = (props) => {
+const Trip = ({ trip }) => {
   const classes = useStyles()
 
-  const points = props.trip.places.map(place => place.point).filter(Boolean)
+  const points = trip.places.map(place => place.point).filter(Boolean)
 
   return (
     <React.Fragment>
       <div className={styles.container}>
         <Map
           points={points}
-          center={props.trip.center}
+          center={trip.center}
           zoom={3}
         />
       </div>
@@ -64,10 +64,10 @@ const Trip = (props) => {
           className={classes.root}
           subheader={
             <ListSubheader component='div' className={classes.subheader}>
-              <span id='heading'>{props.trip.title}</span>
+              <span id='heading'>{trip.title}</span>
               <ListItemSecondaryAction>
                 <Button
-                  href={`/trips/${props.trip.id}/places/new`}
+                  href={`/trips/${trip.id}/places/new`}
                   color='primary'
                   variant='contained'
                   aria-label='new place'
@@ -79,7 +79,7 @@ const Trip = (props) => {
               <Divider />
             </ListSubheader>
           }>
-          {props.trip.places.map(({ id, name }) => (
+          {trip.places.map(({ id, name }) => (
             <ListItemLink href={`/places/${id}`} key={id}>
               <ListItemText primary={name} />
             </ListItemLink>
