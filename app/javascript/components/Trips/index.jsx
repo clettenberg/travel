@@ -57,16 +57,16 @@ const Trips = (props) => {
               <ListItemText primary={title} />
             </ListItemLink>
           ))}
-          <Fab
-            href='/trips/new'
-            className={classes.fab}
-            variant='extended'
-            color='primary'
-          >
-            New Trip
-            <AddIcon />
-          </Fab>
         </List>
+        <Fab
+          href='/trips/new'
+          className={classes.fab}
+          variant='extended'
+          color='primary'
+        >
+            New Trip
+          <AddIcon />
+        </Fab>
       </Paper>
     </React.Fragment>
   )
