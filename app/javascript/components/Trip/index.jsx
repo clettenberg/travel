@@ -3,18 +3,10 @@ import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 
 import Map from '../Map'
+import PaperList from '../shared/PaperList'
+import ThingToList from '../../models/ThingToList'
+
 import styles from './style.module.scss'
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListSubheader,
-  makeStyles,
-  Divider,
-  ListItemSecondaryAction,
-  Button
-} from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
 
 const propTypes = {
   trip: PropTypes.shape({
@@ -28,27 +20,11 @@ const propTypes = {
   }).isRequired
 }
 
-const ListItemLink = (props) => (
-  <ListItem button component='a' {...props} />
-)
-
-const useStyles = makeStyles({
-  root: {
-    backgroundColor: 'white'
-  },
-  subheader: {
-    fontSize: '1.7rem',
-    padding: 0,
-    '& #heading': {
-      marginLeft: '10px'
-    }
-  }
-})
-
 const Trip = ({ trip }) => {
-  const classes = useStyles()
-
   const points = trip.places.map(place => place.point).filter(Boolean)
+  const thingsToList = trip.places.map(({ id, name }) => (
+    new ThingToList(`/places/${id}`, name, id)
+  ))
 
   return (
     <React.Fragment>
@@ -60,31 +36,11 @@ const Trip = ({ trip }) => {
         />
       </div>
       <Paper className={styles.content}>
-        <List
-          className={classes.root}
-          subheader={
-            <ListSubheader component='div' className={classes.subheader}>
-              <span id='heading'>{trip.title}</span>
-              <ListItemSecondaryAction>
-                <Button
-                  href={`/trips/${trip.id}/places/new`}
-                  color='primary'
-                  variant='contained'
-                  aria-label='new place'
-                  endIcon={<AddIcon />}
-                >
-                  Add Place
-                </Button>
-              </ListItemSecondaryAction>
-              <Divider />
-            </ListSubheader>
-          }>
-          {trip.places.map(({ id, name }) => (
-            <ListItemLink href={`/places/${id}`} key={id}>
-              <ListItemText primary={name} />
-            </ListItemLink>
-          ))}
-        </List>
+        <PaperList
+          title={trip.title}
+          actionButtonUrl={`/trips/${trip.id}/places/new`}
+          thingsToList={thingsToList}
+        />
       </Paper>
     </React.Fragment>
   )
