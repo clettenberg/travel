@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Paper from '@material-ui/core/Paper'
+
+import { Paper } from '@material-ui/core'
 
 import Map from '../Map'
+import ThingsToList from '../../models/ThingToList'
+import PaperList from '../shared/PaperList'
+
 import styles from './style.module.scss'
-import { List, ListItem, ListItemText, Fab, makeStyles } from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
 
 const propTypes = {
   trips: PropTypes.arrayOf(PropTypes.shape({
@@ -18,28 +20,15 @@ const propTypes = {
   })).isRequired
 }
 
-const ListItemLink = (props) => (
-  <ListItem button component='a' {...props} />
-)
-
-const useStyles = makeStyles(theme => ({
-  fab: {
-    margin: 0,
-    top: 'auto',
-    right: 20,
-    bottom: 20,
-    left: 'auto',
-    position: 'fixed'
-  }
-}))
-
-const Trips = (props) => {
-  const classes = useStyles()
-
-  const points = props.trips.map(trip => (
+const Trips = ({ trips }) => {
+  const points = trips.map(trip => (
     trip.places.map(place => place.point)
   )).reduce((a, b) => a.concat(b), [])
     .filter(Boolean)
+
+  const thingsToList = trips.map(({ id, title }) => (
+    new ThingsToList(`/trips/${id}`, title, id)
+  ))
 
   return (
     <React.Fragment>
@@ -51,22 +40,12 @@ const Trips = (props) => {
         />
       </div>
       <Paper elevation={3} className={styles.content}>
-        <List>
-          {props.trips.map(({ id, title }) => (
-            <ListItemLink href={`/trips/${id}`} key={id}>
-              <ListItemText primary={title} />
-            </ListItemLink>
-          ))}
-        </List>
-        <Fab
-          href='/trips/new'
-          className={classes.fab}
-          variant='extended'
-          color='primary'
-        >
-            New Trip
-          <AddIcon />
-        </Fab>
+        <PaperList
+          title='Trips'
+          actionButtonUrl='/trips/new'
+          actionButtonText='Add Trip'
+          thingsToList={thingsToList}
+        />
       </Paper>
     </React.Fragment>
   )

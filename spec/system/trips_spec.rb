@@ -25,7 +25,7 @@ RSpec.describe "trips", type: :system do
 
         visit "/trips"
 
-        click_link "New Trip"
+        click_link "Add Trip"
         within("form") do
           fill_in "trip[title]", with: trip_title
         end

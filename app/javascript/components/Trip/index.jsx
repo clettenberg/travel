@@ -39,6 +39,7 @@ const Trip = ({ trip }) => {
         <PaperList
           title={trip.title}
           actionButtonUrl={`/trips/${trip.id}/places/new`}
+          actionButtonText='Add Place'
           thingsToList={thingsToList}
         />
       </Paper>
