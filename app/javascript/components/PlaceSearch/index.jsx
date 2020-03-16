@@ -123,6 +123,7 @@ class PlaceSearch extends React.Component {
             name='lat'
             value={lat}
             onChange={this.handleSearchValueChange}
+            style={{ marginRight: '5px' }}
           />
           <TextField
             placeholder='Longitude'
