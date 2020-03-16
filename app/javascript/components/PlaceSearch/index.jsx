@@ -109,6 +109,7 @@ class PlaceSearch extends React.Component {
           placeholder='Place Name'
           type='text'
           name='name'
+          fullWidth
           value={name}
           onChange={this.handleSearchValueChange}
         />

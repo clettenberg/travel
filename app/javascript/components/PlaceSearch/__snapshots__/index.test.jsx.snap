@@ -26,6 +26,7 @@ exports[`PlaceSearch Component Place Name should render correctly 1`] = `
         </WithStyles(ForwardRef(ToggleButton))>
       </div>
       <WithStyles(ForwardRef(TextField))
+        fullWidth={true}
         name="name"
         onChange={[Function]}
         placeholder="Place Name"
