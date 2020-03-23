@@ -1,1 +1,1 @@
-standardrb && yarn lint
+bundle exec standardrb --format progress && yarn lint
