@@ -19,62 +19,49 @@ jobs:
           POSTGRES_PASSWORD: ""
     steps:
       - checkout
-
       - run:
           name: Install Dependencies
           command: |
             sudo apt-get update -y
             sudo apt-get install postgresql-client -y
-
       - run:
           name: Update Bundler
           command: |
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
-
       - restore_cache:
           keys:
             - travel-bundle-v2-{{ checksum "Gemfile.lock" }}
-
       - run:
           name: Bundle Install
           command: bundle check || bundle install
-
-
       - save_cache:
           key: travel-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-
       - restore_cache:
           keys:
             - travel-yarn-{{ checksum "yarn.lock" }}
             - travel-yarn-
-
       - run:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
-
-
       - save_cache:
           key: travel-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
       - run:
           name: Database setup
           command: bundle exec rails db:structure:load --trace
-
       - run:
           name: Compile Webpacker Assets
           command: MAPBOX_TOKEN=replace-me bundle exec rails webpacker:compile
-
       - type: shell
+        name: "Run Ruby Specs"
         command: |
           bundle exec rspec --profile 10 \
                             --format RspecJunitFormatter \
@@ -82,7 +69,10 @@ jobs:
                             --format progress \
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - type: shell
+        name: "Run JS Tests"
         command: yarn test
-
+      - type: shell
+        name: "Lint"
+        command: bin/lint
       - store_test_results:
           path: test_results
