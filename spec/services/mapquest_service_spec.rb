@@ -71,10 +71,10 @@ RSpec.describe MapquestService do
                   [-0.1625362, 51.5222046],
                   [-0.1629548, 51.5221274],
                   [-0.1630475, 51.5221101],
-                  [-0.1635263, 51.52202],
-                ],
+                  [-0.1635263, 51.52202]
+                ]
               ],
-              type: "Polygon",
+              type: "Polygon"
             },
             importance: "0.294144509293859",
             name: "The Landmark",
@@ -91,14 +91,14 @@ RSpec.describe MapquestService do
               state: "England",
               postcode: "NW1 6JR",
               country: "United Kingdom",
-              country_code: "gb",
+              country_code: "gb"
             },
             boundingbox: [
               "51.5213853",
               "51.5222046",
               "-0.1635263",
-              "-0.1621871",
-            ],
+              "-0.1621871"
+            ]
           }
         )
       end
@@ -108,7 +108,7 @@ RSpec.describe MapquestService do
       it "returns an error" do
         result = subject.reverse(osm_id: 1234, osm_type: "W")
         expect(result).to eq({
-          "error" => "Unable to geocode",
+          "error" => "Unable to geocode"
         })
       end
     end

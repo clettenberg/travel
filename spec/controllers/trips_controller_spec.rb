@@ -11,7 +11,7 @@ RSpec.describe TripsController, type: :controller do
         post :create, params: {trip: {
           title: "Los Angeles",
           start_date: Date.today,
-          end_date: Date.today + 1,
+          end_date: Date.today + 1
         }}
       }.to change { Trip.count }.by(1)
 

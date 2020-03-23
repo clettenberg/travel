@@ -28,7 +28,7 @@ class MapquestService
       "addressdetails" => "1",
       "polygon_geojson" => "1",
       "namedetails" => "1",
-      "dedup" => "1",
+      "dedup" => "1"
     }
   end
 

@@ -9,7 +9,7 @@ class TripPresenter
         id: place.id,
         name: place.name,
         point: place.point,
-        note: place.note,
+        note: place.note
       }
     }
 
