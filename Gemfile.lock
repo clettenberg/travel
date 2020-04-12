@@ -171,7 +171,7 @@ GEM
     parallel (1.19.1)
     parser (2.7.1.0)
       ast (~> 2.4.0)
-    pg (0.21.0)
+    pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -369,7 +369,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mailjet
   mapquest-api!
-  pg (~> 0.18)
+  pg (~> 1.2)
   pry-byebug
   puma (~> 4.3)
   rails (~> 6.0)
