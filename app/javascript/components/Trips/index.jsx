@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { format } from 'date-fns'
 
 import { Paper } from '@material-ui/core'
 
@@ -26,8 +27,13 @@ const Trips = ({ trips }) => {
   )).reduce((a, b) => a.concat(b), [])
     .filter(Boolean)
 
-  const thingsToList = trips.map(({ id, title }) => (
-    new ThingsToList(`/trips/${id}`, title, id)
+  const thingsToList = trips.map(({ id, title, startDate, endDate }) => (
+    new ThingsToList(
+      `/trips/${id}`,
+      title,
+      id,
+      `${format(new Date(startDate), 'MM/dd/yyyy')} - ${format(new Date(endDate), 'MM/dd/yyyy')}`
+    )
   ))
 
   return (
