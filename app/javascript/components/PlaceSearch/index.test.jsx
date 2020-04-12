@@ -7,7 +7,7 @@ import PlaceSearch from './index'
 describe('PlaceSearch Component', () => {
   describe('Place Name', () => {
     it('should render correctly', () => {
-      const wrapper = shallow(<PlaceSearch onPlaceSelection={jest.fn()} />)
+      const wrapper = shallow(<PlaceSearch handlePlaceSelection={jest.fn()} />)
 
       expect(toJson(wrapper)).toMatchSnapshot()
     })

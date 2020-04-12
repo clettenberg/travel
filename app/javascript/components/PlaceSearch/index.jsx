@@ -7,7 +7,7 @@ import PlaceSearchResults from '../PlaceSearchResults'
 import Spinner from '../Spinner'
 
 const propTypes = {
-  onPlaceSelection: PropTypes.func.isRequired
+  handlePlaceSelection: PropTypes.func.isRequired
 }
 
 class PlaceSearch extends React.Component {
@@ -84,7 +84,7 @@ class PlaceSearch extends React.Component {
     const selectedPlace = this.state.placeSearchResults.find(result => (
       result.place_id === selectedPlaceId
     ))
-    this.props.onPlaceSelection(selectedPlace)
+    this.props.handlePlaceSelection(selectedPlace)
   }
 
   render () {
@@ -116,7 +116,7 @@ class PlaceSearch extends React.Component {
       )
     } else {
       placeSearchInput = (
-        <React.Fragment>
+        <>
           <TextField
             placeholder='Latitude'
             type='text'
@@ -136,7 +136,7 @@ class PlaceSearch extends React.Component {
             type='submit'
             style={{ display: 'none' }}
           />
-        </React.Fragment>
+        </>
       )
     }
 
@@ -169,20 +169,16 @@ class PlaceSearch extends React.Component {
           {isSearching && <Spinner />}
 
           {placeSearchResults &&
-          <div>
-            <ul>
-              {placeSearchResults.length > 0
-                ? <PlaceSearchResults
-                  results={placeSearchResults}
-                  selectedId={selectedPlaceId}
-                  onPlaceSelection={this.handlePlaceSelection}
-                />
-                : <h1>No results!</h1>
-              }
-            </ul>
-            {errorComponents}
-          </div>
-          }
+            <div>
+              <ul>
+                {
+                  placeSearchResults.length > 0
+                    ? <PlaceSearchResults results={placeSearchResults} selectedId={selectedPlaceId} onPlaceSelection={this.handlePlaceSelection} />
+                    : <h1>No results!</h1>
+                }
+              </ul>
+              {errorComponents}
+            </div>}
         </CardContent>
       </Card>
     )

@@ -5,13 +5,12 @@ import Map from '../Map'
 import styles from './style.module.scss'
 
 const Place = ({ name, date, note, point }) => (
-  <React.Fragment>
+  <>
     <div className={styles.container}>
       {point &&
         <div style={{ flexGrow: 2 }}>
           <Map points={[point]} center={point} zoom={15} />
-        </div>
-      }
+        </div>}
     </div>
     <Paper className={styles.content}>
       <h1>
@@ -31,14 +30,11 @@ const Place = ({ name, date, note, point }) => (
 
       <div>
         <div className='trix-content'>
-          {note || <p>
-            No note yet.
-          </p>
-          }
+          {note || <p> No note yet. </p>}
         </div>
       </div>
     </Paper>
-  </React.Fragment>
+  </>
 )
 
 export default Place

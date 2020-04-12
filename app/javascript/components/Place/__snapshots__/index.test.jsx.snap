@@ -18,7 +18,7 @@ exports[`Place should render 1`] = `
         className="trix-content"
       >
         <p>
-          No note yet.
+           No note yet. 
         </p>
       </div>
     </div>

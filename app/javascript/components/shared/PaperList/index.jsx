@@ -58,7 +58,8 @@ const PaperList = ({ title, actionButtonUrl, actionButtonText, thingsToList }) =
           </ListItemSecondaryAction>
           <Divider />
         </ListSubheader>
-      }>
+      }
+    >
       {thingsToList.map(({ url, title, id }) => (
         <ListItemLink href={url} key={id}>
           <ListItemText primary={title} />

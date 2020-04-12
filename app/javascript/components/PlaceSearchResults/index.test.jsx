@@ -15,11 +15,13 @@ describe('PlaceSearchResults', () => {
       }
     ]
 
-    const wrapper = shallow(<PlaceSearchResults
-      results={results}
-      selectedId='1234'
-      onPlaceSelection={() => {}}
-    />)
+    const wrapper = shallow(
+      <PlaceSearchResults
+        results={results}
+        selectedId='1234'
+        onPlaceSelection={() => {}}
+      />
+    )
 
     expect(toJson(wrapper)).toMatchSnapshot()
   })
