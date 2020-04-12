@@ -90,12 +90,11 @@ class PlaceForm extends Component {
         {this.state.errors.length > 0 &&
           <div role='alert'>
             {this.state.errors.join('\n')}
-          </div>
-        }
+          </div>}
 
-        <PlaceSearch onPlaceSelection={this.onPlaceSelection} />
+        <PlaceSearch handlePlaceSelection={this.onPlaceSelection} />
 
-        <Card >
+        <Card>
           <CardContent>
             <Grid container>
               <Grid item xs={4}>

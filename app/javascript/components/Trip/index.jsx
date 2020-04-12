@@ -27,7 +27,7 @@ const Trip = ({ trip }) => {
   ))
 
   return (
-    <React.Fragment>
+    <>
       <div className={styles.container}>
         <Map
           points={points}
@@ -43,7 +43,7 @@ const Trip = ({ trip }) => {
           thingsToList={thingsToList}
         />
       </Paper>
-    </React.Fragment>
+    </>
   )
 }
 
