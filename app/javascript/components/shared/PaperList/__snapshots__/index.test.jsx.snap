@@ -4,7 +4,7 @@ exports[`PaperList when provided with things to list should render 1`] = `
 <WithStyles(ForwardRef(List))
   className="makeStyles-root-1"
   subheader={
-    <ForwardRef(WithStyles)
+    <WithStyles(ForwardRef(ListSubheader))
       className="makeStyles-subheader-2"
       component="div"
     >
@@ -13,19 +13,19 @@ exports[`PaperList when provided with things to list should render 1`] = `
       >
         Testing
       </span>
-      <ForwardRef(WithStyles)>
-        <ForwardRef(WithStyles)
+      <WithStyles(ForwardRef(ListItemSecondaryAction))>
+        <WithStyles(ForwardRef(Button))
           aria-label="Test It"
           color="primary"
-          endIcon={<UNDEFINED />}
+          endIcon={<Memo(AddIcon) />}
           href="/test/it"
           variant="contained"
         >
           Test It
-        </ForwardRef(WithStyles)>
-      </ForwardRef(WithStyles)>
-      <ForwardRef(WithStyles) />
-    </ForwardRef(WithStyles)>
+        </WithStyles(ForwardRef(Button))>
+      </WithStyles(ForwardRef(ListItemSecondaryAction))>
+      <WithStyles(ForwardRef(Divider)) />
+    </WithStyles(ForwardRef(ListSubheader))>
   }
 >
   <ListItemLink
