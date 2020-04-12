@@ -13,12 +13,10 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "node_modules/.bin/standard --fix",
-      "git add"
+      "node_modules/.bin/standard --fix"
     ],
     "*.{rb,rake}": [
-      "standardrb --fix",
-      "git add"
+      "standardrb --fix"
     ]
   },
   "standard": {
