@@ -13,14 +13,13 @@ class TripPresenter
       }
     }
 
-    {id: @trip.id, title: @trip.title, places: places, center: @trip.center}
+    {
+      id: @trip.id,
+      title: @trip.title,
+      places: places,
+      center: @trip.center,
+      startDate: @trip.start_date,
+      endDate: @trip.end_date
+    }
   end
 end
-
-#  trips: PropTypes.shape({
-#     title: PropTypes.string.isRequired,
-#     places: PropTypes.arrayOf(PropTypes.shape({
-#       name: PropTypes.string.isRequired,
-#       point: PropTypes.arrayOf(PropTypes.number).isRequired,
-#     })),
-#   }).isRequired,

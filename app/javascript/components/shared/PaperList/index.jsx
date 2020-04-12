@@ -60,9 +60,9 @@ const PaperList = ({ title, actionButtonUrl, actionButtonText, thingsToList }) =
         </ListSubheader>
       }
     >
-      {thingsToList.map(({ url, title, id }) => (
+      {thingsToList.map(({ url, title, id, date }) => (
         <ListItemLink href={url} key={id}>
-          <ListItemText primary={title} />
+          <ListItemText primary={title} secondary={date} />
         </ListItemLink>
       ))}
     </List>
