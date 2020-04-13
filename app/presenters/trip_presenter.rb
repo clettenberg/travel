@@ -10,8 +10,8 @@ class TripPresenter
         name: place.name,
         point: place.point,
         note: place.note,
-        startDate: place.start_date,
-        endDate: place.end_date
+        startDate: place.start_date.strftime("%-m/%-d/%y"),
+        endDate: place.end_date.strftime("%-m/%-d/%y")
       }
     }
 
@@ -20,8 +20,8 @@ class TripPresenter
       title: @trip.title,
       places: places,
       center: @trip.center,
-      startDate: @trip.start_date,
-      endDate: @trip.end_date
+      startDate: @trip.start_date.strftime("%-m/%-d/%y"),
+      endDate: @trip.end_date.strftime("%-m/%-d/%y")
     }
   end
 end

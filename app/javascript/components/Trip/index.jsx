@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { format } from 'date-fns'
 import Paper from '@material-ui/core/Paper'
 
 import Map from '../Map'
@@ -34,7 +33,7 @@ const Trip = ({ trip }) => {
         `/places/${id}`,
         name,
         id,
-        `${format(new Date(startDate), 'MM/dd/yyyy')} - ${format(new Date(endDate), 'MM/dd/yyyy')}`
+        `${startDate} - ${endDate}`
       )
     ))
 

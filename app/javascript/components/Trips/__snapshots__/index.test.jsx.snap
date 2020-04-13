@@ -43,13 +43,13 @@ exports[`Trips should render 1`] = `
       thingsToList={
         Array [
           ThingToList {
-            "date": "09/14/2019 - 09/27/2019",
+            "date": "09/15/19 - 09/28/19",
             "id": 26,
             "title": "UK with Ron and Stacey",
             "url": "/trips/26",
           },
           ThingToList {
-            "date": "08/31/2019 - 09/14/2019",
+            "date": "09/01/19 - 09/15/19",
             "id": 25,
             "title": "Europe 2019",
             "url": "/trips/25",
