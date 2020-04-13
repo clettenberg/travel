@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { format } from 'date-fns'
 import Paper from '@material-ui/core/Paper'
 
 import Map from '../Map'
@@ -22,8 +23,13 @@ const propTypes = {
 
 const Trip = ({ trip }) => {
   const points = trip.places.map(place => place.point).filter(Boolean)
-  const thingsToList = trip.places.map(({ id, name }) => (
-    new ThingToList(`/places/${id}`, name, id)
+  const thingsToList = trip.places.map(({ id, name, startDate, endDate }) => (
+    new ThingToList(
+      `/places/${id}`,
+      name,
+      id,
+      `${format(new Date(startDate), 'MM/dd/yyyy')} - ${format(new Date(endDate), 'MM/dd/yyyy')}`
+    )
   ))
 
   return (
