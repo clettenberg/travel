@@ -27,14 +27,18 @@ const Trips = ({ trips }) => {
   )).reduce((a, b) => a.concat(b), [])
     .filter(Boolean)
 
-  const thingsToList = trips.map(({ id, title, startDate, endDate }) => (
-    new ThingsToList(
-      `/trips/${id}`,
-      title,
-      id,
-      `${format(new Date(startDate), 'MM/dd/yyyy')} - ${format(new Date(endDate), 'MM/dd/yyyy')}`
-    )
-  ))
+  const thingsToList = trips
+    .sort((a, b) => (
+      new Date(b.startDate) - new Date(a.startDate)
+    ))
+    .map(({ id, title, startDate, endDate }) => (
+      new ThingsToList(
+        `/trips/${id}`,
+        title,
+        id,
+        `${format(new Date(startDate), 'MM/dd/yyyy')} - ${format(new Date(endDate), 'MM/dd/yyyy')}`
+      )
+    ))
 
   return (
     <>
