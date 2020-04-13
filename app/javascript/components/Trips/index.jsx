@@ -28,9 +28,7 @@ const Trips = ({ trips }) => {
     .filter(Boolean)
 
   const thingsToList = trips
-    .sort((a, b) => (
-      new Date(b.startDate) - new Date(a.startDate)
-    ))
+    .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
     .map(({ id, title, startDate, endDate }) => (
       new ThingsToList(
         `/trips/${id}`,
