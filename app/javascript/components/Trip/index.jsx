@@ -23,14 +23,16 @@ const propTypes = {
 
 const Trip = ({ trip }) => {
   const points = trip.places.map(place => place.point).filter(Boolean)
-  const thingsToList = trip.places.map(({ id, name, startDate, endDate }) => (
-    new ThingToList(
-      `/places/${id}`,
-      name,
-      id,
-      `${format(new Date(startDate), 'MM/dd/yyyy')} - ${format(new Date(endDate), 'MM/dd/yyyy')}`
-    )
-  ))
+  const thingsToList = trip.places
+    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
+    .map(({ id, name, startDate, endDate }) => (
+      new ThingToList(
+        `/places/${id}`,
+        name,
+        id,
+        `${format(new Date(startDate), 'MM/dd/yyyy')} - ${format(new Date(endDate), 'MM/dd/yyyy')}`
+      )
+    ))
 
   return (
     <>
