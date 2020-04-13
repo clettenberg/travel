@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Trips should render 1`] = `
+<Fragment>
+  <div>
+    <Map
+      center={
+        Array [
+          -98.2518834,
+          39.8112442,
+        ]
+      }
+      mapClassName="this-is-the-map"
+      points={
+        Array [
+          Array [
+            -5.21714480341615,
+            51.8780559,
+          ],
+          Array [
+            -3.1936512,
+            55.9499331,
+          ],
+          Array [
+            2.1773041,
+            41.3838014,
+          ],
+          Array [
+            2.17439826359357,
+            41.4034719,
+          ],
+        ]
+      }
+      zoom={1}
+    />
+  </div>
+  <WithStyles(ForwardRef(Paper))
+    elevation={3}
+  >
+    <PaperList
+      actionButtonText="Add Trip"
+      actionButtonUrl="/trips/new"
+      thingsToList={
+        Array [
+          ThingToList {
+            "date": "09/14/2019 - 09/27/2019",
+            "id": 26,
+            "title": "UK with Ron and Stacey",
+            "url": "/trips/26",
+          },
+          ThingToList {
+            "date": "08/31/2019 - 09/14/2019",
+            "id": 25,
+            "title": "Europe 2019",
+            "url": "/trips/25",
+          },
+        ]
+      }
+      title="Trips"
+    />
+  </WithStyles(ForwardRef(Paper))>
+</Fragment>
+`;

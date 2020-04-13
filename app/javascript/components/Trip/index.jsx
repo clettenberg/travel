@@ -13,10 +13,14 @@ const propTypes = {
   trip: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    center: PropTypes.arrayOf(PropTypes.number),
+    center: PropTypes.arrayOf(PropTypes.number).isRequired,
     places: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      point: PropTypes.arrayOf(PropTypes.number)
+      note: PropTypes.string.isRequired,
+      point: PropTypes.arrayOf(PropTypes.number).isRequired,
+      startDate: PropTypes.string.isRequired,
+      endDate: PropTypes.string.isRequired
     }))
   }).isRequired
 }
