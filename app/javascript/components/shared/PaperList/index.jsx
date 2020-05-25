@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {
-  Button,
   List,
   ListItem,
   ListItemText,
   ListSubheader,
   ListItemSecondaryAction,
   Divider,
-  makeStyles
+  makeStyles,
+  IconButton
 } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 import ThingToList from '../../../models/ThingToList'
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     backgroundColor: 'white'
   },
   subheader: {
-    fontSize: '1.7rem',
+    fontSize: '1.3rem',
     padding: 0,
     '& #heading': {
       marginLeft: '10px'
@@ -44,17 +44,15 @@ const PaperList = ({ title, actionButtonUrl, actionButtonText, thingsToList }) =
       className={classes.root}
       subheader={
         <ListSubheader component='div' className={classes.subheader}>
-          <span id='heading'>{title}</span>
+          <div id='heading'>{title}</div>
           <ListItemSecondaryAction>
-            <Button
-              href={actionButtonUrl}
+            <IconButton
               color='primary'
-              variant='contained'
+              href={actionButtonUrl}
               aria-label={actionButtonText}
-              endIcon={<AddIcon />}
             >
-              {actionButtonText}
-            </Button>
+              <AddIcon />
+            </IconButton>
           </ListItemSecondaryAction>
           <Divider />
         </ListSubheader>
