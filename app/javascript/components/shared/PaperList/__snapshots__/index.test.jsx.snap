@@ -8,21 +8,19 @@ exports[`PaperList when provided with things to list should render 1`] = `
       className="makeStyles-subheader-2"
       component="div"
     >
-      <span
+      <div
         id="heading"
       >
         Testing
-      </span>
+      </div>
       <WithStyles(ForwardRef(ListItemSecondaryAction))>
-        <WithStyles(ForwardRef(Button))
+        <WithStyles(ForwardRef(IconButton))
           aria-label="Test It"
           color="primary"
-          endIcon={<Memo(AddIcon) />}
           href="/test/it"
-          variant="contained"
         >
-          Test It
-        </WithStyles(ForwardRef(Button))>
+          <Memo(AddIcon) />
+        </WithStyles(ForwardRef(IconButton))>
       </WithStyles(ForwardRef(ListItemSecondaryAction))>
       <WithStyles(ForwardRef(Divider)) />
     </WithStyles(ForwardRef(ListSubheader))>
