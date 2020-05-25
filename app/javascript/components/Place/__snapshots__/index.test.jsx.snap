@@ -14,13 +14,9 @@ exports[`Place should render 1`] = `
     </h6>
     <hr />
     <div>
-      <div
-        className="trix-content"
-      >
-        <p>
-           No note yet. 
-        </p>
-      </div>
+      <p>
+        No note yet.
+      </p>
     </div>
   </WithStyles(ForwardRef(Paper))>
 </Fragment>

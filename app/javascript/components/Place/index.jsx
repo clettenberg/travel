@@ -29,9 +29,9 @@ const Place = ({ name, date, note, point }) => (
       <hr />
 
       <div>
-        <div className='trix-content'>
-          {note || <p> No note yet. </p>}
-        </div>
+        {note
+          ? <div className='trix-content' dangerouslySetInnerHTML={{ __html: note }} />
+          : <p>No note yet.</p>}
       </div>
     </Paper>
   </>
