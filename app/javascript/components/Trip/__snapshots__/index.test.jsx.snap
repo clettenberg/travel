@@ -29,7 +29,7 @@ exports[`Trip should render 1`] = `
   <WithStyles(ForwardRef(Paper))>
     <PaperList
       actionButtonText="Add Place"
-      actionButtonUrl="/trips/26/places/new"
+      actionButtonUrl="/classic/trips/26/places/new"
       thingsToList={
         Array [
           ThingToList {

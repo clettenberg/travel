@@ -35,7 +35,7 @@ const Trips = ({ trips }) => {
     .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
     .map(({ id, title, startDate, endDate }) => (
       new ThingsToList(
-        `/trips/${id}`,
+        `/classic/trips/${id}`,
         title,
         id,
         `${startDate} - ${endDate}`
@@ -54,7 +54,7 @@ const Trips = ({ trips }) => {
       <Paper elevation={3} className={styles.content}>
         <PaperList
           title='Trips'
-          actionButtonUrl='/trips/new'
+          actionButtonUrl='/classic/trips/new'
           actionButtonText='Add Trip'
           thingsToList={thingsToList}
         />

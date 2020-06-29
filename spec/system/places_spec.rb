@@ -9,12 +9,12 @@ RSpec.describe "places", type: :system do
 
   describe "index" do
     it "displays a trips index" do
-      visit "/trips/#{trip.id}"
+      visit "/classic/trips/#{trip.id}"
       expect(page).to have_content(trip.title)
     end
 
     it "allows a user to add a new place to a trip", :vcr do
-      visit "/trips/#{trip.id}/places/new"
+      visit "/classic/trips/#{trip.id}/places/new"
 
       fill_in "Place Name", with: "Busch Stadium St Louis\n"
 
@@ -29,7 +29,7 @@ RSpec.describe "places", type: :system do
     end
 
     it "allows a user to add a new place by lat lon", :vcr do
-      visit "/trips/#{trip.id}/places/new"
+      visit "/classic/trips/#{trip.id}/places/new"
       click_on "LatLon"
       fill_in "Latitude", with: "40.6892474"
       fill_in "Longitude", with: "-74.0445405280149\n"

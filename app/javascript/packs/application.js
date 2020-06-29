@@ -17,6 +17,7 @@ import Place from '../components/Place'
 import PlaceForm from '../components/PlaceForm'
 import Trips from '../components/Trips'
 import Trip from '../components/Trip'
+import App from '../components/App'
 
 require('@rails/ujs').start()
 require('jquery/dist/jquery')
@@ -26,5 +27,6 @@ WebpackerReact.setup({
   Place,
   PlaceForm,
   Trips,
-  Trip
+  Trip,
+  App
 })

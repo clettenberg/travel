@@ -8,7 +8,7 @@ RSpec.describe "trips", type: :system do
       it "displays past trips" do
         login_as(user, scope: :user, run_callbacks: false)
 
-        visit "/trips"
+        visit "/classic/trips"
         user.trips.each do |trip|
           expect(page).to have_content(trip.title)
         end
@@ -23,9 +23,9 @@ RSpec.describe "trips", type: :system do
       it "should allow the user to create a new trip", js: true do
         login_as(user, scope: :user, run_callbacks: false)
 
-        visit "/trips"
+        visit "/classic/trips"
 
-        find("a[href='/trips/new']").click
+        find("a[href='/classic/trips/new']").click
         within("form") do
           fill_in "trip[title]", with: trip_title
         end

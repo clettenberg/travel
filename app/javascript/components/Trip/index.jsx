@@ -49,7 +49,7 @@ const Trip = ({ trip }) => {
       <Paper className={styles.content}>
         <PaperList
           title={trip.title}
-          actionButtonUrl={`/trips/${trip.id}/places/new`}
+          actionButtonUrl={`/classic/trips/${trip.id}/places/new`}
           actionButtonText='Add Place'
           thingsToList={thingsToList}
         />
