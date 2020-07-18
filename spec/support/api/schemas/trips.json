@@ -1,0 +1,25 @@
+{
+  "definitions": {
+    "trip": {
+      "type": "object",
+      "required": ["id", "title", "places", "center", "startDate", "endDate"],
+      "properties": {
+        "id": {"type": "integer"},
+        "title": {"type": "string"},
+        "startDate": {"type": "date-time"},
+        "endDate": {"type": "date-time"},
+        "center": {"type": "array"},
+        "places": {"type": "array"}
+      }
+    }
+  },
+
+  "type": "object",
+
+  "properties": {
+    "trips": {
+      "type": "array",
+      "items": {"$ref": "#definitions/trip"}
+    }
+  }
+}

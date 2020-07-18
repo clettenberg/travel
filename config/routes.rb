@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   end
   resources :places, only: [:show, :edit, :update, :destroy]
 
+  namespace :api do
+    resources :trips, only: [:index]
+  end
   get "search", to: "mapquest#search", as: "mapquest_search"
   get "reverse", to: "mapquest#reverse", as: "mapquest_reverse"
 end

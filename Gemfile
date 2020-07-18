@@ -40,6 +40,7 @@ group :test do
   gem "webdrivers"
   gem "vcr"
   gem "webmock"
+  gem "json-schema"
 end
 
 group :development do
