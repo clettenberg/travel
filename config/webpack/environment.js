@@ -1,5 +1,5 @@
 const { environment } = require('@rails/webpacker')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 
 const nodeModulesLoader = environment.loaders.get('nodeModules')
 if (!Array.isArray(nodeModulesLoader.exclude)) {
