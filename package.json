@@ -48,7 +48,7 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react_ujs": "^2.4.3",
-    "regenerator-runtime": "^0.13.2",
+    "regenerator-runtime": "^0.13.6",
     "trix": "^1.0.0",
     "webpack-merge": "^5.0.9",
     "webpacker-react": "^0.3.2",
