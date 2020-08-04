@@ -52,7 +52,7 @@
     "trix": "^1.0.0",
     "webpack-merge": "^5.1.0",
     "webpacker-react": "^0.3.2",
-    "whatwg-fetch": "^3.2.0"
+    "whatwg-fetch": "^3.3.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.10.4",
