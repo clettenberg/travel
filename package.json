@@ -58,7 +58,7 @@
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "babel-jest": "^26.2.2",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.15.3",
     "enzyme-to-json": "^3.5.0",
     "eslint": "^7.6.0",
     "husky": "^4.2.5",
