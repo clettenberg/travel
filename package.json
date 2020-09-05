@@ -36,7 +36,7 @@
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "browserslist": "^4.14.0",
+    "browserslist": "^4.14.1",
     "core-js": "3",
     "jquery": "^3.5.1",
     "mapbox-gl": "^1.12.0",
