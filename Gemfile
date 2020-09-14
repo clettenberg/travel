@@ -18,7 +18,7 @@ gem "uglifier", ">= 1.3.0"
 gem "webpacker", ">= 4.0"
 gem "webpacker-react", "~> 0.3.2"
 
-gem "jbuilder", "~> 2.7"
+gem "jbuilder", "~> 2.10"
 gem "fast_jsonapi"
 
 gem "bootsnap", ">= 1.4.2", require: false
