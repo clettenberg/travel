@@ -55,7 +55,7 @@
     "whatwg-fetch": "^3.4.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/plugin-transform-react-jsx": "^7.12.1",
     "babel-jest": "^26.3.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.15.5",
