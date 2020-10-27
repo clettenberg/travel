@@ -60,7 +60,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
-    "eslint": "^7.10.0",
+    "eslint": "^7.12.1",
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "lint-staged": "^10.4.0",
