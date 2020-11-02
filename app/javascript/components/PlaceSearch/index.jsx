@@ -154,12 +154,12 @@ class PlaceSearch extends React.Component {
                 <ToggleButton
                   value='name'
                 >
-                Name
+                  Name
                 </ToggleButton>
                 <ToggleButton
                   value='latlon'
                 >
-                LatLon
+                  LatLon
                 </ToggleButton>
               </ToggleButtonGroup>
             </div>
