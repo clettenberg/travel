@@ -43,7 +43,6 @@ jobs:
       - restore_cache:
           keys:
             - travel-yarn-{{ checksum "yarn.lock" }}
-            - travel-yarn-
       - run:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
