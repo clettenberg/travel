@@ -19,7 +19,7 @@ exports[`PaperList when provided with things to list should render 1`] = `
           color="primary"
           href="/test/it"
         >
-          <Memo(AddIcon) />
+          <Memo />
         </WithStyles(ForwardRef(IconButton))>
       </WithStyles(ForwardRef(ListItemSecondaryAction))>
       <WithStyles(ForwardRef(Divider)) />
