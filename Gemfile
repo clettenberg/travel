@@ -34,7 +34,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "rspec-rails", "~> 4.0.1"
+  gem "rspec-rails", "~> 4.0.2"
   gem "rspec_junit_formatter"
   gem "capybara"
   gem "webdrivers"
