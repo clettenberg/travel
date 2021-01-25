@@ -132,7 +132,7 @@ GEM
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
-    jbuilder (2.10.1)
+    jbuilder (2.11.1)
       activesupport (>= 5.0.0)
     kramdown (2.3.0)
       rexml
@@ -372,7 +372,7 @@ DEPENDENCIES
   fast_jsonapi
   ffaker
   foreman
-  jbuilder (~> 2.10)
+  jbuilder (~> 2.11)
   letter_opener
   listen (>= 3.0.5, < 3.5)
   mailjet
