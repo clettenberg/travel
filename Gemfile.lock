@@ -120,7 +120,7 @@ GEM
       ruby2_keywords
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
-    ffaker (2.17.0)
+    ffaker (2.18.0)
     ffi (1.14.2)
     foreman (0.87.2)
     globalid (0.4.2)
