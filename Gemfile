@@ -8,7 +8,7 @@ gem "rails", "~> 6.0"
 gem "pg", "~> 1.2"
 gem "activerecord-postgis-adapter"
 
-gem "puma", "~> 5.2"
+gem "puma", "~> 5.3"
 
 gem "devise"
 gem "mailjet"
